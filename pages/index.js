@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 import SEO from '../components/SEO'
 import Layout from '../components/Ui/Layout'
@@ -7,13 +8,29 @@ import Button from '../components/html/Button'
 import Horizontalbox from '../components/Ui/Others/Horizontalbox'
 import Vericalbox from '../components/Ui/Others/Vericalbox'
 import { FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa'
+import { globaleasing, shortFadeUp, titesStagger } from '../data/useVariants'
 
 export default function Home({ data }) {
   return (
     <Layout>
       <SEO />
-      <div className="header py-[35px] bg-[#f3f4f6]">
-        <div className="container mx-auto flex items-center">
+      <motion.div
+        initial={{ backgroundColor: '#fff' }}
+        animate={{
+          backgroundColor: '#f3f4f6',
+          transition: { ease: globaleasing, duration: 1.4 },
+        }}
+        className="header py-[35px]"
+      >
+        <motion.div
+          initial={{ y: -10, opacity: 0 }}
+          animate={{
+            y: 0,
+            opacity: 1,
+            transition: { ease: globaleasing, duration: 2, delay: 0.8 },
+          }}
+          className="container mx-auto flex items-center"
+        >
           <div className="logo-box">
             <Image src="/logo.svg" width="193" height="41" alt="" />
           </div>
@@ -30,10 +47,7 @@ export default function Home({ data }) {
                   'FAQ',
                 ].map((item) => (
                   <li className="mx-[15px] px-[5px]" key={item}>
-                    <a
-                      className="hover:text-primary font-medium text-[15.28px]"
-                      href="#"
-                    >
+                    <a className="font-medium text-[15.28px]" href="#">
                       {item}
                     </a>
                   </li>
@@ -50,20 +64,47 @@ export default function Home({ data }) {
               </a>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      <div className="hero-section md:py-[90px] bg-[#f3f4f6] bg-[url('/bgs/bg-slide.png')] bg-[length:711px_542px] bg-no-repeat bg-[right_9rem_bottom_-4rem]">
-        <div className="container mx-auto max-w-[1090px]">
-          <div className="bloc">
-            <h3 className="text-[42px] leading-[60px] font-medium mb-[25px]">
+      <motion.div
+        initial={{ backgroundColor: '#fff' }}
+        animate={{
+          backgroundColor: '#f3f4f6',
+          transition: { ease: globaleasing, duration: 1.4 },
+        }}
+        className="hero-section "
+      >
+        <div className="container mx-auto max-w-[1090px] relative md:py-[90px]">
+          <motion.div
+            initial={{ x: 90, opacity: 0 }}
+            animate={{
+              x: 0,
+              opacity: 1,
+              transition: { ease: globaleasing, duration: 3 },
+            }}
+            className="illustration w-[711px] h-[542px] absolute top-10 -right-[150px] bg-[url('/bgs/bg-slide.png')] bg-no-repeat bg-[length:711px_542px] bg-[right_0_top_0]"
+          ></motion.div>
+          <motion.div
+            variants={titesStagger(0.2)}
+            initial="initial"
+            animate="animate"
+            className="bloc"
+          >
+            <motion.h3
+              variants={shortFadeUp(1.5)}
+              className="text-[42px] leading-[60px] font-medium mb-[25px]"
+            >
               Target directly the
               <span className="font-semibold"> diaspora</span>
               <br />
               through your own
               <span className="font-semibold"> brand</span>
-            </h3>
-            <ul className="text-[18px] mb-[45px]">
+            </motion.h3>
+            <motion.ul
+              variants={shortFadeUp(1.5)}
+              className="text-[18px] mb-[45px]"
+            >
               {[
                 `Free your institution from <span class="font-medium">MTOs intermediation</span>`,
                 `Build your own branding, pricing, loyalty program …`,
@@ -75,14 +116,14 @@ export default function Home({ data }) {
                   dangerouslySetInnerHTML={{ __html: item }}
                 ></li>
               ))}
-            </ul>
-            <div className="read-more">
+            </motion.ul>
+            <motion.div variants={shortFadeUp(1.5)} className="read-more">
               <Button title="Contact our team " />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-      </div>
-      <section className="what-mitech bg-white pt-[80px]  pb-[45px]">
+      </motion.div>
+      <section className="what-mitech bg-white pt-[85px] pb-[45px]">
         <div className="container mx-auto max-w-[960px]">
           <h2 className="md:text-[42px] mb-[30px] text-center">
             what mitech platform stands for ?
@@ -93,7 +134,7 @@ export default function Home({ data }) {
             so you can focus on your strategy, and funds delivery
           </p>
 
-          <div className="schema flex flex-col items-center">
+          <motion.div className="schema flex flex-col items-center">
             <div>
               <Image
                 src="/delete/shema-pres.png"
@@ -102,7 +143,7 @@ export default function Home({ data }) {
                 alt=""
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -110,7 +151,8 @@ export default function Home({ data }) {
         <div className="container mx-auto max-w-[1100px]">
           <div className="flex">
             <div className="w-3/5 flex flex-col justify-end md:pl-[15px]">
-              <div className="bloc text-[#242e5e] md:pb-[60px]">
+              <div className="bloc text-[#242e5e] md:pb-[60px] relative">
+                <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain  absolute right-0 left-0 mx-auto -top-[434px] bg-[center_bottom_-120px] bg-no-repeat"></div>
                 <div className="font-medium text-[17px] tracking-[0.18em] text-primary uppercase mb-[15px]">
                   Front brand solution
                 </div>
@@ -254,7 +296,7 @@ export default function Home({ data }) {
         </div>
       </section>
 
-      <section className="bg-[#fcfcfc] md:pt-[80px] md:pb-[100px] relative before:block before:h-[65px] before:bg-[#f3f4f6] before:content-[''] before:absolute before:bottom-0 before:w-full">
+      <section className="bg-[#fcfcfc] md:pt-[80px] md:pb-[100px] relative before:block before:h-[65px] before:bg-[#f3f4f6] before:content-[''] before:absolute before:bottom-0 before:w-full overflow-hidden">
         <div className="overlay absolute top-0 bottom-0 left-0 right-0 m-auto flex flex-col items-end md:pt-[82px]">
           <div className="w-1/2	relative h-full">
             <div className="-right-[55px] h-full w-full relative">
@@ -478,7 +520,7 @@ export default function Home({ data }) {
       <section className="bg-white md:pt-[60px]">
         <div className="container mx-auto">
           <div className="flex">
-            <div className="w-3/5">
+            <div className="w-3/5 pr-[25px]">
               <div className="images flex w-full relative opacity-90">
                 <div className="relative h-[434px] w-[255px] mt-[28px]">
                   <Image src="/delete/face-3.png" layout="fill" alt="" />
@@ -579,7 +621,10 @@ export default function Home({ data }) {
                   <a href="#">Consultez notre FAQ </a>
                 </li>
                 <li>
-                  <a href="#" className="text-primary underline">
+                  <a
+                    href="#"
+                    className="text-primary underline hover:text-textcolor"
+                  >
                     Live chat
                   </a>
                 </li>

@@ -13,7 +13,7 @@ const Button = ({ title, lowercase, type, size, largeur }) => {
             : 'h-[48px] font-semibold text-[14px]'
         } text-white ${
           largeur === 'small' ? ' px-[28px]' : 'px-[45px]'
-        } inline-block leading-[46px]  rounded-[30px] hover:bg-secondary duration-500`}
+        } inline-block leading-[46px]  rounded-[30px] hover:bg-secondary hover:text-white duration-500`}
       >
         {title}
       </button>
@@ -31,7 +31,7 @@ const Button = ({ title, lowercase, type, size, largeur }) => {
             : 'h-[48px] font-semibold text-[14px]'
         } text-white ${
           largeur === 'small' ? ' px-[28px]' : 'px-[45px]'
-        } inline-block leading-[46px]  rounded-[30px] hover:bg-secondary duration-500`}
+        } inline-block leading-[46px]  rounded-[30px] hover:bg-secondary  hover:text-white duration-500`}
         href="#"
       >
         {title}
