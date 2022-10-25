@@ -476,21 +476,37 @@ export default function Home({ data }) {
       </section>
 
       <section className="bg-white md:pt-[60px]">
-        <div className="container mx-auto md:max-w-[985px]">
-          <div className="flex flex-col items-end">
-            <div className="bloc max-w-[420px]">
-              <h2 className="text-[39px] leading-[50px] font-medium mb-[45px]">
-                Becoming <br /> diaspora-centric
-              </h2>
-              <p className="text-[22px] leading-[33px] text-primary">
-                We help financial institutions to speed up growth through
-                remittance digital revolution empowered by
-                <span className="font-semibold"> diaspora</span> direct access
-              </p>
+        <div className="container mx-auto">
+          <div className="flex">
+            <div className="w-3/5">
+              <div className="images flex w-full relative opacity-90">
+                <div className="relative h-[434px] w-[255px] mt-[28px]">
+                  <Image src="/delete/face-3.png" layout="fill" alt="" />
+                </div>
+                <div className="absolute h-[434px] w-[255px] left-0 md:top-[105px] right-0 mx-auto z-10">
+                  <Image src="/delete/face-2.png" layout="fill" alt="" />
+                </div>
+                <div className="relative h-[434px] w-[255px] ml-auto">
+                  <Image src="/delete/face-1.png" layout="fill" alt="" />
+                </div>
+              </div>
+            </div>
+
+            <div className="w-2/5 flex flex-col items-end justify-center">
+              <div className="bloc max-w-[420px]">
+                <h2 className="text-[39px] leading-[50px] font-medium mb-[45px]">
+                  Becoming <br /> diaspora-centric
+                </h2>
+                <p className="text-[22px] leading-[33px] text-primary">
+                  We help financial institutions to speed up growth through
+                  remittance digital revolution empowered by
+                  <span className="font-semibold"> diaspora</span> direct access
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="container mx-auto md:max-w-[985px] mt-[70px]">
+          <div className="container mx-auto md:max-w-[985px] mt-[150px]">
             <div className="get-in-touch bg-[#e7e9ee] rounded-[10px] p-[55px] bg-[url('/bgs/logo-bg.png')] bg-cover bg-blend-overlay">
               <div className="text-[41px] font-medium mb-[25px] text-center">
                 Get in touch with mitech
