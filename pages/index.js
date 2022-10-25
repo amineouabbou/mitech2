@@ -130,7 +130,7 @@ export default function Home({ data }) {
       </section>
 
       <section className="bg-[#fff] md:py-[100px]">
-        <div className="container mx-auto">
+        <div className="container mx-auto flex flex-col items-end">
           <div className="bloc text-[#242e5e]">
             <div className="font-medium text-[17px] tracking-[0.18em] text-primary uppercase mb-[15px]">
               Open cloud solution
