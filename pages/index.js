@@ -1,13 +1,12 @@
-import React from "react";
+import React from 'react'
 
-import SEO from "../components/SEO";
-import Layout from "../components/Ui/Layout";
-import { FethCmsPage } from "../api";
-import Image from "next/image";
-import Button from "../components/html/Button";
-import Horizontalbox from "../components/Ui/Others/Horizontalbox";
-import Vericalbox from "../components/Ui/Others/Vericalbox";
-import { FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
+import SEO from '../components/SEO'
+import Layout from '../components/Ui/Layout'
+import Image from 'next/image'
+import Button from '../components/html/Button'
+import Horizontalbox from '../components/Ui/Others/Horizontalbox'
+import Vericalbox from '../components/Ui/Others/Vericalbox'
+import { FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa'
 
 export default function Home({ data }) {
   return (
@@ -23,12 +22,12 @@ export default function Home({ data }) {
             <nav>
               <ul className="flex items-center">
                 {[
-                  "Products",
-                  "Features",
-                  "Use case",
-                  "Pricing",
-                  "About mitech",
-                  "FAQ",
+                  'Products',
+                  'Features',
+                  'Use case',
+                  'Pricing',
+                  'About mitech',
+                  'FAQ',
                 ].map((item) => (
                   <li className="mx-[15px] px-[5px]" key={item}>
                     <a
@@ -96,7 +95,12 @@ export default function Home({ data }) {
 
           <div className="schema flex flex-col items-center">
             <div>
-              <Image src="/delete/shema-pres.png" width="945" height="424" />
+              <Image
+                src="/delete/shema-pres.png"
+                width="945"
+                height="424"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -240,6 +244,7 @@ export default function Home({ data }) {
                     src="/logos/front-brand-gray.svg"
                     width="156px"
                     height="30px"
+                    alt=""
                   />
                 </div>
 
@@ -248,6 +253,7 @@ export default function Home({ data }) {
                     src="/logos/open-cloud-gray.svg"
                     width="156px"
                     height="30px"
+                    alt=""
                   />
                 </div>
               </div>
@@ -334,7 +340,7 @@ export default function Home({ data }) {
               </ul>
               <div className="flex items-center justify-center pt-[20px]">
                 <div className="icone">
-                  <Image src="/icons/close.png" width={38} height={39} />
+                  <Image src="/icons/close.png" width={38} height={39} alt="" />
                 </div>
                 <div className="text-[19px] leading-[28px] text-[#737386] ml-[24px]">
                   You deliver funds <br />
@@ -348,7 +354,12 @@ export default function Home({ data }) {
                 Diaspora
               </div>
               <div>
-                <Image src="/icons/fat-arrow.png" width={79} height={282} />
+                <Image
+                  src="/icons/fat-arrow.png"
+                  width={79}
+                  height={282}
+                  alt=""
+                />
               </div>
               <div className="text-[19px] py-[10px] font-medium tracking-[0.04em] mt-auto">
                 Beneficiary
@@ -374,7 +385,12 @@ export default function Home({ data }) {
               </ul>
               <div className="flex items-center justify-center pt-[20px]">
                 <div className="icone">
-                  <Image src="/icons/check-orange.png" width={38} height={39} />
+                  <Image
+                    src="/icons/check-orange.png"
+                    width={38}
+                    height={39}
+                    alt=""
+                  />
                 </div>
                 <div className="text-[19px] leading-[28px] text-primary ml-[24px]">
                   You deliver exclusively <br />
@@ -468,7 +484,7 @@ export default function Home({ data }) {
 
             <div className="bloc">
               <h3 className="font-semibold leading-[23px] mb-[25px]">
-                Cas d'utilisations
+                Cas d&apos;utilisations
               </h3>
               <ul>
                 <li>
@@ -524,36 +540,27 @@ export default function Home({ data }) {
 
           <div className="logos flex items-center gap-x-[35px] mt-[35px] justify-center">
             <div className="w-[135px] h-[30px] relative">
-              <Image src="/logos/mitech-gray.svg" layout="fill" />
+              <Image src="/logos/mitech-gray.svg" layout="fill" alt="" />
             </div>
 
             <div className="w-[135px] h-[30px] relative">
-              <Image src="/logos/front-brand-gray.svg" layout="fill" />
+              <Image src="/logos/front-brand-gray.svg" layout="fill" alt="" />
             </div>
 
             <div className="w-[135px] h-[30px] relative">
-              <Image src="/logos/open-cloud-gray.svg" layout="fill" />
+              <Image src="/logos/open-cloud-gray.svg" layout="fill" alt="" />
             </div>
           </div>
 
           <div className="copyright text-[11px] text-[#5e717e] leading-[13px] pt-[25px] text-center">
             Copyright © Money International SA - Société de droit Belge qui a
-            débuté ses activités en 2001 en tant qu'établissement de <br />
+            débuté ses activités en 2001 en tant qu`&apos;établissement de
+            <br />
             paiement et bureau de change de devise et licencié par la Banque
             National Belge (BNB).
           </div>
         </div>
       </footer>
     </Layout>
-  );
+  )
 }
-
-export const getServerSideProps = async () => {
-  const data = await FethCmsPage("5");
-
-  return {
-    props: {
-      data,
-    },
-  };
-};
