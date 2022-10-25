@@ -41,7 +41,7 @@ export default function Home({ data }) {
               </ul>
             </nav>
             <div className="md:ml-[25px]">
-              <Button lowercase="true" title="Get Started" />
+              <Button lowercase="true" title="Get Started" largeur="small" />
             </div>
 
             <div className="language-box md:ml-[35px]">
@@ -151,11 +151,23 @@ export default function Home({ data }) {
         </div>
       </section>
 
-      <section className="bg-[#fff] md:pt-[100px] md:pb-[40px]">
+      <section className="bg-[#fff] md:pt-[120px] md:pb-[50px]">
         <div className="container mx-auto flex flex-col items-end">
           <div className="flex w-full">
             <div className="w-1/2 flex flex-col">
               <div className="relative md:w-[502px] md:h-[427px]">
+                <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[65px] w-[245px] rounded-[10px] absolute mx-auto bottom-[calc(100%_+_10px)] left-0 right-0 z-10 flex flex-col justify-center items-center">
+                  <div className="ball bg-primary rounded-full h-[9px] w-[9px] absolute right-[15px] top-auto bottom-auto"></div>
+                  <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain  absolute right-[18px] bottom-[calc(100%_-_23px)] bg-[center_bottom_-100px] bg-no-repeat"></div>
+                  <div>
+                    <Image
+                      src="/logos/open-cloud-gray.svg"
+                      width="180"
+                      height="35px"
+                      alt=""
+                    />
+                  </div>
+                </div>
                 <Image src="/bgs/phone-api.png" layout="fill" alt="" />
               </div>
             </div>
