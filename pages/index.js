@@ -82,8 +82,8 @@ export default function Home({ data }) {
           </div>
         </div>
       </div>
-      <section className="what-mitech bg-white py-[80px]">
-        <div className="container mx-auto">
+      <section className="what-mitech bg-white pt-[80px]  pb-[45px]">
+        <div className="container mx-auto max-w-[960px]">
           <h2 className="md:text-[42px] mb-[30px] text-center">
             what mitech platform stands for ?
           </h2>
@@ -106,50 +106,81 @@ export default function Home({ data }) {
         </div>
       </section>
 
-      <section className="bg-[#f3f4f6] md:py-[100px]">
-        <div className="container mx-auto">
-          <div className="bloc text-[#242e5e]">
-            <div className="font-medium text-[17px] tracking-[0.18em] text-primary uppercase mb-[15px]">
-              Front brand solution
+      <section className="bg-[#f3f4f6] md:pb-[40px] relative before:block before:h-[55px] before:bg-white before:content-[''] before:absolute before:top-0 before:w-full">
+        <div className="container mx-auto max-w-[1100px]">
+          <div className="flex">
+            <div className="w-3/5 flex flex-col justify-end md:pl-[15px]">
+              <div className="bloc text-[#242e5e] md:pb-[60px]">
+                <div className="font-medium text-[17px] tracking-[0.18em] text-primary uppercase mb-[15px]">
+                  Front brand solution
+                </div>
+                <div className="font-semibold text-[31px] leading-[43px]  tracking-[0.02em] mb-[35px]">
+                  Ready to use white label <br /> remittance app to build your
+                  own
+                  <br />
+                  cross-border remittance offer
+                </div>
+                <p className="text-[22px] leading-[32px] tracking-[0.02em] mb-[55px]">
+                  Free your institution from
+                  <span className="font-medium"> MTOs intermediation,</span>
+                  <br /> build your own branding, pricing, loyalty program
+                </p>
+                <div className="read-more">
+                  <Button title="Dicover Front Brand" />
+                </div>
+              </div>
             </div>
-            <div className="font-semibold text-[31px] leading-[43px]  tracking-[0.02em] mb-[35px]">
-              Ready to use white label <br /> remittance app to build your own
-              <br />
-              cross-border remittance offer
-            </div>
-            <p className="text-[22px] leading-[32px] tracking-[0.02em] mb-[55px]">
-              Free your institution from
-              <span className="font-medium"> MTOs intermediation,</span>
-              <br /> build your own branding, pricing, loyalty program
-            </p>
-            <div className="read-more">
-              <Button title="Dicover Front Brand" />
+            <div className="w-2/5 flex flex-col items-end">
+              <div className="relative md:w-[319px] md:h-[610px]">
+                <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[65px] w-[245px] rounded-[10px] absolute -left-[148px] top-[180px] z-10 flex flex-col justify-center items-center">
+                  <div className="ball bg-primary rounded-full h-[9px] w-[9px] absolute left-[15px] top-auto bottom-auto"></div>
+                  <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain absolute left-[18px] bottom-[calc(100%_-_23px)]"></div>
+                  <div>
+                    <Image
+                      src="/logos/front-brand-gray.svg"
+                      width="180"
+                      height="35px"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <Image src="/bgs/phone.png" layout="fill" alt="" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#fff] md:py-[100px]">
+      <section className="bg-[#fff] md:pt-[100px] md:pb-[40px]">
         <div className="container mx-auto flex flex-col items-end">
-          <div className="bloc text-[#242e5e]">
-            <div className="font-medium text-[17px] tracking-[0.18em] text-primary uppercase mb-[15px]">
-              Open cloud solution
+          <div className="flex w-full">
+            <div className="w-1/2 flex flex-col">
+              <div className="relative md:w-[502px] md:h-[427px]">
+                <Image src="/bgs/phone-api.png" layout="fill" alt="" />
+              </div>
             </div>
-            <div className="font-semibold text-[31px] leading-[43px]  tracking-[0.02em] mb-[35px]">
-              Set of APIs and Web-views for <br />
-              simple integration in your existing
-              <br />
-              apps and workflows
-            </div>
-            <p className="text-[22px] leading-[32px] tracking-[0.02em] mb-[55px]">
-              Set of <span className="font-medium">APIs</span> and
-              <span className="font-medium"> Web-views</span> for simple
-              integration
-              <br />
-              in your existing apps and workflows
-            </p>
-            <div className="read-more">
-              <Button title="Discover Open cloud" />
+            <div className="w-1/2">
+              <div className="bloc text-[#242e5e]">
+                <div className="font-medium text-[17px] tracking-[0.18em] text-primary uppercase mb-[15px]">
+                  Open cloud solution
+                </div>
+                <div className="font-semibold text-[31px] leading-[43px]  tracking-[0.02em] mb-[35px]">
+                  Set of APIs and Web-views for <br />
+                  simple integration in your existing
+                  <br />
+                  apps and workflows
+                </div>
+                <p className="text-[22px] leading-[32px] tracking-[0.02em] mb-[55px]">
+                  Set of <span className="font-medium">APIs</span> and
+                  <span className="font-medium"> Web-views</span> for simple
+                  integration
+                  <br />
+                  in your existing apps and workflows
+                </p>
+                <div className="read-more">
+                  <Button title="Discover Open cloud" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
