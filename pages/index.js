@@ -156,7 +156,7 @@ export default function Home({ data }) {
           <div className="flex w-full">
             <div className="w-1/2 flex flex-col">
               <div className="relative md:w-[502px] md:h-[427px]">
-                <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[65px] w-[245px] rounded-[10px] absolute mx-auto bottom-[calc(100%_+_10px)] left-0 right-0 z-10 flex flex-col justify-center items-center">
+                <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[65px] w-[245px] rounded-[10px] absolute mx-auto bottom-[calc(100%_+_10px)] md:left-[60px] right-0 z-10 flex flex-col justify-center items-center">
                   <div className="ball bg-primary rounded-full h-[9px] w-[9px] absolute right-[15px] top-auto bottom-auto"></div>
                   <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain  absolute right-[18px] bottom-[calc(100%_-_23px)] bg-[center_bottom_-100px] bg-no-repeat"></div>
                   <div>
@@ -171,7 +171,7 @@ export default function Home({ data }) {
                 <Image src="/bgs/phone-api.png" layout="fill" alt="" />
               </div>
             </div>
-            <div className="w-1/2">
+            <div className="w-1/2 flex flex-col items-end">
               <div className="bloc text-[#242e5e]">
                 <div className="font-medium text-[17px] tracking-[0.18em] text-primary uppercase mb-[15px]">
                   Open cloud solution
@@ -254,7 +254,14 @@ export default function Home({ data }) {
         </div>
       </section>
 
-      <section className="bg-[#fcfcfc] md:py-[75px]">
+      <section className="bg-[#fcfcfc] md:pt-[80px] md:pb-[100px] relative before:block before:h-[65px] before:bg-[#f3f4f6] before:content-[''] before:absolute before:bottom-0 before:w-full">
+        <div className="overlay absolute top-0 bottom-0 left-0 right-0 m-auto flex flex-col items-end md:pt-[82px]">
+          <div className="w-1/2	relative h-full">
+            <div className="-right-[55px] h-full w-full relative">
+              <Image src="/bgs/console.png" layout="fill" alt="" />
+            </div>
+          </div>
+        </div>
         <div className="container mx-auto">
           <div className="bloc">
             <h2 className="text-[39px] leading-[50px] font-medium mb-[45px]">
@@ -305,7 +312,7 @@ export default function Home({ data }) {
         </div>
       </section>
 
-      <section className="bg-[#f3f4f6] md:py-[85px]">
+      <section className="bg-[#f3f4f6] md:py-[50px]">
         <div className="container mx-auto md:max-w-[985px]">
           <h2 className="text-center text-[39px] leading-[50px] font-medium mb-[55px]">
             why you need mitech
