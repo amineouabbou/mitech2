@@ -1,5 +1,5 @@
 const config = {
-  defaultTitle: 'Résidences Amane',
+  defaultTitle: 'Mitech - MoneyInternational',
   url:
     process.env.NODE_ENV !== 'development'
       ? process.env.NEXT_PUBLIC_SITE_URL
