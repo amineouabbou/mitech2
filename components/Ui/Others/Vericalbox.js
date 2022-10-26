@@ -1,9 +1,14 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image'
+import React from 'react'
+import { motion } from 'framer-motion'
+import { titlesAnimation } from '../../../data/useVariants'
 
 const Vericalbox = ({ title, description, icone }) => {
   return (
-    <div className="bg-white rounded-[10px] px-[26px] py-[35px] drop-shadow-[1px_1px_18px_rgba(0,0,0,0.07)]">
+    <motion.div
+      variants={titlesAnimation}
+      className="bg-white rounded-[10px] px-[26px] py-[35px] drop-shadow-[1px_1px_18px_rgba(0,0,0,0.07)]"
+    >
       <div className="icon-box mb-[10px]">
         <div className="w-[95px] h-[75px] flex flex-col justify-center items-center">
           <div className="w-[79%] h-[79%] relative">
@@ -17,8 +22,8 @@ const Vericalbox = ({ title, description, icone }) => {
       <p className="font-medium text-[16px] leading-[25px] tracking-[0.025em]">
         {description}
       </p>
-    </div>
-  );
-};
+    </motion.div>
+  )
+}
 
-export default Vericalbox;
+export default Vericalbox

@@ -8,7 +8,12 @@ import Button from '../components/html/Button'
 import Horizontalbox from '../components/Ui/Others/Horizontalbox'
 import Vericalbox from '../components/Ui/Others/Vericalbox'
 import { FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa'
-import { globaleasing, shortFadeUp, titesStagger } from '../data/useVariants'
+import {
+  globaleasing,
+  shortFadeUp,
+  titesStagger,
+  titlesAnimation,
+} from '../data/useVariants'
 
 export default function Home({ data }) {
   return (
@@ -248,7 +253,13 @@ export default function Home({ data }) {
             <span className="font-semibold"> intuitive features</span>
           </div>
 
-          <div className="grid grid-cols-3 gap-x-[20px] gap-y-[30px] mb-[45px]">
+          <motion.div
+            variants={titesStagger()}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-3 gap-x-[20px] gap-y-[30px] mb-[45px]"
+          >
             <Horizontalbox
               icon="/icons/aggregation.svg"
               title="Account Aggregation"
@@ -271,14 +282,20 @@ export default function Home({ data }) {
             />
 
             <Horizontalbox icon="/icons/in-apps.svg" title="In-app Ads " />
-          </div>
+          </motion.div>
 
           <div className="text-[28px] leading-[48px] text-center mb-[30px]">
             with onboarded transparent
             <span className="font-semibold"> compliance tools</span>
           </div>
 
-          <div className="grid grid-cols-3 gap-x-[20px] gap-y-[30px] mb-[45px]">
+          <motion.div
+            variants={titesStagger()}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-3 gap-x-[20px] gap-y-[30px] mb-[45px]"
+          >
             <Horizontalbox icon="/icons/ekyc.svg" title="eKYC" size="small" />
 
             <Horizontalbox icon="/icons/aml.svg" title="AML" size="small" />
@@ -288,32 +305,61 @@ export default function Home({ data }) {
               title="Customer Support"
               size="small"
             />
-          </div>
+          </motion.div>
 
-          <div className="read-more flex flex-col items-center">
+          <motion.div
+            variants={titlesAnimation}
+            initial="initial"
+            animate="animate"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="read-more flex flex-col items-center"
+          >
             <Button title="Discover more" />
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="bg-[#fcfcfc] md:pt-[80px] md:pb-[100px] relative before:block before:h-[65px] before:bg-[#f3f4f6] before:content-[''] before:absolute before:bottom-0 before:w-full overflow-hidden">
         <div className="overlay absolute top-0 bottom-0 left-0 right-0 m-auto flex flex-col items-end md:pt-[82px]">
-          <div className="w-1/2	relative h-full">
+          <motion.div
+            className="w-1/2	relative h-full"
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 2.5,
+                delay: 0.2,
+                ease: globaleasing,
+              },
+            }}
+            viewport={{ once: true }}
+          >
             <div className="-right-[55px] h-full w-full relative">
               <Image src="/bgs/console.png" layout="fill" alt="" />
             </div>
-          </div>
+          </motion.div>
         </div>
         <div className="container mx-auto">
-          <div className="bloc">
-            <h2 className="text-[39px] leading-[50px] font-medium mb-[45px]">
+          <motion.div
+            variants={titesStagger()}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="bloc"
+          >
+            <motion.h2
+              variants={titlesAnimation}
+              className="text-[39px] leading-[50px] font-medium mb-[45px]"
+            >
               Build and monitor your <br />
               remittance offer through the
               <br />
               mtech’s all in one console
-            </h2>
+            </motion.h2>
 
-            <div className="pl-[35px]">
+            <motion.div className="pl-[35px]" variants={titlesAnimation}>
               <ul className="text-[18px] mb-[85px]">
                 {[
                   `360° Dashboard `,
@@ -349,8 +395,8 @@ export default function Home({ data }) {
                   />
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -360,7 +406,13 @@ export default function Home({ data }) {
             why you need mitech
           </h2>
 
-          <div className="grid grid-cols-3 gap-x-[22px] gap-y-[22px]">
+          <motion.div
+            variants={titesStagger()}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-3 gap-x-[22px] gap-y-[22px]"
+          >
             <Vericalbox
               icone="/icons/target.svg"
               title="Targeted offer"
@@ -395,7 +447,7 @@ export default function Home({ data }) {
               title="All in one console"
               description="Real time transactions follow-up, 360° configuration and much more from one console"
             />
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -521,30 +573,57 @@ export default function Home({ data }) {
         <div className="container mx-auto">
           <div className="flex">
             <div className="w-3/5 pr-[25px]">
-              <div className="images flex w-full relative opacity-90">
-                <div className="relative h-[434px] w-[255px] mt-[28px]">
+              <motion.div
+                className="images flex w-full relative opacity-90"
+                variants={titesStagger(0.2)}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+              >
+                <motion.div
+                  className="relative h-[434px] w-[255px] mt-[28px]"
+                  variants={titlesAnimation}
+                >
                   <Image src="/delete/face-3.png" layout="fill" alt="" />
-                </div>
-                <div className="absolute h-[434px] w-[255px] left-0 md:top-[105px] right-0 mx-auto z-10">
+                </motion.div>
+                <motion.div
+                  className="absolute h-[434px] w-[255px] left-0 md:top-[105px] right-0 mx-auto z-10"
+                  variants={titlesAnimation}
+                >
                   <Image src="/delete/face-2.png" layout="fill" alt="" />
-                </div>
-                <div className="relative h-[434px] w-[255px] ml-auto">
+                </motion.div>
+                <motion.div
+                  className="relative h-[434px] w-[255px] ml-auto"
+                  variants={titlesAnimation}
+                >
                   <Image src="/delete/face-1.png" layout="fill" alt="" />
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
 
             <div className="w-2/5 flex flex-col items-end justify-center">
-              <div className="bloc max-w-[420px]">
-                <h2 className="text-[39px] leading-[50px] font-medium mb-[45px]">
+              <motion.div
+                variants={titesStagger()}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                className="bloc max-w-[420px]"
+              >
+                <motion.h2
+                  variants={titlesAnimation}
+                  className="text-[39px] leading-[50px] font-medium mb-[45px]"
+                >
                   Becoming <br /> diaspora-centric
-                </h2>
-                <p className="text-[22px] leading-[33px] text-primary">
+                </motion.h2>
+                <motion.p
+                  variants={titlesAnimation}
+                  className="text-[22px] leading-[33px] text-primary"
+                >
                   We help financial institutions to speed up growth through
                   remittance digital revolution empowered by
                   <span className="font-semibold"> diaspora</span> direct access
-                </p>
-              </div>
+                </motion.p>
+              </motion.div>
             </div>
           </div>
 
