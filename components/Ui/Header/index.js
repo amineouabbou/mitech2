@@ -1,10 +1,36 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import Standnav from '../../html/Standnav'
 import { motion } from 'framer-motion'
 import { globaleasing } from '../../../data/useVariants'
-import Mobileheader from '../../html/Mobileheader'
+import Button from '../../html/Button'
+
+const MENU = [
+  {
+    label: 'Products',
+    path: 'products',
+  },
+  {
+    label: 'Features',
+    path: 'features',
+  },
+  {
+    label: 'Use case',
+    path: 'use-case',
+  },
+  {
+    label: 'Pricing',
+    path: 'pricing',
+  },
+  {
+    label: 'About mitech',
+    path: 'about-mitech',
+  },
+  {
+    label: 'FAQ',
+    path: 'faq',
+  },
+]
 
 const Header = () => {
   const [sticky, setSticky] = useState(false)
@@ -24,82 +50,52 @@ const Header = () => {
   }, [sticky])
   return (
     <>
-      <Mobileheader />
-      {sticky ? (
+      <motion.div
+        className={`header ${
+          sticky && ` backdrop-blur-md bg-white/40 py-[25px]`
+        } py-[35px] fixed w-full top-0 z-30 transition-all duration-300 `}
+      >
         <motion.div
-          initial={{ y: -90 }}
+          initial={{ y: -10, opacity: 0 }}
           animate={{
             y: 0,
-            transition: {
-              duration: 1,
-              ease: globaleasing,
-            },
+            opacity: 1,
+            transition: { ease: globaleasing, duration: 2, delay: 0.8 },
           }}
-          className="border-b-[#1D647D40] border-b-[1px] h-[80px] px-[30px] py-[12px] hidden md:flex items-center fixed top-0 w-full z-40 bg-white"
+          className="container mx-auto flex items-center"
         >
-          <div className="mr-[90px] overflow-hidden">
-            <motion.div
-              initial={{ scale: 0.7, y: 90 }}
-              animate={{
-                scale: 1,
-                y: 0,
-                transition: {
-                  duration: 1.6,
-                  ease: globaleasing,
-                },
-              }}
-              className=""
-            >
-              <Link href="/">
-                <a className="block h-[64px]">
-                  <Image
-                    alt="Résidence Amane"
-                    src="/logo.svg"
-                    width={46}
-                    height={64}
-                  />
-                </a>
-              </Link>
-            </motion.div>
-          </div>
-
-          <nav className="main-nav">
-            <Standnav />
-          </nav>
-        </motion.div>
-      ) : null}
-
-      <div className="border-b-[#1D647D40] border-b-[1px] px-[30px] py-[12px] hidden md:flex items-center">
-        <div className="mr-[90px] overflow-hidden">
-          <motion.div
-            initial={{ scale: 0.7, y: 90 }}
-            animate={{
-              scale: 1,
-              y: 0,
-              transition: {
-                duration: 1.6,
-                ease: globaleasing,
-              },
-            }}
-            className=""
-          >
+          <div className="logo-box">
             <Link href="/">
-              <a className="block h-[64px]">
-                <Image
-                  alt="Résidence Amane"
-                  src="/logo.svg"
-                  width={46}
-                  height={64}
-                />
+              <a>
+                <Image src="/logo.svg" width="193" height="41" alt="" />
               </a>
             </Link>
-          </motion.div>
-        </div>
+          </div>
 
-        <nav className="main-nav">
-          <Standnav />
-        </nav>
-      </div>
+          <div className="right-side flex items-center ml-auto">
+            <nav>
+              <ul className="flex items-center">
+                {MENU.map((item) => (
+                  <li className="mx-[15px] px-[5px]" key={item.path}>
+                    <Link href={item.path}>
+                      <a className="font-medium text-[15.28px]">{item.label}</a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div className="md:ml-[25px]">
+              <Button lowercase="true" title="Get Started" largeur="small" />
+            </div>
+
+            <div className="language-box md:ml-[35px]">
+              <a href="#">
+                <Image src="/icons/fr.png" width="29" height="28" alt="fr" />
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
     </>
   )
 }

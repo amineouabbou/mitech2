@@ -7,129 +7,24 @@ import Image from 'next/image'
 import Button from '../components/html/Button'
 import Horizontalbox from '../components/Ui/Others/Horizontalbox'
 import Vericalbox from '../components/Ui/Others/Vericalbox'
-import { FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa'
 import {
   globaleasing,
-  shortFadeUp,
   titesStagger,
   titlesAnimation,
 } from '../data/useVariants'
+import Header from '../components/Ui/Header'
+import Footer from '../components/Ui/Footer'
+import Hero from '../components/Ui/Hero'
+import Getintouch from '../components/Ui/Getintouch'
 
 export default function Home({ data }) {
   return (
     <Layout>
       <SEO />
-      <motion.div
-        initial={{ backgroundColor: '#fff' }}
-        animate={{
-          backgroundColor: '#f3f4f6',
-          transition: { ease: globaleasing, duration: 1.4 },
-        }}
-        className="header py-[35px]"
-      >
-        <motion.div
-          initial={{ y: -10, opacity: 0 }}
-          animate={{
-            y: 0,
-            opacity: 1,
-            transition: { ease: globaleasing, duration: 2, delay: 0.8 },
-          }}
-          className="container mx-auto flex items-center"
-        >
-          <div className="logo-box">
-            <Image src="/logo.svg" width="193" height="41" alt="" />
-          </div>
-
-          <div className="right-side flex items-center ml-auto">
-            <nav>
-              <ul className="flex items-center">
-                {[
-                  'Products',
-                  'Features',
-                  'Use case',
-                  'Pricing',
-                  'About mitech',
-                  'FAQ',
-                ].map((item) => (
-                  <li className="mx-[15px] px-[5px]" key={item}>
-                    <a className="font-medium text-[15.28px]" href="#">
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-            <div className="md:ml-[25px]">
-              <Button lowercase="true" title="Get Started" largeur="small" />
-            </div>
-
-            <div className="language-box md:ml-[35px]">
-              <a href="#">
-                <Image src="/icons/fr.png" width="29" height="28" alt="fr" />
-              </a>
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
-
-      <motion.div
-        initial={{ backgroundColor: '#fff' }}
-        animate={{
-          backgroundColor: '#f3f4f6',
-          transition: { ease: globaleasing, duration: 1.4 },
-        }}
-        className="hero-section "
-      >
-        <div className="container mx-auto max-w-[1090px] relative md:py-[90px]">
-          <motion.div
-            initial={{ x: 90, opacity: 0 }}
-            animate={{
-              x: 0,
-              opacity: 1,
-              transition: { ease: globaleasing, duration: 3 },
-            }}
-            className="illustration w-[711px] h-[542px] absolute top-10 -right-[150px] bg-[url('/bgs/bg-slide.png')] bg-no-repeat bg-[length:711px_542px] bg-[right_0_top_0]"
-          ></motion.div>
-          <motion.div
-            variants={titesStagger(0.2)}
-            initial="initial"
-            animate="animate"
-            className="bloc"
-          >
-            <motion.h3
-              variants={shortFadeUp(1.5)}
-              className="text-[42px] leading-[60px] font-medium mb-[25px]"
-            >
-              Target directly the
-              <span className="font-semibold"> diaspora</span>
-              <br />
-              through your own
-              <span className="font-semibold"> brand</span>
-            </motion.h3>
-            <motion.ul
-              variants={shortFadeUp(1.5)}
-              className="text-[18px] mb-[45px]"
-            >
-              {[
-                `Free your institution from <span class="font-medium">MTOs intermediation</span>`,
-                `Build your own branding, pricing, loyalty program …`,
-                `Quick <span class="font-medium">go to market</span> through our licence and powerful <span class="font-medium">technology</span>`,
-              ].map((item) => (
-                <li
-                  className="relative mb-[14px] last:mb-0 before:block before:h-[9px] before:w-[9px] before:bg-[#a0a1b3] before:rounded before:absolute before:top-0 before:bottom-0 before:left-0 before:my-auto md:pl-[20px]"
-                  key={item}
-                  dangerouslySetInnerHTML={{ __html: item }}
-                ></li>
-              ))}
-            </motion.ul>
-            <motion.div variants={shortFadeUp(1.5)} className="read-more">
-              <Button title="Contact our team " />
-            </motion.div>
-          </motion.div>
-        </div>
-      </motion.div>
+      <Header />
+      <Hero />
       <section className="what-mitech bg-white pt-[85px] pb-[45px]">
-        <div className="container mx-auto max-w-[960px]">
+        <div className="container mx-auto max-w-[1010px]">
           <h2 className="md:text-[42px] mb-[30px] text-center">
             what mitech platform stands for ?
           </h2>
@@ -153,11 +48,11 @@ export default function Home({ data }) {
       </section>
 
       <section className="bg-[#f3f4f6] md:pb-[40px] relative before:block before:h-[55px] before:bg-white before:content-[''] before:absolute before:top-0 before:w-full">
-        <div className="container mx-auto max-w-[1100px]">
+        <div className="container mx-auto max-w-[1010px]">
           <div className="flex">
-            <div className="w-3/5 flex flex-col justify-end md:pl-[15px]">
+            <div className="w-3/5 flex flex-col justify-end md:pl-[40px]">
               <div className="bloc text-[#242e5e] md:pb-[60px] relative">
-                <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain  absolute right-0 left-0 mx-auto -top-[434px] bg-[center_bottom_-120px] bg-no-repeat"></div>
+                <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain  absolute right-0 left-0 translate-x-[7px] mx-auto -top-[404px] bg-[center_bottom_-120px] bg-no-repeat"></div>
                 <div className="font-medium text-[17px] tracking-[0.18em] text-primary uppercase mb-[15px]">
                   Front brand solution
                 </div>
@@ -177,7 +72,7 @@ export default function Home({ data }) {
                 </div>
               </div>
             </div>
-            <div className="w-2/5 flex flex-col items-end">
+            <div className="w-2/5 flex flex-col items-end translate-x-[155px]">
               <div className="relative md:w-[319px] md:h-[610px]">
                 <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[65px] w-[245px] rounded-[10px] absolute -left-[148px] top-[180px] z-10 flex flex-col justify-center items-center">
                   <div className="ball bg-primary rounded-full h-[9px] w-[9px] absolute left-[15px] top-auto bottom-auto"></div>
@@ -205,7 +100,7 @@ export default function Home({ data }) {
               <div className="relative md:w-[502px] md:h-[427px]">
                 <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[65px] w-[245px] rounded-[10px] absolute mx-auto bottom-[calc(100%_+_10px)] md:left-[60px] right-0 z-10 flex flex-col justify-center items-center">
                   <div className="ball bg-primary rounded-full h-[9px] w-[9px] absolute right-[15px] top-auto bottom-auto"></div>
-                  <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain  absolute right-[18px] bottom-[calc(100%_-_23px)] bg-[center_bottom_-100px] bg-no-repeat"></div>
+                  <div className="dots w-[2px] h-[270px] bg-[url('/bgs/vertical-dots.png')] bg-contain  absolute right-[18px] bottom-[calc(100%_-_23px)] bg-[center_bottom_-100px] bg-no-repeat"></div>
                   <div>
                     <Image
                       src="/logos/open-cloud-gray.svg"
@@ -418,6 +313,7 @@ export default function Home({ data }) {
               title="Targeted offer"
               description="Ban money transfer operators intermediation and apply freely competitive forex and fees "
             />
+
             <Vericalbox
               icone="/icons/mto.svg"
               title="MTO banish"
@@ -627,130 +523,11 @@ export default function Home({ data }) {
             </div>
           </div>
 
-          <div className="container mx-auto md:max-w-[985px] mt-[150px]">
-            <div className="get-in-touch bg-[#e7e9ee] rounded-[10px] p-[55px] bg-[url('/bgs/logo-bg.png')] bg-cover bg-blend-overlay">
-              <div className="text-[41px] font-medium mb-[25px] text-center">
-                Get in touch with mitech
-              </div>
-              <p className="text-center text-[22px] mb-[35px]">
-                Contact our team to find out how we can help your projects…
-              </p>
-              <div className="read-more flex justify-center">
-                <Button title="Contact-us" />
-              </div>
-            </div>
-          </div>
+          <Getintouch />
         </div>
       </section>
 
-      <footer className="pt-[85px] pb-[35px]">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-5 gap-x-[40px]">
-            <div className="bloc">
-              <h3 className="font-semibold leading-[23px] mb-[25px]">
-                Money International
-              </h3>
-              <ul>
-                <li>
-                  <a href="#">Money International</a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bloc">
-              <h3 className="font-semibold leading-[23px] mb-[25px]">Mitech</h3>
-              <ul>
-                <li>
-                  <a href="#">A propos</a>
-                </li>
-                <li>
-                  <a href="#">Les solutions mitech</a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bloc">
-              <h3 className="font-semibold leading-[23px] mb-[25px]">
-                Cas d&apos;utilisations
-              </h3>
-              <ul>
-                <li>
-                  <a href="#">Explorer</a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bloc">
-              <h3 className="font-semibold leading-[23px] mb-[25px]">
-                Sandbox
-              </h3>
-              <ul>
-                <li>
-                  <a href="#">Demander votre sandbox</a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bloc">
-              <h3 className="font-semibold leading-[23px] mb-[25px]">
-                Besion d’aide ?
-              </h3>
-              <ul>
-                <li>
-                  <a href="#">Consultez notre FAQ </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-primary underline hover:text-textcolor"
-                  >
-                    Live chat
-                  </a>
-                </li>
-              </ul>
-              <ul className="text-[26px] flex items-center gap-x-[13px] mt-[20px]">
-                <li>
-                  <a href="#">
-                    <FaTwitter />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <FaLinkedin />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <FaYoutube />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="logos flex items-center gap-x-[35px] mt-[35px] justify-center">
-            <div className="w-[135px] h-[30px] relative">
-              <Image src="/logos/mitech-gray.svg" layout="fill" alt="" />
-            </div>
-
-            <div className="w-[135px] h-[30px] relative">
-              <Image src="/logos/front-brand-gray.svg" layout="fill" alt="" />
-            </div>
-
-            <div className="w-[135px] h-[30px] relative">
-              <Image src="/logos/open-cloud-gray.svg" layout="fill" alt="" />
-            </div>
-          </div>
-
-          <div className="copyright text-[11px] text-[#5e717e] leading-[13px] pt-[25px] text-center">
-            Copyright © Money International SA - Société de droit Belge qui a
-            débuté ses activités en 2001 en tant qu`&apos;établissement de
-            <br />
-            paiement et bureau de change de devise et licencié par la Banque
-            National Belge (BNB).
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </Layout>
   )
 }
