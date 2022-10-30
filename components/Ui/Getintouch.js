@@ -3,7 +3,7 @@ import Button from '../html/Button'
 
 const Getintouch = () => {
   return (
-    <div className="container mx-auto md:max-w-[985px] mt-[150px]">
+    <div className="container mx-auto md:max-w-[985px]">
       <div className="get-in-touch bg-[#e7e9ee] rounded-[10px] p-[55px] bg-[url('/bgs/logo-bg.png')] bg-cover bg-blend-overlay">
         <div className="text-[41px] font-medium mb-[25px] text-center">
           Get in touch with mitech

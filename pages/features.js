@@ -7,6 +7,8 @@ import Footer from '../components/Ui/Footer'
 import Largebox from '../components/features/Largebox'
 import { shortFadeUp, titesStagger } from '../data/useVariants'
 import Heroinner from '../components/Ui/Heroinner'
+import Getintouch from '../components/Ui/Getintouch'
+import Faqbanner from '../components/faq/Faqbanner'
 
 export default function Featured() {
   return (
@@ -81,6 +83,10 @@ export default function Featured() {
             description="Customer support with any bugs and issues within the app or transaction. We make sure that each reported inconvenienced is solved."
           />
         </main>
+        <div className="md:mt-[75px] md:mb-[60px]">
+          <Faqbanner />
+        </div>
+        <Getintouch />
       </div>
       <Footer />
     </Layout>

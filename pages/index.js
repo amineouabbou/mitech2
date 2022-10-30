@@ -523,7 +523,9 @@ export default function Home({ data }) {
             </div>
           </div>
 
-          <Getintouch />
+          <div className="mt-[150px]">
+            <Getintouch />
+          </div>
         </div>
       </section>
 
