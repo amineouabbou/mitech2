@@ -56,7 +56,7 @@ const Hero = () => {
             ))}
           </motion.ul>
           <motion.div variants={shortFadeUp(1.5)} className="read-more">
-            <Button title="Contact our team " />
+            <Button title="Contact our team " url="/contact" />
           </motion.div>
         </motion.div>
       </div>

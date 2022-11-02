@@ -2,7 +2,6 @@ import Link from 'next/link'
 import React from 'react'
 
 const Button = ({ title, lowercase, type, size, largeur, color, url }) => {
-  console.log(url)
   if (type === 'button') {
     return (
       <button

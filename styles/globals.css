@@ -6,10 +6,16 @@
 
 @layer components {
   body {
-    @apply font-poppins font-normal antialiased text-[15px] md:text-[15.28px] text-textcolor leading-[23px] bg-[#fff];
+    @apply font-poppins font-normal antialiased text-[15px] md:text-[16.28px] text-textcolor leading-[23px] bg-[#fff];
   }
 
   a {
     @apply transition ease-in-out duration-300 hover:text-primary;
+  }
+
+  input,
+  button,
+  select {
+    @apply focus:outline-none;
   }
 }

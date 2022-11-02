@@ -12,7 +12,7 @@ const Getintouch = () => {
           Contact our team to find out how we can help your projects…
         </p>
         <div className="read-more flex justify-center">
-          <Button title="Contact-us" />
+          <Button title="Contact-us" url="/contact" />
         </div>
       </div>
     </div>
