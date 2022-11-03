@@ -360,81 +360,105 @@ export default function Home({ data }) {
             control and exposure ?
           </p>
 
-          <div className="box bg-[#f3f4f6] border-[#e4e6ec] border-[1px] py-[34px] flex">
-            <div className="bloc min-w-[410px] max-w-[410px]">
-              <div className="text-center uppercase text-[22px] tracking-[0.04em] text-[#737386] mb-[30px]">
-                Remittance <br />
-                <span className="font-semibold">Through MTO</span>
-              </div>
-
-              <ul className="bg-white border-[#e3e5eb] border-[1px] border-l-0 py-[35px] pl-[35px] pr-[45px] text-[16px]">
-                <li className="before:block before:h-[9px] before:w-[9px] before:bg-[#a0a1b3] before:rounded before:absolute before:top-[6px] before:left-0 relative pl-[20px] leading-[22px] font-medium mb-[25px]">
-                  Money transfer operators freely decide fees and forex to apply
-                  on customer without notifying you !
-                </li>
-
-                <li className="before:block before:h-[9px] before:w-[9px] before:bg-[#a0a1b3] before:rounded before:absolute before:top-[6px] before:left-0 relative pl-[20px] leading-[22px] font-medium">
-                  Money transfer operators give you very small share on the
-                  revenue made on the transaction
-                </li>
-              </ul>
-              <div className="flex items-center justify-center pt-[20px]">
-                <div className="icone">
-                  <Image src="/icons/close.png" width={38} height={39} alt="" />
+          <div className="box bg-white border-[#e4e6ec] md:px-[50px] border-[1px] py-[34px] flex">
+            <div className="col flex">
+              <div className="bloc flex grow flex-col items-center">
+                <div className="text-[19px] text-primary font-medium tracking-[0.04em]">
+                  Diaspora
                 </div>
-                <div className="text-[19px] leading-[28px] text-[#737386] ml-[24px]">
-                  You deliver funds <br />
-                  through <span className="font-semibold">MTO brand !</span>
+                <div className="grow flex items-center">
+                  <div>
+                    <Image
+                      src="/icons/fat-arrow.png"
+                      width={79}
+                      height={282}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div className="text-[19px] text-primary py-[10px] font-medium tracking-[0.04em] mt-auto">
+                  Beneficiary
                 </div>
               </div>
             </div>
-
-            <div className="bloc flex grow flex-col items-center">
-              <div className="text-[19px] font-medium tracking-[0.04em]">
-                Diaspora
-              </div>
-              <div>
-                <Image
-                  src="/icons/fat-arrow.png"
-                  width={79}
-                  height={282}
-                  alt=""
-                />
-              </div>
-              <div className="text-[19px] py-[10px] font-medium tracking-[0.04em] mt-auto">
-                Beneficiary
-              </div>
-            </div>
-
-            <div className="bloc min-w-[410px] max-w-[410px] ml-auto">
-              <div className="text-center uppercase text-[22px] tracking-[0.04em] text-primary mb-[30px]">
-                Remittance <br />
-                <span className="font-semibold">through Your Brand</span>
-              </div>
-
-              <ul className="bg-white border-[#e3e5eb] border-[1px] border-r-0 py-[35px] pl-[35px] pr-[45px] text-[16px] text-[#fa9762]">
-                <li className="before:block before:h-[9px] before:w-[9px] before:bg-[#fa9762] before:rounded before:absolute before:top-[6px] before:left-0 relative pl-[20px] leading-[22px] font-medium mb-[25px]">
-                  We collect through your brand and your freely decide fees and
-                  forex to apply on sender
-                </li>
-
-                <li className="before:block before:h-[9px] before:w-[9px] before:bg-[#fa9762] before:rounded before:absolute before:top-[6px] before:left-0 relative pl-[20px] leading-[22px] font-medium">
-                  You keep 100% of the generated revenue that give that allows
-                  you to be extremely competitive
-                </li>
-              </ul>
-              <div className="flex items-center justify-center pt-[20px]">
-                <div className="icone">
-                  <Image
-                    src="/icons/check-orange.png"
-                    width={38}
-                    height={39}
-                    alt=""
-                  />
+            <div className="col flex grow md:pl-[75px]">
+              <div className="bloc min-w-[315px] max-w-[315px]">
+                <div className="flex items-center ml-[25px] mb-[40px]">
+                  <div className="icone mr-[25px]">
+                    <Image
+                      src="/icons/close.png"
+                      width={38}
+                      height={39}
+                      alt=""
+                    />
+                  </div>
+                  <div className="uppercase leading-[28px] text-[22px] tracking-[0.04em] text-[#737386]">
+                    Remittance <br />
+                    <span className="font-semibold">
+                      Through <br /> MTO
+                    </span>
+                  </div>
                 </div>
-                <div className="text-[19px] leading-[28px] text-primary ml-[24px]">
-                  You deliver exclusively <br />
-                  through <span className="font-semibold">your brand</span>
+
+                <ul className="bg-white border-[#e3e5eb] text-[16px] text-[#7f7f90]">
+                  <li className="before:block before:h-[9px] before:w-[9px] before:bg-[#737386] before:rounded before:absolute before:top-[6px] before:left-0 relative pl-[20px] leading-[22px] font-medium mb-[25px]">
+                    Money transfer operators freely decide fees and forex to
+                    apply on customer without notifying you !
+                  </li>
+
+                  <li className="before:block before:h-[9px] before:w-[9px] before:bg-[#737386] before:rounded before:absolute before:top-[6px] before:left-0 relative pl-[20px] leading-[22px] font-medium">
+                    Money transfer operators give you very small share on the
+                    revenue made on the transaction
+                  </li>
+                </ul>
+                <div className="flex items-center justify-center pt-[35px]">
+                  <div className="uppercase text-center leading-[28px] text-[22px] tracking-[0.04em] text-[#737386]">
+                    Delivery <br />
+                    <span className="font-semibold">
+                      Through <br /> MTO
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bloc min-w-[315px] max-w-[315px] ml-auto">
+                <div className="flex items-center ml-[25px] mb-[40px]">
+                  <div className="icone mr-[25px]">
+                    <Image
+                      src="/icons/check-orange.png"
+                      width={38}
+                      height={39}
+                      alt=""
+                    />
+                  </div>
+                  <div className="uppercase leading-[28px] text-[22px] tracking-[0.04em]">
+                    Remittance <br />
+                    <span className="font-semibold">
+                      Through <br />
+                      <span className="text-primary">Your brand</span>
+                    </span>
+                  </div>
+                </div>
+
+                <ul className="bg-white border-[#e3e5eb] text-[16px]">
+                  <li className="before:block before:h-[9px] before:w-[9px] before:bg-secondary before:rounded before:absolute before:top-[6px] before:left-0 relative pl-[20px] leading-[22px] font-medium mb-[25px]">
+                    We collect through your brand and your freely decide fees
+                    and forex to apply on sender
+                  </li>
+
+                  <li className="before:block before:h-[9px] before:w-[9px] before:bg-secondary before:rounded before:absolute before:top-[6px] before:left-0 relative pl-[20px] leading-[22px] font-medium">
+                    You keep 100% of the generated revenue that give that allows
+                    you to be extremely competitive
+                  </li>
+                </ul>
+                <div className="flex items-center justify-center pt-[35px]">
+                  <div className="uppercase text-center leading-[28px] text-[22px] tracking-[0.04em]">
+                    Remittance <br />
+                    <span className="font-semibold">
+                      Through <br />
+                      <span className="text-primary">Your brand</span>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

@@ -10,7 +10,7 @@ const Question = ({ question, answer }) => {
     <div className="panel mb-[24px]">
       <div
         onClick={handleClick}
-        className="question flex items-center bg-[#f4f5f8] py-[25px] px-[28px] border-l-[6px] border-l-primary mb-[1px] relative cursor-pointer"
+        className="question flex items-center bg-[#f4f5f8] py-[25px] pl-[28px] pr-[75px] border-l-[6px] border-l-primary mb-[1px] relative cursor-pointer"
       >
         <span className="text-[39px] leading-[41px] text-primary mr-[22px]">
           Q.

@@ -85,7 +85,12 @@ const Header = () => {
               </ul>
             </nav>
             <div className="md:ml-[25px]">
-              <Button lowercase="true" title="Get Started" largeur="small" />
+              <Button
+                lowercase="true"
+                title="Get Started"
+                largeur="small"
+                url="/contact"
+              />
             </div>
 
             <div className="language-box md:ml-[35px]">
