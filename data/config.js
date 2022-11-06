@@ -10,7 +10,7 @@ const config = {
   GRAPHQL_URL:
     process.env.NODE_ENV !== 'development'
       ? process.env.NEXT_PUBLIC_GRAPHQL_URL
-      : 'https://api.residencesamane.ma/graphql',
+      : 'https://moneyinternational.be/api/graphql',
 }
 
 export default config

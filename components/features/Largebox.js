@@ -8,7 +8,7 @@ const Largebox = ({ icon, title, description, size }) => {
         <div className="ball min-w-[87px] h-[87px] w-[87px] rounded-full flex flex-col justify-center items-center">
           <div
             className={`${
-              size ? `h-[63%] w-[63%]` : 'h-[80%] w-[80%]'
+              size === 'small' ? `h-[63%] w-[63%]` : 'h-[80%] w-[80%]'
             } relative`}
           >
             <Image src={icon} alt="" layout="fill" />

@@ -1,559 +1,80 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import SEO from '../components/SEO'
 import Layout from '../components/Ui/Layout'
-import Image from 'next/image'
-import Button from '../components/html/Button'
-import Horizontalbox from '../components/Ui/Others/Horizontalbox'
-import Vericalbox from '../components/Ui/Others/Vericalbox'
-import {
-  globaleasing,
-  titesStagger,
-  titlesAnimation,
-} from '../data/useVariants'
 import Header from '../components/Ui/Header'
 import Footer from '../components/Ui/Footer'
 import Hero from '../components/Ui/Hero'
-import Getintouch from '../components/Ui/Getintouch'
+import Whatmitech from '../components/home/Whatmitech'
+import Frontbrand from '../components/home/Frontbrand'
+import Opencloud from '../components/home/Opencloud'
+import Features from '../components/home/Features'
+import Monitor from '../components/home/Monitor'
+import Whymitech from '../components/home/Whymitech'
+import Mtos from '../components/home/Mtos'
+import Diaspocentric from '../components/home/Diaspocentric'
+import { getPageData } from '../utils'
+import { GET_HOME } from '../queries'
 
 export default function Home({ data }) {
+  const {
+    ACFPage: { acfFlex },
+  } = data.page.translation
   return (
     <Layout>
       <SEO />
       <Header />
-      <Hero />
-      <section className="what-mitech bg-white pt-[85px] pb-[45px]">
-        <div className="container mx-auto max-w-[1010px]">
-          <h2 className="md:text-[42px] mb-[30px] text-center">
-            what mitech platform stands for ?
-          </h2>
-          <p className="text-[19px] leading-[33px] text-[#707181] text-center mb-[45px]">
-            We bring transparent powerful technologies and efficient compliance
-            <br />
-            so you can focus on your strategy, and funds delivery
-          </p>
+      {acfFlex.map((item, index) => {
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Hero') {
+          return <Hero data={item} key={index} />
+        }
 
-          <motion.div className="schema flex flex-col items-center">
-            <div>
-              <Image
-                src="/delete/shema-pres.png"
-                width="945"
-                height="424"
-                alt=""
-              />
-            </div>
-          </motion.div>
-        </div>
-      </section>
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_WhatMitech') {
+          return <Whatmitech key={index} data={item} />
+        }
 
-      <section className="bg-[#f3f4f6] md:pb-[40px] relative before:block before:h-[55px] before:bg-white before:content-[''] before:absolute before:top-0 before:w-full">
-        <div className="container mx-auto max-w-[1010px]">
-          <div className="flex">
-            <div className="w-3/5 flex flex-col justify-end md:pl-[40px]">
-              <div className="bloc text-[#242e5e] md:pb-[60px] relative">
-                <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain  absolute right-0 left-0 translate-x-[7px] mx-auto -top-[404px] bg-[center_bottom_-120px] bg-no-repeat"></div>
-                <div className="font-medium text-[17px] tracking-[0.18em] text-primary uppercase mb-[15px]">
-                  Front brand solution
-                </div>
-                <div className="font-semibold text-[31px] leading-[43px]  tracking-[0.02em] mb-[35px]">
-                  Ready to use white label <br /> remittance app to build your
-                  own
-                  <br />
-                  cross-border remittance offer
-                </div>
-                <p className="text-[22px] leading-[32px] tracking-[0.02em] mb-[55px]">
-                  Free your institution from
-                  <span className="font-medium"> MTOs intermediation,</span>
-                  <br /> build your own branding, pricing, loyalty program
-                </p>
-                <div className="read-more">
-                  <Button title="Dicover Front Brand" />
-                </div>
-              </div>
-            </div>
-            <div className="w-2/5 flex flex-col items-end translate-x-[155px]">
-              <div className="relative md:w-[319px] md:h-[610px]">
-                <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[65px] w-[245px] rounded-[10px] absolute -left-[148px] top-[180px] z-10 flex flex-col justify-center items-center">
-                  <div className="ball bg-primary rounded-full h-[9px] w-[9px] absolute left-[15px] top-auto bottom-auto"></div>
-                  <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain absolute left-[18px] bottom-[calc(100%_-_23px)]"></div>
-                  <div>
-                    <Image
-                      src="/logos/front-brand-gray.svg"
-                      width="180"
-                      height="35px"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <Image src="/bgs/phone.png" layout="fill" alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_FrontBrandSolution') {
+          return <Frontbrand key={index} data={item} />
+        }
 
-      <section className="bg-[#fff] md:pt-[120px] md:pb-[50px]">
-        <div className="container mx-auto flex flex-col items-end">
-          <div className="flex w-full">
-            <div className="w-1/2 flex flex-col">
-              <div className="relative md:w-[502px] md:h-[427px]">
-                <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[65px] w-[245px] rounded-[10px] absolute mx-auto bottom-[calc(100%_+_10px)] md:left-[60px] right-0 z-10 flex flex-col justify-center items-center">
-                  <div className="ball bg-primary rounded-full h-[9px] w-[9px] absolute right-[15px] top-auto bottom-auto"></div>
-                  <div className="dots w-[2px] h-[270px] bg-[url('/bgs/vertical-dots.png')] bg-contain  absolute right-[18px] bottom-[calc(100%_-_23px)] bg-[center_bottom_-100px] bg-no-repeat"></div>
-                  <div>
-                    <Image
-                      src="/logos/open-cloud-gray.svg"
-                      width="180"
-                      height="35px"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <Image src="/bgs/phone-api.png" layout="fill" alt="" />
-              </div>
-            </div>
-            <div className="w-1/2 flex flex-col items-end">
-              <div className="bloc text-[#242e5e]">
-                <div className="font-medium text-[17px] tracking-[0.18em] text-primary uppercase mb-[15px]">
-                  Open cloud solution
-                </div>
-                <div className="font-semibold text-[31px] leading-[43px]  tracking-[0.02em] mb-[35px]">
-                  Set of APIs and Web-views for <br />
-                  simple integration in your existing
-                  <br />
-                  apps and workflows
-                </div>
-                <p className="text-[22px] leading-[32px] tracking-[0.02em] mb-[55px]">
-                  Set of <span className="font-medium">APIs</span> and
-                  <span className="font-medium"> Web-views</span> for simple
-                  integration
-                  <br />
-                  in your existing apps and workflows
-                </p>
-                <div className="read-more">
-                  <Button title="Discover Open cloud" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_OpenCloudSolution') {
+          return <Opencloud key={index} data={item} />
+        }
 
-      <section className="bg-[#f3f4f6] md:py-[65px]">
-        <div className="container mx-auto">
-          <div className="text-[28px] leading-[48px] text-center mb-[45px]">
-            Cross-border remittance white label builder <br />
-            empowered by rich
-            <span className="font-semibold"> intuitive features</span>
-          </div>
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Features') {
+          return <Features key={index} data={item} />
+        }
 
-          <motion.div
-            variants={titesStagger()}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-3 gap-x-[20px] gap-y-[30px] mb-[45px]"
-          >
-            <Horizontalbox
-              icon="/icons/aggregation.svg"
-              title="Account Aggregation"
-            />
-            <Horizontalbox
-              icon="/icons/collecting.svg"
-              title="Collecting methods"
-            />
-            <Horizontalbox
-              icon="/icons/transaction-fee.svg"
-              title="Transaction fee"
-              size="medium"
-            />
-            <Horizontalbox icon="/icons/forex.svg" title="Forex" />
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Monitor') {
+          return <Monitor key={index} data={item} />
+        }
 
-            <Horizontalbox
-              icon="/icons/loyalty.svg"
-              title="Loyalty program"
-              size="medium"
-            />
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_WhyMitech') {
+          return <Whymitech key={index} data={item} />
+        }
 
-            <Horizontalbox icon="/icons/in-apps.svg" title="In-app Ads " />
-          </motion.div>
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Mtos') {
+          return <Mtos key={index} data={item} />
+        }
 
-          <div className="text-[28px] leading-[48px] text-center mb-[30px]">
-            with onboarded transparent
-            <span className="font-semibold"> compliance tools</span>
-          </div>
-
-          <motion.div
-            variants={titesStagger()}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-3 gap-x-[20px] gap-y-[30px] mb-[45px]"
-          >
-            <Horizontalbox icon="/icons/ekyc.svg" title="eKYC" size="small" />
-
-            <Horizontalbox icon="/icons/aml.svg" title="AML" size="small" />
-
-            <Horizontalbox
-              icon="/icons/support.svg"
-              title="Customer Support"
-              size="small"
-            />
-          </motion.div>
-
-          <motion.div
-            variants={titlesAnimation}
-            initial="initial"
-            animate="animate"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="read-more flex flex-col items-center"
-          >
-            <Button title="Discover more" />
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="bg-[#fcfcfc] md:pt-[80px] md:pb-[100px] relative before:block before:h-[65px] before:bg-[#f3f4f6] before:content-[''] before:absolute before:bottom-0 before:w-full overflow-hidden">
-        <div className="overlay absolute top-0 bottom-0 left-0 right-0 m-auto flex flex-col items-end md:pt-[82px]">
-          <motion.div
-            className="w-1/2	relative h-full"
-            initial={{ y: 100, opacity: 0 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-              transition: {
-                duration: 2.5,
-                delay: 0.2,
-                ease: globaleasing,
-              },
-            }}
-            viewport={{ once: true }}
-          >
-            <div className="-right-[55px] h-full w-full relative">
-              <Image src="/bgs/console.png" layout="fill" alt="" />
-            </div>
-          </motion.div>
-        </div>
-        <div className="container mx-auto">
-          <motion.div
-            variants={titesStagger()}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="bloc"
-          >
-            <motion.h2
-              variants={titlesAnimation}
-              className="text-[39px] leading-[50px] font-medium mb-[45px]"
-            >
-              Build and monitor your <br />
-              remittance offer through the
-              <br />
-              mtech’s all in one console
-            </motion.h2>
-
-            <motion.div className="pl-[35px]" variants={titlesAnimation}>
-              <ul className="text-[18px] mb-[85px]">
-                {[
-                  `360° Dashboard `,
-                  `Transaction fee and forex 3D configuration`,
-                  `Loyalty program management and Ads configuration `,
-                  `Transaction live tracking`,
-                  `Customer support ticketing and follow-up and much more…`,
-                ].map((item) => (
-                  <li
-                    className="relative mb-[14px] last:mb-0 before:block before:h-[9px] before:w-[9px] before:bg-[#a0a1b3] before:rounded before:absolute before:top-0 before:bottom-0 before:left-0 before:my-auto md:pl-[20px]"
-                    key={item}
-                    dangerouslySetInnerHTML={{ __html: item }}
-                  ></li>
-                ))}
-              </ul>
-
-              <div className="logos flex items-center">
-                <div className="relative mr-[45px]">
-                  <Image
-                    src="/logos/front-brand-gray.svg"
-                    width="156px"
-                    height="30px"
-                    alt=""
-                  />
-                </div>
-
-                <div className="relative">
-                  <Image
-                    src="/logos/open-cloud-gray.svg"
-                    width="156px"
-                    height="30px"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="bg-[#f3f4f6] md:py-[50px]">
-        <div className="container mx-auto md:max-w-[985px]">
-          <h2 className="text-center text-[39px] leading-[50px] font-medium mb-[55px]">
-            why you need mitech
-          </h2>
-
-          <motion.div
-            variants={titesStagger()}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid grid-cols-3 gap-x-[22px] gap-y-[22px]"
-          >
-            <Vericalbox
-              icone="/icons/target.svg"
-              title="Targeted offer"
-              description="Ban money transfer operators intermediation and apply freely competitive forex and fees "
-            />
-
-            <Vericalbox
-              icone="/icons/mto.svg"
-              title="MTO banish"
-              description="Build specific offer with your own strategy to reach efficiently the targeted diaspora"
-            />
-
-            <Vericalbox
-              icone="/icons/100-digital.svg"
-              title="100% Digital "
-              description="mitech's digital solutions guarantee maximum reach to targeted customers"
-            />
-
-            <Vericalbox
-              icone="/icons/cart.svg"
-              title="Quick go-to market"
-              description="Ready to use mitech’s solutions facilitates your product launch within a few weeks"
-            />
-
-            <Vericalbox
-              icone="/icons/lock.svg"
-              title="Secure volume"
-              description="Your onboarded strategy will allow to secure transfer and foreigner currencies volumes"
-            />
-
-            <Vericalbox
-              icone="/icons/console.svg"
-              title="All in one console"
-              description="Real time transactions follow-up, 360° configuration and much more from one console"
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="bg-white md:py-[85px]">
-        <div className="container mx-auto md:max-w-[985px]">
-          <h2 className="text-center text-[39px] leading-[50px] font-medium mb-[22px] tracking-[0.04em]">
-            MTOs are taking most of the revenue ! <br />
-            take back your slice
-          </h2>
-
-          <p className="tracking-[0.04em] text-[16px] leading-[34px] mb-[60px] text-center">
-            Why would you let the money transfer operators take the spotlight,
-            and control a remittance that you deliver When you can take back
-            control and exposure ?
-          </p>
-
-          <div className="box bg-white border-[#e4e6ec] md:px-[50px] border-[1px] py-[34px] flex">
-            <div className="col flex">
-              <div className="bloc flex grow flex-col items-center">
-                <div className="text-[19px] text-primary font-medium tracking-[0.04em]">
-                  Diaspora
-                </div>
-                <div className="grow flex items-center">
-                  <div>
-                    <Image
-                      src="/icons/fat-arrow.png"
-                      width={79}
-                      height={282}
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div className="text-[19px] text-primary py-[10px] font-medium tracking-[0.04em] mt-auto">
-                  Beneficiary
-                </div>
-              </div>
-            </div>
-            <div className="col flex grow md:pl-[75px]">
-              <div className="bloc min-w-[315px] max-w-[315px]">
-                <div className="flex items-center ml-[25px] mb-[40px]">
-                  <div className="icone mr-[25px]">
-                    <Image
-                      src="/icons/close.png"
-                      width={38}
-                      height={39}
-                      alt=""
-                    />
-                  </div>
-                  <div className="uppercase leading-[28px] text-[22px] tracking-[0.04em] text-[#737386]">
-                    Remittance <br />
-                    <span className="font-semibold">
-                      Through <br /> MTO
-                    </span>
-                  </div>
-                </div>
-
-                <ul className="bg-white border-[#e3e5eb] text-[16px] text-[#7f7f90]">
-                  <li className="before:block before:h-[9px] before:w-[9px] before:bg-[#737386] before:rounded before:absolute before:top-[6px] before:left-0 relative pl-[20px] leading-[22px] font-medium mb-[25px]">
-                    Money transfer operators freely decide fees and forex to
-                    apply on customer without notifying you !
-                  </li>
-
-                  <li className="before:block before:h-[9px] before:w-[9px] before:bg-[#737386] before:rounded before:absolute before:top-[6px] before:left-0 relative pl-[20px] leading-[22px] font-medium">
-                    Money transfer operators give you very small share on the
-                    revenue made on the transaction
-                  </li>
-                </ul>
-                <div className="flex items-center justify-center pt-[35px]">
-                  <div className="uppercase text-center leading-[28px] text-[22px] tracking-[0.04em] text-[#737386]">
-                    Delivery <br />
-                    <span className="font-semibold">
-                      Through <br /> MTO
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bloc min-w-[315px] max-w-[315px] ml-auto">
-                <div className="flex items-center ml-[25px] mb-[40px]">
-                  <div className="icone mr-[25px]">
-                    <Image
-                      src="/icons/check-orange.png"
-                      width={38}
-                      height={39}
-                      alt=""
-                    />
-                  </div>
-                  <div className="uppercase leading-[28px] text-[22px] tracking-[0.04em]">
-                    Remittance <br />
-                    <span className="font-semibold">
-                      Through <br />
-                      <span className="text-primary">Your brand</span>
-                    </span>
-                  </div>
-                </div>
-
-                <ul className="bg-white border-[#e3e5eb] text-[16px]">
-                  <li className="before:block before:h-[9px] before:w-[9px] before:bg-secondary before:rounded before:absolute before:top-[6px] before:left-0 relative pl-[20px] leading-[22px] font-medium mb-[25px]">
-                    We collect through your brand and your freely decide fees
-                    and forex to apply on sender
-                  </li>
-
-                  <li className="before:block before:h-[9px] before:w-[9px] before:bg-secondary before:rounded before:absolute before:top-[6px] before:left-0 relative pl-[20px] leading-[22px] font-medium">
-                    You keep 100% of the generated revenue that give that allows
-                    you to be extremely competitive
-                  </li>
-                </ul>
-                <div className="flex items-center justify-center pt-[35px]">
-                  <div className="uppercase text-center leading-[28px] text-[22px] tracking-[0.04em]">
-                    Remittance <br />
-                    <span className="font-semibold">
-                      Through <br />
-                      <span className="text-primary">Your brand</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="newsletter bg-[#f3f4f6] py-[48px]">
-        <div className="container mx-auto md:max-w-[985px]">
-          <div className="box">
-            <div className="text-[27px] tracking-[0.025em] mb-[20px] text-center">
-              For latest news sign up to our newletter
-            </div>
-            <div className="flex items-center justify-center">
-              <input
-                type="text"
-                className="h-[56px] min-w-[480px] rounded-[40px] px-[32px] py-[8px] text-[16px] tracking-[0.04em] text-[#a0a1b3]"
-                name="email"
-                placeholder="Your email adress"
-              />
-              <div className="ml-[18px]">
-                <Button type="button" title="submit" size="large">
-                  Submit
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white md:pt-[60px]">
-        <div className="container mx-auto">
-          <div className="flex">
-            <div className="w-3/5 pr-[25px]">
-              <motion.div
-                className="images flex w-full relative opacity-90"
-                variants={titesStagger(0.2)}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-              >
-                <motion.div
-                  className="relative h-[434px] w-[255px] mt-[28px]"
-                  variants={titlesAnimation}
-                >
-                  <Image src="/delete/face-3.png" layout="fill" alt="" />
-                </motion.div>
-                <motion.div
-                  className="absolute h-[434px] w-[255px] left-0 md:top-[105px] right-0 mx-auto z-10"
-                  variants={titlesAnimation}
-                >
-                  <Image src="/delete/face-2.png" layout="fill" alt="" />
-                </motion.div>
-                <motion.div
-                  className="relative h-[434px] w-[255px] ml-auto"
-                  variants={titlesAnimation}
-                >
-                  <Image src="/delete/face-1.png" layout="fill" alt="" />
-                </motion.div>
-              </motion.div>
-            </div>
-
-            <div className="w-2/5 flex flex-col items-end justify-center">
-              <motion.div
-                variants={titesStagger()}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                className="bloc max-w-[420px]"
-              >
-                <motion.h2
-                  variants={titlesAnimation}
-                  className="text-[39px] leading-[50px] font-medium mb-[45px]"
-                >
-                  Becoming <br /> diaspora-centric
-                </motion.h2>
-                <motion.p
-                  variants={titlesAnimation}
-                  className="text-[22px] leading-[33px] text-primary"
-                >
-                  We help financial institutions to speed up growth through
-                  remittance digital revolution empowered by
-                  <span className="font-semibold"> diaspora</span> direct access
-                </motion.p>
-              </motion.div>
-            </div>
-          </div>
-
-          <div className="mt-[150px]">
-            <Getintouch />
-          </div>
-        </div>
-      </section>
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_DiasporaCentric') {
+          return <Diaspocentric key={index} data={item} />
+        }
+      })}
 
       <Footer />
     </Layout>
   )
+}
+
+export async function getServerSideProps({ locale }) {
+  const data = await getPageData(GET_HOME, 7, locale)
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      data: data,
+    },
+  }
 }

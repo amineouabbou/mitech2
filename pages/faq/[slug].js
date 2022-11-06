@@ -1,20 +1,20 @@
-import React, { useCallback, useState } from 'react'
-import { motion } from 'framer-motion'
+import React, { useCallback } from 'react'
+import { useRouter } from 'next/router'
 
-import SEO from '../components/SEO'
-import Layout from '../components/Ui/Layout'
-import Header from '../components/Ui/Header'
-import Footer from '../components/Ui/Footer'
-import { shortFadeUp, titesStagger } from '../data/useVariants'
-import Heroinner from '../components/Ui/Heroinner'
-import Categories from '../components/faq/Categories'
-import Question from '../components/faq/Question'
+import SEO from '../../components/SEO'
+import Layout from '../../components/Ui/Layout'
+import Header from '../../components/Ui/Header'
+import Footer from '../../components/Ui/Footer'
+import Heroinner from '../../components/Ui/Heroinner'
+import Categories from '../../components/faq/Categories'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { getPageData } from '../utils'
-import { GET_FAQ } from '../queries'
-import Faqgroup from '../components/faq/Faqgroup'
+import { getPageData } from '../../utils'
+import { GET_FAQ } from '../../queries/index'
+import Faqgroup from '../../components/faq/Faqgroup'
 
 export default function Faq({ data }) {
+  const router = useRouter()
+  const { slug } = router.query
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
@@ -46,9 +46,11 @@ export default function Faq({ data }) {
         <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] p-[65px] relative z-10">
           {acfFlex.map((item, index) => {
             if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Faq') {
-              return item?.listCategoriesRep.map((item, index) => (
-                <Faqgroup key={index} data={item} />
-              ))
+              return item?.listCategoriesRep
+                .filter((item) => {
+                  return item.category.toLowerCase().includes(slug)
+                })
+                .map((item, index) => <Faqgroup key={index} data={item} />)
             }
           })}
         </main>

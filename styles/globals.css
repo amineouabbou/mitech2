@@ -6,7 +6,7 @@
 
 @layer components {
   body {
-    @apply font-poppins font-normal antialiased text-[15px] md:text-[16.28px] text-textcolor leading-[23px] bg-[#fff];
+    @apply font-poppins font-normal antialiased text-[13px] md:text-[16.28px] text-textcolor leading-[23px] bg-[#fff];
   }
 
   a {
@@ -15,7 +15,8 @@
 
   input,
   button,
-  select {
+  select,
+  textarea {
     @apply focus:outline-none;
   }
 }

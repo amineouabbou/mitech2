@@ -2,8 +2,11 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Button from '../html/Button'
 import { globaleasing, shortFadeUp, titesStagger } from '../../data/useVariants'
+import { useTranslation } from 'next-i18next'
 
-const Hero = () => {
+const Hero = ({ data }) => {
+  const { t } = useTranslation('common')
+  const { title, advantagesRep } = data
   return (
     <motion.div
       initial={{ backgroundColor: '#fff' }}
@@ -21,7 +24,7 @@ const Hero = () => {
             opacity: 1,
             transition: { ease: globaleasing, duration: 3 },
           }}
-          className="illustration w-[711px] h-[542px] absolute top-10 -right-[150px] bg-[url('/bgs/bg-slide.png')] bg-no-repeat bg-[length:711px_542px] bg-[right_0_top_0]"
+          className="illustration hidden md:block w-[711px] h-[542px] absolute top-10 -right-[150px] bg-[url('/bgs/bg-slide.png')] bg-no-repeat bg-[length:711px_542px] bg-[right_0_top_0]"
         ></motion.div>
         <motion.div
           variants={titesStagger(0.2)}
@@ -33,30 +36,22 @@ const Hero = () => {
             variants={shortFadeUp(1.5)}
             className="text-[42px] leading-[60px] font-medium mb-[25px]"
           >
-            Target directly the
-            <span className="font-semibold"> diaspora</span>
-            <br />
-            through your own
-            <span className="font-semibold"> brand</span>
+            <div dangerouslySetInnerHTML={{ __html: title }} />
           </motion.h3>
           <motion.ul
             variants={shortFadeUp(1.5)}
             className="text-[18px] mb-[45px]"
           >
-            {[
-              `Free your institution from <span class="font-medium">MTOs intermediation</span>`,
-              `Build your own branding, pricing, loyalty program …`,
-              `Quick <span class="font-medium">go to market</span> through our licence and powerful <span class="font-medium">technology</span>`,
-            ].map((item) => (
+            {advantagesRep.map((item, index) => (
               <li
                 className="relative mb-[14px] last:mb-0 before:block before:h-[9px] before:w-[9px] before:bg-[#a0a1b3] before:rounded before:absolute before:top-0 before:bottom-0 before:left-0 before:my-auto md:pl-[20px]"
-                key={item}
-                dangerouslySetInnerHTML={{ __html: item }}
+                key={index}
+                dangerouslySetInnerHTML={{ __html: item.label }}
               ></li>
             ))}
           </motion.ul>
           <motion.div variants={shortFadeUp(1.5)} className="read-more">
-            <Button title="Contact our team " url="/contact" />
+            <Button title={t('Contact our team')} url="/contact" />
           </motion.div>
         </motion.div>
       </div>
