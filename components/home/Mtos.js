@@ -3,19 +3,19 @@ import React from 'react'
 
 const Mtos = ({ data }) => {
   return (
-    <section className="bg-white md:py-[85px]">
+    <section className="bg-white py-[60px] lg:py-[85px]">
       <div className="container mx-auto md:max-w-[985px]">
         <h2
-          className="text-center text-[39px] leading-[50px] font-medium mb-[22px] tracking-[0.04em]"
+          className="text-center text-[31px] leading-[40px] lg:text-[39px] lg:leading-[50px] font-medium mb-[22px] tracking-[0.04em]"
           dangerouslySetInnerHTML={{ __html: data?.title }}
         ></h2>
 
-        <p className="tracking-[0.04em] text-[16px] leading-[34px] mb-[60px] text-center">
+        <p className="lg:tracking-[0.04em] leading-[22px] lg:text-[16px] lg:leading-[34px] mb-[60px] text-center">
           {data?.description}
         </p>
 
         <div
-          className={`box bg-white border-[#e4e6ec] md:px-[50px] border-[1px] py-[34px] md:flex`}
+          className={`box bg-white border-[#e4e6ec] px-[20px] lg:px-[50px] border-[1px] py-[34px] md:flex`}
         >
           <div className="col md:flex">
             <div className="bloc flex grow flex-col items-center">
@@ -41,11 +41,11 @@ const Mtos = ({ data }) => {
             {data?.blocsListRep.map((item, index) => (
               <div
                 key={index}
-                className={`bloc min-w-[315px] max-w-[315px] ${
+                className={`bloc lg:min-w-[315px] lg:max-w-[315px] mb-[50px] lg:mb-0 last:mb-0 ${
                   index === 1 ? 'ml-auto' : 'text-[#7f7f90]'
                 }`}
               >
-                <div className="flex items-center ml-[25px] mb-[40px]">
+                <div className="flex items-center lg:ml-[25px] mb-[40px]">
                   <div className="icone mr-[25px]">
                     <Image
                       src={item?.titleGroup?.icone?.mediaItemUrl}
@@ -62,7 +62,7 @@ const Mtos = ({ data }) => {
                   ></div>
                 </div>
 
-                <ul className={`bg-white border-[#e3e5eb] text-[16px]`}>
+                <ul className={`bg-white border-[#e3e5eb] lg:text-[16px]`}>
                   {item?.listeRep.map((item, indx) => (
                     <li
                       key={indx}

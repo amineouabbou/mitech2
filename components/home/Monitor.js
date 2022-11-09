@@ -9,7 +9,7 @@ import {
 
 const Monitor = ({ data }) => {
   return (
-    <section className="bg-[#fcfcfc] md:pt-[80px] md:pb-[100px] relative before:block before:h-[65px] before:bg-[#f3f4f6] before:content-[''] before:absolute before:bottom-0 before:w-full overflow-hidden">
+    <section className="bg-[#fcfcfc] py-[60px] lg:pt-[80px] lg:pb-[100px] relative before:hidden lg:before:block before:h-[65px] before:bg-[#f3f4f6] lg:before:content-[''] before:absolute before:bottom-0 before:w-full overflow-hidden">
       <div className="overlay absolute top-0 bottom-0 left-0 right-0 m-auto hidden md:flex flex-col items-end md:pt-[82px]">
         <motion.div
           className="w-1/2	relative h-full"
@@ -40,16 +40,19 @@ const Monitor = ({ data }) => {
         >
           <motion.h2
             variants={titlesAnimation}
-            className="text-[39px] leading-[50px] font-medium mb-[45px]"
+            className="text-[31px] leading-[40px] lg:text-[39px] lg:leading-[50px] font-medium mb-[45px]"
           >
             <span dangerouslySetInnerHTML={{ __html: data?.title }}></span>
           </motion.h2>
 
-          <motion.div className="pl-[35px]" variants={titlesAnimation}>
-            <ul className="text-[18px] mb-[85px]">
+          <motion.div
+            className="pl-[20px] lg:pl-[35px]"
+            variants={titlesAnimation}
+          >
+            <ul className="text-[16px] lg:text-[18px] mb-[50px] lb:mb-[85px]">
               {data?.pointsList.map((item, index) => (
                 <li
-                  className="relative mb-[14px] last:mb-0 before:block before:h-[9px] before:w-[9px] before:bg-[#a0a1b3] before:rounded before:absolute before:top-0 before:bottom-0 before:left-0 before:my-auto md:pl-[20px]"
+                  className="relative mb-[14px] last:mb-0 before:block before:h-[9px] before:w-[9px] before:bg-[#a0a1b3] before:rounded before:absolute before:top-0 before:bottom-0 before:left-0 before:my-auto pl-[20px]"
                   key={index}
                   dangerouslySetInnerHTML={{ __html: item.label }}
                 ></li>
@@ -58,7 +61,7 @@ const Monitor = ({ data }) => {
 
             <div className="logos flex items-center">
               {data?.logos.map((item, index) => (
-                <div className="relative mr-[45px]" key={index}>
+                <div className="relative mr-[45px] last:mr-0" key={index}>
                   <Image
                     src={item.mediaItemUrl}
                     width="156px"

@@ -4,7 +4,7 @@ import Button from '../html/Button'
 
 const Opencloud = ({ data }) => {
   return (
-    <section className="bg-[#fff] md:pt-[120px] md:pb-[50px]">
+    <section className="bg-[#fff] py-[60px] lg:pt-[120px] lg:pb-[50px]">
       <div className="container mx-auto flex flex-col items-end">
         <div className="flex w-full">
           <div className="md:w-1/2 hidden md:flex flex-col">
@@ -30,16 +30,16 @@ const Opencloud = ({ data }) => {
           </div>
           <div className="md:w-1/2 flex flex-col items-end">
             <div className="bloc text-[#242e5e]">
-              <div className="font-medium text-[17px] tracking-[0.18em] text-primary uppercase mb-[15px]">
+              <div className="font-medium text-[15px] lg:text-[17px] tracking-[0.18em] text-primary uppercase mb-[15px]">
                 {data?.subTitle}
               </div>
-              <div className="font-semibold text-[31px] leading-[43px]  tracking-[0.02em] mb-[35px]">
+              <div className="font-semibold text-[28px] lg:text-[31px] leading-[36px] lg:leading-[43px]  tracking-[0.02em] mb-[35px]">
                 <div dangerouslySetInnerHTML={{ __html: data?.title }} />
               </div>
-              <p className="text-[22px] leading-[32px] tracking-[0.02em] mb-[55px]">
+              <p className="text-[18px] lg:text-[22px] leading-[28px] lg:leading-[32px] tracking-[0.02em] mb-[40px] lg:mb-[55px]">
                 <span dangerouslySetInnerHTML={{ __html: data?.description }} />
               </p>
-              <div className="read-more">
+              <div className="read-more flex justify-center lg:justify-start">
                 <Button title="Discover Open cloud" />
               </div>
             </div>

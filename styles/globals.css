@@ -13,6 +13,10 @@
     @apply transition ease-in-out duration-300 hover:text-primary;
   }
 
+  br {
+    @apply hidden lg:block;
+  }
+
   input,
   button,
   select,

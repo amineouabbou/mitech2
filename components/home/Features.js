@@ -7,12 +7,12 @@ import Button from '../html/Button'
 
 const Features = ({ data }) => {
   return (
-    <section className="bg-[#f3f4f6] md:py-[65px]">
+    <section className="bg-[#f3f4f6] py-[60px] lg:py-[65px]">
       <div className="container mx-auto">
         {data.featuredListRep.map((item, index) => {
           return (
             <div key={index}>
-              <div className="text-[28px] leading-[48px] text-center mb-[45px]">
+              <div className="text-[25px] lg:text-[28px] leading-[32px] lg:leading-[48px] text-center mb-[45px]">
                 <span dangerouslySetInnerHTML={{ __html: item.title }} />
               </div>
 
@@ -21,7 +21,7 @@ const Features = ({ data }) => {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true }}
-                className="md:grid md:grid-cols-3 gap-x-[20px] gap-y-[30px] mb-[45px]"
+                className="grid lg:grid-cols-3 lg:gap-x-[20px] gap-y-[13px] lg:gap-y-[30px] mb-[45px]"
               >
                 {item.listeRep.map((item, index) => (
                   <Horizontalbox

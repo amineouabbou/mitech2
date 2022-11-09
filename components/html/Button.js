@@ -27,16 +27,18 @@ const Button = ({ title, lowercase, type, size, largeur, color, url }) => {
     <div className="button">
       <Link href={url ? url : '/'}>
         <a
-          className={`${lowercase ? '' : 'uppercase tracking-[0.1em]'} ${
+          className={`${
+            lowercase ? '' : 'uppercase tracking-[0.07em] lg:tracking-[0.1em]'
+          } ${
             size === 'large'
               ? 'h-[60px] font-bold text-[17px]'
-              : 'h-[48px] font-semibold text-[14px]'
+              : 'h-[48px] font-semibold lg:text-[14px]'
           } text-white ${
             color === 'blue'
               ? 'bg-secondary hover:bg-primary hover:text-white'
               : 'bg-primary hover:bg-secondary hover:text-white'
           } ${
-            largeur === 'small' ? ' px-[28px]' : 'px-[45px]'
+            largeur === 'small' ? ' px-[28px]' : 'px-[30px] lg:px-[45px]'
           } inline-block leading-[48px]  rounded-[30px]  duration-500`}
           href="#"
         >

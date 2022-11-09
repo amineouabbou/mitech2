@@ -6,9 +6,9 @@ import { titesStagger } from '../../data/useVariants'
 
 const Whymitech = ({ data }) => {
   return (
-    <section className="bg-[#f3f4f6] md:py-[50px]">
+    <section className="bg-[#f3f4f6] py-[60px] lg:py-[50px]">
       <div className="container mx-auto md:max-w-[985px]">
-        <h2 className="text-center text-[39px] leading-[50px] font-medium mb-[55px]">
+        <h2 className="text-center text-[31px] leading-[40px] lg:text-[39px] lg:leading-[50px] font-medium mb-[55px]">
           {data?.title}
         </h2>
 
@@ -17,7 +17,7 @@ const Whymitech = ({ data }) => {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="md:grid md:grid-cols-3 gap-x-[22px] gap-y-[22px]"
+          className="grid lg:grid-cols-3 gap-x-[22px] gap-y-[15px] lg:gap-y-[22px]"
         >
           {data?.advantagesListRep.map((item, index) => (
             <Vericalbox

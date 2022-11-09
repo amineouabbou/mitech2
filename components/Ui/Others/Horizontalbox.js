@@ -10,7 +10,7 @@ const Horizontalbox = ({ icon, title, size }) => {
       className="bg-white rounded-[10px] px-[20px] py-[18px] drop-shadow-[1px_1px_18px_rgba(0,0,0,0.07)]"
     >
       <div className="flex items-center">
-        <div className="ball h-[87px] w-[87px] bg-[#f3f4f6] rounded-full flex flex-col justify-center items-center">
+        <div className="ball h-[67px] lg:h-[87px] w-[67px] lg:w-[87px] bg-[#f3f4f6] rounded-full flex flex-col justify-center items-center">
           <div
             className={`relative ${
               size === 'small' ? `h-[45%] w-[45%]` : 'h-[65%] w-[65%]'
@@ -19,7 +19,7 @@ const Horizontalbox = ({ icon, title, size }) => {
             <Image src={icon} alt="" layout="fill" />
           </div>
         </div>
-        <div className="text-[19px] font-medium grow text-center px-[10px]">
+        <div className="text-[16px] lg:text-[19px] font-medium grow text-center px-[5px] lg:px-[10px]">
           {title}
         </div>
       </div>
