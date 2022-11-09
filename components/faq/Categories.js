@@ -6,20 +6,20 @@ import slugify from 'slugify'
 const Categories = ({ data }) => {
   const router = useRouter()
   return (
-    <div className="mt-[42px]">
-      <ul className="flex items-center gap-x-[3px]">
-        <li key="all">
+    <div className="mt-[42px] overflow-x-scroll lg:overflow-hidden">
+      <ul className="flex lg:items-center gap-x-[3px]">
+        <li key="all" className="flex grow">
           <Link href="/faq">
-            <a className="text-[16.6px] rounded-t-[5px] bg-white flex flex-col items-center justify-center h-[66px] px-[25px]">
+            <a className="lg:text-[16.6px] rounded-t-[5px] bg-white flex flex-col items-center justify-center lg:h-[66px] py-[10px] leading-tight  lg:py-0 px-[25px]">
               <span>All</span>
             </a>
           </Link>
         </li>
         {data.map((item) => (
-          <li key={item.category} className="grow">
+          <li key={item.category} className="flex grow">
             <Link href={`/faq/${slugify(item.category, { lower: true })}`}>
               <a
-                className={`text-[16.6px] rounded-t-[5px] bg-white flex flex-col items-center justify-center h-[66px] px-[25px] ${
+                className={`lg:text-[16.6px] rounded-t-[5px] bg-white flex flex-col items-center justify-center lg:h-[66px] py-[10px] leading-tight lg:py-0 px-[25px] ${
                   router.asPath ==
                   `/faq/${slugify(item.category, { lower: true })}`
                     ? 'active text-primary'
