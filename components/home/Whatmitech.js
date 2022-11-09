@@ -5,7 +5,7 @@ import Image from 'next/image'
 const Whatmitech = ({ data }) => {
   const { title, description, shema, schemaMobile } = data
   return (
-    <section className="what-mitech bg-white py-[60px] lg:pt-[85px] lg:pb-[45px]">
+    <section className="what-mitech bg-[#fcfcfc] py-[60px] lg:pt-[85px] lg:pb-[45px]">
       <div className="container mx-auto max-w-[1010px]">
         <h2 className="text-[27px] leading-[30px] lg:leading-normal lg:text-[42px] mb-[30px] text-center">
           {title}
@@ -19,7 +19,7 @@ const Whatmitech = ({ data }) => {
           <div className="hidden lg:block">
             <Image src={shema?.mediaItemUrl} width="945" height="424" alt="" />
           </div>
-          <div className="md:hidden relative w-full h-[760px]">
+          <div className="md:hidden relative w-full h-[910px]">
             <Image
               src={schemaMobile?.mediaItemUrl}
               alt=""

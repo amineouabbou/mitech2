@@ -9,7 +9,7 @@ const Frontbrand = ({ data }) => {
         <div className="flex">
           <div className="md:w-3/5 flex flex-col justify-end md:pl-[40px]">
             <div className="bloc text-[#242e5e] md:pb-[60px] relative">
-              <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain  absolute right-0 left-0 translate-x-[7px] mx-auto -top-[404px] bg-[center_bottom_-120px] bg-no-repeat"></div>
+              <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain  absolute right-0 left-0 translate-x-[7px] mx-auto -top-[404px] bg-[center_bottom_-120px] bg-no-repeat hidden lg:block"></div>
               <div className="font-medium text-[15px] lg:text-[17px] tracking-[0.18em] text-primary uppercase mb-[15px]">
                 {data?.subTitle}
               </div>
@@ -28,7 +28,7 @@ const Frontbrand = ({ data }) => {
             <div className="relative md:w-[319px] md:h-[610px]">
               <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[65px] w-[245px] rounded-[10px] absolute -left-[148px] top-[180px] z-10 flex flex-col justify-center items-center">
                 <div className="ball bg-primary rounded-full h-[9px] w-[9px] absolute left-[15px] top-auto bottom-auto"></div>
-                <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain absolute left-[18px] bottom-[calc(100%_-_23px)] hidden lg:block"></div>
+                <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain absolute left-[18px] bottom-[calc(100%_-_23px)]"></div>
                 <div>
                   <Image
                     src="/logos/front-brand-gray.svg"
