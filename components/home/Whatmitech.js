@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 const Whatmitech = ({ data }) => {
-  const { title, description, shema } = data
+  const { title, description, shema, schemaMobile } = data
   return (
     <section className="what-mitech bg-white py-[60px] lg:pt-[85px] lg:pb-[45px]">
       <div className="container mx-auto max-w-[1010px]">
@@ -16,8 +16,16 @@ const Whatmitech = ({ data }) => {
         />
 
         <motion.div className="schema flex flex-col items-center">
-          <div>
+          <div className="hidden lg:block">
             <Image src={shema?.mediaItemUrl} width="945" height="424" alt="" />
+          </div>
+          <div className="md:hidden relative w-full h-[760px]">
+            <Image
+              src={schemaMobile?.mediaItemUrl}
+              alt=""
+              layout="fill"
+              objectFit="contain"
+            />
           </div>
         </motion.div>
       </div>

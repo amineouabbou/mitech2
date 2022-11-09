@@ -23,6 +23,9 @@ export const GET_HOME = gql`
               shema {
                 mediaItemUrl
               }
+              schemaMobile {
+                mediaItemUrl
+              }
             }
             ... on Page_Acfpage_AcfFlex_FrontBrandSolution {
               fieldGroupName

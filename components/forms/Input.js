@@ -9,7 +9,7 @@ const Input = ({ name, register, errors, placeholder, required, label }) => {
         </label>
         <input
           type="text"
-          className={`bg-[#f4f5f6] rounded-[80px] h-[44px] w-full px-[25px] py-[5px] text-[14px] tracking-[0.04em] text-[#969696] ${
+          className={`bg-[#f4f5f6] rounded-[80px] h-[44px] w-full px-[25px] py-[5px] lg:text-[14px] tracking-[0.04em] text-[#969696] ${
             errors[name] ? `border-[1px] border-red-500` : ``
           }`}
           placeholder={placeholder}

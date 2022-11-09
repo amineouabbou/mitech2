@@ -15,9 +15,9 @@ const Mtos = ({ data }) => {
         </p>
 
         <div
-          className={`box bg-white border-[#e4e6ec] px-[20px] lg:px-[50px] border-[1px] py-[34px] md:flex`}
+          className={`box bg-white border-[#e4e6ec] lg:px-[50px] border-[1px] lg:py-[34px] md:flex`}
         >
-          <div className="col md:flex">
+          <div className="col hidden lg:flex">
             <div className="bloc flex grow flex-col items-center">
               <div className="text-[19px] text-primary font-medium tracking-[0.04em]">
                 Diaspora
@@ -41,7 +41,7 @@ const Mtos = ({ data }) => {
             {data?.blocsListRep.map((item, index) => (
               <div
                 key={index}
-                className={`bloc lg:min-w-[315px] lg:max-w-[315px] mb-[50px] lg:mb-0 last:mb-0 ${
+                className={`bloc lg:min-w-[315px] lg:max-w-[315px] px-[20px] py-[30px] lg:p-0  border-[#e4e6ec] border-b-[1px] last:border-0 ${
                   index === 1 ? 'ml-auto' : 'text-[#7f7f90]'
                 }`}
               >
@@ -55,7 +55,7 @@ const Mtos = ({ data }) => {
                     />
                   </div>
                   <div
-                    className="uppercase leading-[28px] text-[22px] tracking-[0.04em]"
+                    className="uppercase lg:leading-[28px] text-[20px] lg:text-[22px] tracking-[0.04em] br-show"
                     dangerouslySetInnerHTML={{
                       __html: item?.titleGroup?.title,
                     }}
@@ -78,7 +78,7 @@ const Mtos = ({ data }) => {
                 </ul>
                 <div className="flex items-center justify-center pt-[35px]">
                   <div
-                    className="uppercase text-center leading-[28px] text-[22px] tracking-[0.04em]"
+                    className="uppercase text-center text-[20px] lg:leading-[28px]  lg:text-[22px] tracking-[0.04em] br-show"
                     dangerouslySetInnerHTML={{
                       __html: item?.bottomText,
                     }}

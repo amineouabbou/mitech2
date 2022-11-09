@@ -13,7 +13,7 @@
     @apply transition ease-in-out duration-300 hover:text-primary;
   }
 
-  br {
+  br:not(.br-show br) {
     @apply hidden lg:block;
   }
 

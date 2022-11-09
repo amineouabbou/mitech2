@@ -44,12 +44,12 @@ export default function Contact() {
       ></Heroinner>
 
       <div className="container mx-auto max-w-[1030px] ">
-        <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] p-[65px] relative z-10 -mt-[125px]">
+        <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] p-[20px] lg:p-[65px] relative z-10 -mt-[70px] lg:-mt-[125px]">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="px-[25px] mt-[15px]"
+            className="lg:px-[25px] mt-[15px]"
           >
-            <div className="grid grid-cols-2 gap-x-[58px] gap-y-[20px] mb-[55px]">
+            <div className="grid lg:grid-cols-2 lg:gap-x-[58px] gap-y-[20px] mb-[30px] lg:mb-[55px]">
               <Input
                 name="firstName"
                 label="First name"
@@ -125,7 +125,7 @@ export default function Contact() {
               required="true"
             />
 
-            <div className="mb-[60px]">
+            <div className="mb-[30px] lg:mb-[60px]">
               <Checkbox
                 name="interests_1"
                 label="We are interested in building our own remittance brand through
@@ -149,7 +149,7 @@ export default function Contact() {
               required="true"
             />
 
-            <div className="mb-[45px]">
+            <div className="mb-[30px] lg:mb-[45px]">
               <Textarea
                 name="message"
                 label=""
@@ -159,7 +159,7 @@ export default function Contact() {
               />
             </div>
 
-            <div className="mb-[60px]">
+            <div className="mb-[30px] lg:mb-[60px]">
               <Checkbox
                 name="newsletter"
                 label="I agree to receive mitech communication related to my request "

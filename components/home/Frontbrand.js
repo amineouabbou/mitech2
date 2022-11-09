@@ -28,7 +28,7 @@ const Frontbrand = ({ data }) => {
             <div className="relative md:w-[319px] md:h-[610px]">
               <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[65px] w-[245px] rounded-[10px] absolute -left-[148px] top-[180px] z-10 flex flex-col justify-center items-center">
                 <div className="ball bg-primary rounded-full h-[9px] w-[9px] absolute left-[15px] top-auto bottom-auto"></div>
-                <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain absolute left-[18px] bottom-[calc(100%_-_23px)]"></div>
+                <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain absolute left-[18px] bottom-[calc(100%_-_23px)] hidden lg:block"></div>
                 <div>
                   <Image
                     src="/logos/front-brand-gray.svg"

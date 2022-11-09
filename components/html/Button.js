@@ -8,7 +8,7 @@ const Button = ({ title, lowercase, type, size, largeur, color, url }) => {
         type="submit"
         className={`${lowercase ? '' : 'uppercase tracking-[0.1em]'} ${
           size === 'large'
-            ? 'h-[60px] font-bold text-[17px]'
+            ? 'lg:h-[60px] font-bold lg:text-[17px]'
             : 'h-[48px] font-semibold text-[14px]'
         } text-white ${
           color === 'blue'
@@ -31,7 +31,7 @@ const Button = ({ title, lowercase, type, size, largeur, color, url }) => {
             lowercase ? '' : 'uppercase tracking-[0.07em] lg:tracking-[0.1em]'
           } ${
             size === 'large'
-              ? 'h-[60px] font-bold text-[17px]'
+              ? 'h-[60px] font-bold lg:text-[17px]'
               : 'h-[48px] font-semibold lg:text-[14px]'
           } text-white ${
             color === 'blue'

@@ -29,7 +29,7 @@ export default function Featured({ data }) {
         description={pagesHero?.intro}
       />
       <div className="container mx-auto max-w-[1030px]">
-        <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.1)] -mt-[125px] p-[50px]">
+        <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] p-[20px] lg:p-[65px] relative z-10 -mt-[70px] lg:-mt-[125px]">
           {acfFlex.map((item, index) => {
             if (
               item.fieldGroupName === 'Page_Acfpage_AcfFlex_FeaturesDetailed'
@@ -48,9 +48,8 @@ export default function Featured({ data }) {
             }
           })}
         </main>
-        <div className="md:mt-[75px] md:mb-[60px]">
-          <Faqbanner />
-        </div>
+      </div>
+      <div className="my-[40px] md:mt-[75px] md:mb-[60px]">
         <Getintouch />
       </div>
       <Footer />

@@ -7,6 +7,7 @@ const nextConfig = {
   images: {
     domains: ['localhost', 'moneyinternational.be'],
   },
+  experimental: { images: { allowFutureImage: true } },
   i18n,
 }
 
