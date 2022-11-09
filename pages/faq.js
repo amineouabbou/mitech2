@@ -13,6 +13,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getPageData } from '../utils'
 import { GET_FAQ } from '../queries'
 import Faqgroup from '../components/faq/Faqgroup'
+import Getintouch from '../components/Ui/Getintouch'
 
 export default function Faq({ data }) {
   const {
@@ -53,6 +54,11 @@ export default function Faq({ data }) {
           })}
         </main>
       </div>
+
+      <div className="md:mt-[75px] md:mb-[60px]">
+        <Getintouch />
+      </div>
+
       <Footer />
     </Layout>
   )

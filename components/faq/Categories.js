@@ -15,7 +15,7 @@ const Categories = ({ data }) => {
           </Link>
         </li>
         {data.map((item) => (
-          <li key={item.category}>
+          <li key={item.category} className="grow">
             <Link href={`/faq/${item.category.toLowerCase()}`}>
               <a
                 className={`text-[16.6px] rounded-t-[5px] bg-white flex flex-col items-center justify-center h-[66px] px-[25px] ${
