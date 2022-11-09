@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
+import slugify from 'slugify'
 
 const Categories = ({ data }) => {
   const router = useRouter()
@@ -16,10 +17,11 @@ const Categories = ({ data }) => {
         </li>
         {data.map((item) => (
           <li key={item.category} className="grow">
-            <Link href={`/faq/${item.category.toLowerCase()}`}>
+            <Link href={`/faq/${slugify(item.category, { lower: true })}`}>
               <a
                 className={`text-[16.6px] rounded-t-[5px] bg-white flex flex-col items-center justify-center h-[66px] px-[25px] ${
-                  router.asPath == `/faq/${item.category.toLowerCase()}`
+                  router.asPath ==
+                  `/faq/${slugify(item.category, { lower: true })}`
                     ? 'active text-primary'
                     : ''
                 }`}

@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react'
 import { useRouter } from 'next/router'
+import slugify from 'slugify'
 
 import SEO from '../../components/SEO'
 import Layout from '../../components/Ui/Layout'
@@ -49,7 +50,7 @@ export default function Faq({ data }) {
             if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Faq') {
               return item?.listCategoriesRep
                 .filter((item) => {
-                  return item.category.toLowerCase().includes(slug)
+                  return slugify(item.category, { lower: true }).includes(slug)
                 })
                 .map((item, index) => <Faqgroup key={index} data={item} />)
             }

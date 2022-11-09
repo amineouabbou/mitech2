@@ -27,6 +27,7 @@
     "react-tabs": "^5.1.0",
     "react-youtube": "^9.0.3",
     "slick-carousel": "^1.8.1",
+    "slugify": "^1.6.5",
     "yup": "^0.32.11"
   },
   "devDependencies": {
