@@ -16,6 +16,7 @@ import Faqgroup from '../components/faq/Faqgroup'
 import Getintouch from '../components/Ui/Getintouch'
 
 export default function Faq({ data }) {
+  console.log(data)
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
@@ -64,7 +65,7 @@ export default function Faq({ data }) {
   )
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   const data = await getPageData(GET_FAQ, 168, locale)
 
   return {

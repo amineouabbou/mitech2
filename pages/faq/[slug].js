@@ -69,7 +69,22 @@ export default function Faq({ data }) {
   )
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticPaths({ locale }) {
+  const data = await getPageData(GET_FAQ, 168, locale)
+
+  const paths = data.page.translation.ACFPage.acfFlex[0].listCategoriesRep.map(
+    (item) => {
+      return { params: { slug: slugify(item.category, { lower: true }) } }
+    }
+  )
+
+  return {
+    paths,
+    fallback: false, // can also be true or 'blocking'
+  }
+}
+
+export async function getStaticProps({ locale }) {
   const data = await getPageData(GET_FAQ, 168, locale)
 
   return {

@@ -68,7 +68,7 @@ export default function Home({ data }) {
   )
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   const data = await getPageData(GET_HOME, 7, locale)
 
   return {

@@ -57,7 +57,7 @@ export default function Featured({ data }) {
   )
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   const data = await getPageData(GET_FEATURES, 9, locale)
 
   return {
