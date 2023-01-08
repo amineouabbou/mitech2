@@ -5,12 +5,8 @@ const Largebox = ({ icon, title, description, size }) => {
   return (
     <>
       <div className="flex flex-col lg:flex-row items-center lg:px-[20px] mb-[50px] lg:mb-[60px] first:mt-[40px]">
-        <div className="ball min-w-[87px] h-[87px] w-[87px] rounded-full flex flex-col justify-center items-center">
-          <div
-            className={`${
-              size === 'small' ? `h-[63%] w-[63%]` : 'h-[80%] w-[80%]'
-            } relative mb-[20px] lg:mb-0`}
-          >
+        <div className="ball min-w-[100px] h-[100px] w-[100px] rounded-full flex flex-col justify-center items-center">
+          <div className={`h-[100%] w-[100%] relative mb-[20px] lg:mb-0`}>
             <Image src={icon} alt="" layout="fill" />
           </div>
         </div>

@@ -23,4 +23,25 @@
   textarea {
     @apply focus:outline-none;
   }
+
+  .hero-subtitle,
+  .bloc-Solution-pres {
+    & strong {
+      @apply font-semibold;
+    }
+  }
+
+  .solution-sec-title {
+    & strong {
+      @apply font-medium;
+    }
+  }
+
+  .has-ul-dots-gray {
+    & ul {
+      & li {
+        @apply pl-[25px] relative before:content-[''] before:block before:h-[9px] before:w-[9px] before:rounded-full before:bg-[#7b86a2] before:absolute before:left-0 before:top-0 before:bottom-0 before:my-auto;
+      }
+    }
+  }
 }

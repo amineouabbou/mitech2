@@ -22,8 +22,8 @@ const Whymitech = ({ data }) => {
           {data?.advantagesListRep.map((item, index) => (
             <Vericalbox
               key={index}
-              icone={item?.icone?.mediaItemUrl}
-              title={item?.label}
+              icone={{ url: item?.icone?.mediaItemUrl }}
+              title={{ title: item?.label }}
               description={item?.description}
             />
           ))}

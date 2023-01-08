@@ -5,6 +5,10 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    maxWidth: {
+      1190: '1190px',
+      1560: '1560px',
+    },
     extend: {
       screens: {
         mb: { max: '767px' },
@@ -13,8 +17,10 @@ module.exports = {
         primary: '#ff6600',
         secondary: '#18193c',
         textcolor: '#18193c',
+        lightblue: '#737483',
       },
       container: {
+        center: true,
         padding: {
           DEFAULT: '1rem',
         },

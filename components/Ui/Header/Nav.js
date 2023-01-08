@@ -27,7 +27,7 @@ const MENU = [
   },
   {
     label: 'About mitech',
-    path: '/about-mitech',
+    path: '/about',
   },
   {
     label: 'FAQ',

@@ -26,9 +26,8 @@ export default function Faq({ data }) {
   } = data.page.translation
 
   return (
-    <Layout>
+    <>
       <SEO />
-      <Header />
       <Heroinner
         isFaq="true"
         title={pageTitle}
@@ -63,9 +62,7 @@ export default function Faq({ data }) {
       <div className="md:mt-[75px] md:mb-[60px]">
         <Getintouch />
       </div>
-
-      <Footer />
-    </Layout>
+    </>
   )
 }
 

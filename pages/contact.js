@@ -1,20 +1,18 @@
 import React from 'react'
-import { motion } from 'framer-motion'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 
 import SEO from '../components/SEO'
-import Layout from '../components/Ui/Layout'
-import Header from '../components/Ui/Header'
-import Footer from '../components/Ui/Footer'
-import Heroinner from '../components/Ui/Heroinner'
 import Select from '../components/forms/Select'
 import Input from '../components/forms/Input'
-import Title from '../components/forms/Title'
+import InputTitle from '../components/forms/InputTitle'
 import Checkbox from '../components/forms/Checkbox'
 import Textarea from '../components/forms/Textarea'
 import Submit from '../components/html/Submit'
+import HeroinnerSimple from '../components/Ui/HeroinnerSimple'
+import SubTitle from '../components/Ui/Heroinner/SubTitle'
+import Title from '../components/Ui/Heroinner/Title'
 
 const schema = yup
   .object({
@@ -34,14 +32,15 @@ export default function Contact() {
   const onSubmit = (data) => console.log(data)
 
   return (
-    <Layout>
+    <>
       <SEO />
-      <Header />
-      <Heroinner
-        title="Contact us"
-        subtitle="You want to develop you cross border remittance offer ?"
-        description="Contact us and our team will get back to you in the best delays "
-      ></Heroinner>
+      <HeroinnerSimple
+        title={<Title title="Contact us" />}
+        subtitle={
+          <SubTitle subtitle="You want to develop you cross border remittance offer ?" />
+        }
+        description="Contact us and our team will get back to you in the best delays"
+      />
 
       <div className="container mx-auto max-w-[1030px] ">
         <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] py-[40px] px-[20px] lg:p-[65px] relative z-10 -mt-[70px] lg:-mt-[125px]">
@@ -120,7 +119,7 @@ export default function Contact() {
               />
             </div>
 
-            <Title
+            <InputTitle
               title="What are your main interest with mitech solutions ?"
               required="true"
             />
@@ -144,7 +143,7 @@ export default function Contact() {
               />
             </div>
 
-            <Title
+            <InputTitle
               title="Tell us more about your projects and how mitech can help you realize them ?"
               required="true"
             />
@@ -181,7 +180,6 @@ export default function Contact() {
           </form>
         </main>
       </div>
-      <Footer />
-    </Layout>
+    </>
   )
 }

@@ -2,9 +2,6 @@ import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import SEO from '../components/SEO'
-import Layout from '../components/Ui/Layout'
-import Header from '../components/Ui/Header'
-import Footer from '../components/Ui/Footer'
 import Hero from '../components/Ui/Hero'
 import Whatmitech from '../components/home/Whatmitech'
 import Frontbrand from '../components/home/Frontbrand'
@@ -16,15 +13,15 @@ import Mtos from '../components/home/Mtos'
 import Diaspocentric from '../components/home/Diaspocentric'
 import { getPageData } from '../utils'
 import { GET_HOME } from '../queries'
+import Getintouch from '../components/Ui/Getintouch'
 
 export default function Home({ data }) {
   const {
     ACFPage: { acfFlex },
   } = data.page.translation
   return (
-    <Layout>
+    <>
       <SEO />
-      <Header />
       {acfFlex.map((item, index) => {
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Hero') {
           return <Hero data={item} key={index} />
@@ -62,9 +59,8 @@ export default function Home({ data }) {
           return <Diaspocentric key={index} data={item} />
         }
       })}
-
-      <Footer />
-    </Layout>
+      <Getintouch className="mt-[80px] lg:mt-[150px]" />
+    </>
   )
 }
 

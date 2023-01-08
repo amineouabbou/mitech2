@@ -1,16 +1,13 @@
-import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import SEO from '../components/SEO'
-import Layout from '../components/Ui/Layout'
-import Header from '../components/Ui/Header'
-import Footer from '../components/Ui/Footer'
 import Largebox from '../components/features/Largebox'
-import Heroinner from '../components/Ui/Heroinner'
 import Getintouch from '../components/Ui/Getintouch'
-import Faqbanner from '../components/faq/Faqbanner'
 import { GET_FEATURES } from '../queries'
 import { getPageData } from '../utils'
+import Title from '../components/Ui/Heroinner/Title'
+import SubTitle from '../components/Ui/Heroinner/SubTitle'
+import HeroinnerSimple from '../components/Ui/HeroinnerSimple'
 
 export default function Featured({ data }) {
   const {
@@ -20,14 +17,14 @@ export default function Featured({ data }) {
   } = data.page.translation
 
   return (
-    <Layout>
+    <>
       <SEO />
-      <Header />
-      <Heroinner
-        title={pageTitle}
-        subtitle={pagesHero?.subTitle}
+      <HeroinnerSimple
+        title={<Title title={pageTitle} />}
+        subtitle={<SubTitle subtitle={pagesHero?.subTitle} />}
         description={pagesHero?.intro}
       />
+
       <div className="container mx-auto max-w-[1030px]">
         <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] p-[20px] lg:p-[65px] relative z-10 -mt-[70px] lg:-mt-[125px]">
           {acfFlex.map((item, index) => {
@@ -49,11 +46,8 @@ export default function Featured({ data }) {
           })}
         </main>
       </div>
-      <div className="my-[40px] md:mt-[75px] md:mb-[60px]">
-        <Getintouch />
-      </div>
-      <Footer />
-    </Layout>
+      <Getintouch className="my-[40px] md:mt-[75px] md:mb-[60px]" />
+    </>
   )
 }
 

@@ -67,10 +67,6 @@ const Diaspocentric = ({ data }) => {
             </div>
           </div>
         </div>
-
-        <div className="mt-[80px] lg:mt-[150px]">
-          <Getintouch />
-        </div>
       </section>
     </>
   )

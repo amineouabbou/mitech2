@@ -913,7 +913,7 @@
   "resolved" "https://registry.npmjs.org/classnames/-/classnames-2.3.1.tgz"
   "version" "2.3.1"
 
-"clsx@^1.1.0":
+"clsx@^1.1.0", "clsx@^1.2.1":
   "integrity" "sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg=="
   "resolved" "https://registry.npmjs.org/clsx/-/clsx-1.2.1.tgz"
   "version" "1.2.1"
@@ -2411,10 +2411,10 @@
   dependencies:
     "postcss-selector-parser" "^6.0.6"
 
-"postcss-nesting@^10.1.10":
-  "integrity" "sha512-lqd7LXCq0gWc0wKXtoKDru5wEUNjm3OryLVNRZ8OnW8km6fSNUuFrjEhU3nklxXE2jvd4qrox566acgh+xQt8w=="
-  "resolved" "https://registry.npmjs.org/postcss-nesting/-/postcss-nesting-10.1.10.tgz"
-  "version" "10.1.10"
+"postcss-nesting@^10.2.0":
+  "integrity" "sha512-EwMkYchxiDiKUhlJGzWsD9b2zvq/r2SSubcRrgP+jujMXFzqvANLt16lJANC+5uZ6hjI7lpRmI6O8JIl+8l1KA=="
+  "resolved" "https://registry.npmjs.org/postcss-nesting/-/postcss-nesting-10.2.0.tgz"
+  "version" "10.2.0"
   dependencies:
     "@csstools/selector-specificity" "^2.0.0"
     "postcss-selector-parser" "^6.0.10"
@@ -2824,6 +2824,11 @@
   "integrity" "sha512-b19dMThMV4HVFynSAM1++gBHAbk2Tc/osgLIBZMKsyqh34jb2e8Os7T6ZW/Bt3pJFdBTd2JwAnAAEQV7rSNvcQ=="
   "resolved" "https://registry.npmjs.org/symbol-observable/-/symbol-observable-4.0.0.tgz"
   "version" "4.0.0"
+
+"tailwind-merge@^1.8.1":
+  "integrity" "sha512-+fflfPxvHFr81hTJpQ3MIwtqgvefHZFUHFiIHpVIRXvG/nX9+gu2P7JNlFu2bfDMJ+uHhi/pUgzaYacMoXv+Ww=="
+  "resolved" "https://registry.npmjs.org/tailwind-merge/-/tailwind-merge-1.8.1.tgz"
+  "version" "1.8.1"
 
 "tailwindcss@^3.1.7":
   "integrity" "sha512-r7mgumZ3k0InfVPpGWcX8X/Ut4xBfv+1O/+C73ar/m01LxGVzWvPxF/w6xIUPEztrCoz7axfx0SMdh8FH8ZvRQ=="
