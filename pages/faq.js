@@ -3,7 +3,6 @@ import Layout from '../components/Ui/Layout'
 import Header from '../components/Ui/Header'
 import Footer from '../components/Ui/Footer'
 import { shortFadeUp, titesStagger } from '../data/useVariants'
-import Heroinner from '../components/Ui/HeroinnerSimple'
 import Categories from '../components/faq/Categories'
 import Question from '../components/faq/Question'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -15,9 +14,9 @@ import Title from '../components/Ui/Heroinner/Title'
 import SubTitle from '../components/Ui/Heroinner/SubTitle'
 import FaqHeroBloc from '../components/faq/FaqHeroBloc'
 import Description from '../components/Ui/Heroinner/Description'
+import HeroinnerSimple from '../components/Ui/HeroinnerSimple'
 
 export default function Faq({ data }) {
-  console.log(data)
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
@@ -27,7 +26,7 @@ export default function Faq({ data }) {
   return (
     <>
       <SEO />
-      <Heroinner
+      <HeroinnerSimple
         title={<Title title={pageTitle} />}
         subtitle={<SubTitle subtitle={pagesHero?.subTitle} />}
         description={<Description description={pagesHero?.intro} />}
