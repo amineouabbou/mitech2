@@ -5,7 +5,7 @@ import Button from '../html/Button'
 const Getintouch = ({ className }) => {
   return (
     <section
-      className={twclsx('', {
+      className={twclsx('bg-white', {
         [`${className}`]: className,
       })}
     >

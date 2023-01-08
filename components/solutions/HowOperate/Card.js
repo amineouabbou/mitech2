@@ -5,7 +5,7 @@ import { twclsx } from '../../../libs/twclsx'
 const Card = ({ data }) => {
   return (
     <div className="bg-white p-[25px] drop-shadow-[1px_0px_18px_rgba(0,0,0,0.07)] rounded-[10px] relative">
-      <div className="hidden vertical-line w-[2px] h-[455px] absolute -top-[35px] my-auto -right-[28px] bg-cover bg-[url('/bgs/dashed-line-vertical.png')] bg-no-repeat"></div>
+      <div className="vertical-line w-[2px] h-[455px] absolute -top-[35px] my-auto -right-[28px] bg-contain bg-[url('/bgs/dashed-line-vertical.png')] bg-no-repeat"></div>
       <div className="w-0 h-0 border-x-[9.5px] border-t-[12px] border-b-0 border-x-transparent border-t-[#fff] border-b-transparent absolute -bottom-[12px] left-0 right-0 mx-auto"></div>
       <div className="icon flex flex-col justify-center items-center mb-[20px]">
         <div className="w-[75px] h-[75px] relative">

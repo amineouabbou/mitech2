@@ -26,6 +26,7 @@ import {
 } from '../components/solutions/DummyData'
 import TitleSolution from '../components/solutions/SolutionBlocs/TitleSolution'
 import List3cols from '../components/solutions/SolutionBlocs/List3cols'
+import PopIn from '../components/solutions/PopIn'
 
 const {
   data: { translation },
@@ -38,6 +39,16 @@ const {
           '<strong>Cross-border remittance</strong> solutions for your existing digital offer',
       },
     },
+  },
+}
+
+const DATA_FB_POP = {
+  title:
+    'You want to create an cross-border <br> remittance offer from scratch?',
+  logoImg: '/icons/fb-white-logo.svg',
+  link: {
+    label: 'Front Brand may suit your need',
+    url: '/front-brand',
   },
 }
 
@@ -94,7 +105,9 @@ export default function OpencloudPage() {
 
       <HowOperate data={HOW_OPERATE_DATA} />
 
-      <Getintouch className="bg-[#fafbfb] pt-[70px]" />
+      <Getintouch className="pt-[70px]" />
+
+      <PopIn data={DATA_FB_POP} />
     </>
   )
 }

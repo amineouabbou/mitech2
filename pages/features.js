@@ -25,7 +25,7 @@ export default function Featured({ data }) {
         description={pagesHero?.intro}
       />
 
-      <div className="container mx-auto max-w-[1030px]">
+      <div className="container mx-auto">
         <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] p-[20px] lg:p-[65px] relative z-10 -mt-[70px] lg:-mt-[125px]">
           {acfFlex.map((item, index) => {
             if (

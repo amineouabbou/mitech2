@@ -6,9 +6,9 @@ import slugify from 'slugify'
 const Categories = ({ data }) => {
   const router = useRouter()
   return (
-    <div className="mt-[42px] overflow-x-scroll lg:overflow-hidden">
-      <ul className="flex lg:items-center gap-x-[3px]">
-        <li key="all" className="flex grow">
+    <div className="mt-[42px] overflow-x-scroll lg:overflow-hidden w-full">
+      <ul className="flex justify-between gap-x-[3px]">
+        <li key="all">
           <Link href="/faq">
             <a className="lg:text-[16.6px] rounded-t-[5px] bg-white flex flex-col items-center justify-center lg:h-[66px] py-[10px] leading-tight  lg:py-0 px-[25px]">
               <span>All</span>
@@ -16,7 +16,7 @@ const Categories = ({ data }) => {
           </Link>
         </li>
         {data.map((item) => (
-          <li key={item.category} className="flex grow">
+          <li key={item.category} className="grow">
             <Link href={`/faq/${slugify(item.category, { lower: true })}`}>
               <a
                 className={`lg:text-[16.6px] rounded-t-[5px] bg-white flex flex-col items-center justify-center lg:h-[66px] py-[10px] leading-tight lg:py-0 px-[25px] ${

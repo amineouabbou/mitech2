@@ -10,7 +10,6 @@ import Nav from './Nav'
 import { useGlobalState } from '../../../providers/globalProvider'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
-import { twclsx } from '../../../libs/twclsx'
 
 const Header = () => {
   const { t } = useTranslation('common')
@@ -30,7 +29,7 @@ const Header = () => {
   }
 
   const handleScroll = () => {
-    if (window.scrollY > 30) {
+    if (window.scrollY > 90) {
       setSticky(true)
     } else {
       setSticky(false)
@@ -45,14 +44,9 @@ const Header = () => {
   return (
     <>
       <motion.div
-        className={twclsx(
-          'header ',
-          'py-[25px] md:py-[35px] fixed w-full top-0 z-30 transition-all duration-300',
-          {
-            'bg-white drop-shadow-[0px_0px_13.8px_rgba(0,0,0,0.04)] py-[25px] md:py-[25px]':
-              sticky,
-          }
-        )}
+        className={`header bg-white md:bg-transparent ${
+          sticky && `backdrop-blur-md bg-white md:py-[20px]`
+        } py-[25px] md:py-[35px] fixed w-full top-0 z-30 transition-all duration-300 drop-shadow-[0px_0px_13.8px_rgba(0,0,0,0.04)] md:drop-shadow-none`}
       >
         <motion.div
           initial={{ y: -10, opacity: 0 }}

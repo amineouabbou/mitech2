@@ -47,13 +47,13 @@ const Footer = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-2 gap-y-[30px] md:grid-cols-5 gap-x-[40px]">
             {DATA.map((item, index) => (
-              <div key={index} className="bloc">
+              <div key={index} className="bloc text-[15px]">
                 <h3 className="font-semibold leading-[23px] mb-[8px] md:mb-[25px]">
                   {item.title}
                 </h3>
                 <ul>
                   {item.links.map((item) => (
-                    <li key={item.link}>
+                    <li key={item.link} className="mb-[10px]">
                       <a href="#">{item.link}</a>
                     </li>
                   ))}
@@ -66,7 +66,7 @@ const Footer = () => {
                 Besion d’aide ?
               </h3>
               <ul>
-                <li>
+                <li className="mb-[8px]">
                   <a href="#">Consultez notre FAQ </a>
                 </li>
                 <li>

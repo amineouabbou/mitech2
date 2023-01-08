@@ -11,7 +11,7 @@ import Title from '../../components/Ui/Heroinner/Title'
 import SubTitle from '../../components/Ui/Heroinner/SubTitle'
 import Description from '../../components/Ui/Heroinner/Description'
 import FaqHeroBloc from '../../components/faq/FaqHeroBloc'
-import HeroinnerSimple from '../../components/Ui/HeroinnerSimple'
+import HeroFaq from '../../components/faq/HeroFaq'
 
 export default function Faq({ data }) {
   const router = useRouter()
@@ -25,15 +25,14 @@ export default function Faq({ data }) {
   return (
     <>
       <SEO />
-      <HeroinnerSimple
-        title={<Title title={pageTitle} />}
-        subtitle={<SubTitle subtitle={pagesHero?.subTitle} />}
-        description={<Description description={pagesHero?.intro} />}
-        childComp={<FaqHeroBloc data={acfFlex[0].listCategoriesRep} />}
-        hasBgBackground={true}
-      />
+      <HeroFaq>
+        <Title title={pageTitle} />
+        <SubTitle subtitle={pagesHero?.subTitle} />
+        <Description description={pagesHero?.intro} />
+        <FaqHeroBloc data={acfFlex[0].listCategoriesRep} />
+      </HeroFaq>
 
-      <div className="container px-0 lg:px-[1rem] mx-auto max-w-[1030px] ">
+      <div className="container px-0 lg:px-[1rem]">
         <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] py-[40px] px-[20px] lg:p-[65px] relative z-10">
           {acfFlex.map((item, index) => {
             if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Faq') {
