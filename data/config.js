@@ -2,9 +2,9 @@ const config = {
   defaultTitle: 'Mitech - MoneyInternational',
   url:
     process.env.NODE_ENV !== 'development'
-      ? process.env.NEXT_PUBLIC_SITE_URL
+      ? 'https://moneyinternational.be/'
       : 'http://localhost:8888/resamane',
-  apiUrl: 'https://api.residencesamane.ma',
+  apiUrl: 'https://moneyinternational.be/api/',
   defaultDescription: 'Mitech - MoneyInternational',
   googleAnalyticsID: 'G-PE8QW0ZGTZ2',
   GRAPHQL_URL:

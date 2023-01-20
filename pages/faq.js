@@ -51,7 +51,7 @@ export default function Faq({ data }) {
   )
 }
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_FAQ, 168, locale)
 
   return {
