@@ -52,7 +52,6 @@ export const GET_HOME = gql`
                 listeRep {
                   title
                   iconGroup {
-                    size
                     icone {
                       mediaItemUrl
                     }

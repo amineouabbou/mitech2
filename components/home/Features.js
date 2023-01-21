@@ -27,7 +27,6 @@ const Features = ({ data }) => {
                   <Horizontalbox
                     key={index}
                     icon={item.iconGroup?.icone?.mediaItemUrl}
-                    size={item.iconGroup?.size}
                     title={item.title}
                   />
                 ))}

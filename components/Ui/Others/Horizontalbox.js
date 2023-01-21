@@ -3,7 +3,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { titlesAnimation } from '../../../data/useVariants'
 
-const Horizontalbox = ({ icon, title, size }) => {
+const Horizontalbox = ({ icon, title }) => {
   return (
     <motion.div
       variants={titlesAnimation}
