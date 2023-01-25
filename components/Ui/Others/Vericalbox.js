@@ -26,7 +26,7 @@ const Vericalbox = ({ title, description, icone, align, className }) => {
           className={clsx(
             ' flex flex-col justify-center items-center relative',
             {
-              'w-[65px] h-[65px]': !icone.width,
+              'w-[75px] h-[75px]': !icone.width,
               [`${icone.width} ${icone.height}`]: icone.width && icone.height,
             }
           )}
