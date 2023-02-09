@@ -47,15 +47,21 @@ const transition = {
 }
 
 const Megamenu = () => {
-  const router = useRouter()
   const { changeMegaMenuOpened, megamenuOpened } = useGlobalState()
 
+  const router = useRouter()
+
   useEffect(() => {
-    if (megamenuOpened) {
+    const handleRouteChange = () => {
       changeMegaMenuOpened()
     }
-    console.log(megamenuOpened)
-  }, [megamenuOpened, changeMegaMenuOpened])
+
+    router.events.on('routeChangeComplete', handleRouteChange)
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router])
 
   return (
     <>
