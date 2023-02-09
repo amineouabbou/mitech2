@@ -1,6 +1,12 @@
 import Image from 'next/image'
 import { FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa'
-import Overlaybg from '../Others/Overlaybg'
+import dynamic from 'next/dynamic'
+import { useGlobalState } from '../../../providers/globalProvider'
+import { AnimatePresence } from 'framer-motion'
+
+const Overlaybg = dynamic(() => import('../Others/Overlaybg'), {
+  loading: () => 'Loading...',
+})
 
 const DATA = [
   {
@@ -41,6 +47,11 @@ const DATA = [
 ]
 
 const Footer = () => {
+  const {
+    state: { isMenuOpen },
+    megamenuOpened,
+  } = useGlobalState()
+
   return (
     <>
       <footer className="md:block py-[50px] md:pt-[85px] md:pb-[35px]">
@@ -121,7 +132,9 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <Overlaybg />
+      <AnimatePresence>
+        {(megamenuOpened || isMenuOpen) && <Overlaybg />}
+      </AnimatePresence>
     </>
   )
 }

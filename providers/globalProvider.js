@@ -8,6 +8,7 @@ const INITIAL_STATE = {
 
 const GlobalProvider = ({ children }) => {
   const [state, setState] = useState(INITIAL_STATE)
+  const [megamenuOpened, setMegamenuOpened] = useState(false)
 
   const handleMobileMenu = () => {
     setState((prevState) => ({
@@ -23,10 +24,16 @@ const GlobalProvider = ({ children }) => {
     }))
   }
 
+  const changeMegaMenuOpened = () => {
+    setMegamenuOpened((prev) => !prev)
+  }
+
   const values = {
     state,
     handleMobileMenu,
     closeMobileNav,
+    megamenuOpened,
+    changeMegaMenuOpened,
   }
 
   return <GlobalState.Provider value={values}>{children}</GlobalState.Provider>

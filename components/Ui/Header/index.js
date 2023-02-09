@@ -11,6 +11,10 @@ import { useGlobalState } from '../../../providers/globalProvider'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { twclsx } from '../../../libs/twclsx'
+import dynamic from 'next/dynamic'
+const Megamenu = dynamic(() => import('./megamenu'), {
+  loading: () => '',
+})
 
 const Header = () => {
   const { t } = useTranslation('common')
@@ -19,6 +23,7 @@ const Header = () => {
   const {
     state: { isMenuOpen },
     handleMobileMenu,
+    megamenuOpened,
   } = useGlobalState()
 
   const handleLocaleChange = (event) => {
@@ -50,6 +55,7 @@ const Header = () => {
           'py-[25px] md:py-[35px] fixed w-full top-0 z-30 transition-all duration-300 drop-shadow-[0px_0px_13.8px_rgba(0,0,0,0.04)] md:drop-shadow-none',
           {
             'backdrop-blur-md backdrop-brightness-100 md:py-[25px]': sticky,
+            ' md:bg-white duration-75': megamenuOpened,
           }
         )}
       >
@@ -119,14 +125,10 @@ const Header = () => {
             <div className="hidden md:block">
               <Languages />
             </div>
-
-            {/** 
-            <select onChange={handleLocaleChange} value={router.locale}>
-              <option value="en">🇺🇸 English</option>
-              <option value="fr">🇸🇪 Francais</option>
-            </select>*/}
           </div>
         </motion.div>
+
+        <AnimatePresence>{megamenuOpened && <Megamenu />}</AnimatePresence>
       </motion.div>
     </>
   )

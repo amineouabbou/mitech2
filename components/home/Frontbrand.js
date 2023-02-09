@@ -20,7 +20,7 @@ const Frontbrand = ({ data }) => {
                 <span dangerouslySetInnerHTML={{ __html: data?.description }} />
               </p>
               <div className="read-more flex justify-center lg:justify-start">
-                <Button title="Dicover Front Brand" />
+                <Button url="/front-brand" title="Dicover Front Brand" />
               </div>
             </div>
           </div>

@@ -40,7 +40,7 @@ const Opencloud = ({ data }) => {
                 <span dangerouslySetInnerHTML={{ __html: data?.description }} />
               </p>
               <div className="read-more flex justify-center lg:justify-start">
-                <Button title="Discover Open cloud" />
+                <Button url="/open-remit" title="Discover Open Remit" />
               </div>
             </div>
           </div>

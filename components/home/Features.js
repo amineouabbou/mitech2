@@ -43,7 +43,7 @@ const Features = ({ data }) => {
           viewport={{ once: true }}
           className="read-more flex flex-col items-center"
         >
-          <Button title="Discover more" />
+          <Button url="/features" title="Discover more" />
         </motion.div>
       </div>
     </section>
