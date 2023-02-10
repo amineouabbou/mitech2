@@ -50,7 +50,7 @@ const Nav = () => {
   return (
     <ul className="md:flex items-center">
       {MENU.map((item) => {
-        if (item.path === '/features') {
+        if (item.path === '/products') {
           return (
             <li
               onClick={handleOpenMegaMenu}
