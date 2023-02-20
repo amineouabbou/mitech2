@@ -43,10 +43,10 @@ const {
 const DATA_OC_POP = {
   title:
     'You want to create an cross-border <br> remittance offer from scratch?',
-  logoImg: '/icons/oc-white-logo.svg',
+  logoImg: '/logos/fb-white-logo.svg',
   link: {
     label: 'Front Brand may suit your need',
-    url: '/open-cloud',
+    url: '/open-remit',
   },
 }
 

@@ -45,7 +45,7 @@ const {
 const DATA_FB_POP = {
   title:
     'You want to create an cross-border <br> remittance offer from scratch?',
-  logoImg: '/icons/fb-white-logo.svg',
+  logoImg: '/logos/oc-white-logo.svg',
   link: {
     label: 'Front Brand may suit your need',
     url: '/front-brand',
