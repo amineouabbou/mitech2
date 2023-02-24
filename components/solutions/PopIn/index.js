@@ -14,7 +14,8 @@ const PopIn = ({ data }) => {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1, transition: { delay: 2 } }}
           transition={{ ease: globaleasing, duration: 0.34 }}
-          onClick={() => setOpen((prev) => !prev)}
+          onMouseEnter={() => setOpen(true)}
+          onMouseLeave={() => setOpen(false)}
           className={twclsx(
             'logo relative w-[106px] h-[106px] bg-primary  rounded-full border-[4px] border-white drop-shadow-[0px_0px_22px_rgba(0,0,0,0.2)] flex flex-col justify-center items-center cursor-pointer duration-300 hover:bg-secondary',
             {
