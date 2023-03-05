@@ -1,10 +1,4 @@
 import SEO from '../components/SEO'
-import Layout from '../components/Ui/Layout'
-import Header from '../components/Ui/Header'
-import Footer from '../components/Ui/Footer'
-import { shortFadeUp, titesStagger } from '../data/useVariants'
-import Categories from '../components/faq/Categories'
-import Question from '../components/faq/Question'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getPageData } from '../utils'
 import { GET_FAQ } from '../queries'
@@ -14,15 +8,26 @@ import Title from '../components/Ui/Heroinner/Title'
 import SubTitle from '../components/Ui/Heroinner/SubTitle'
 import FaqHeroBloc from '../components/faq/FaqHeroBloc'
 import Description from '../components/Ui/Heroinner/Description'
-import HeroinnerSimple from '../components/Ui/HeroinnerSimple'
 import HeroFaq from '../components/faq/HeroFaq'
+import { useState } from 'react'
+import { filterFaqlist } from '../Utilis'
+import { useMemo } from 'react'
 
 export default function Faq({ data }) {
+  const [searchQuery, setSearchQuery] = useState('')
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
     pagesHero,
   } = data.page.translation
+
+  const filteredFaq = useMemo(
+    () =>
+      searchQuery
+        ? filterFaqlist(acfFlex[0].listCategoriesRep, searchQuery)
+        : acfFlex[0].listCategoriesRep,
+    [searchQuery]
+  )
 
   return (
     <>
@@ -31,14 +36,18 @@ export default function Faq({ data }) {
         <Title title={pageTitle} />
         <SubTitle subtitle={pagesHero?.subTitle} />
         <Description description={pagesHero?.intro} />
-        <FaqHeroBloc data={acfFlex[0].listCategoriesRep} />
+        <FaqHeroBloc
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          data={acfFlex[0].listCategoriesRep}
+        />
       </HeroFaq>
 
       <div className="container px-0 lg:px-[1rem] mx-auto ">
         <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] py-[40px] px-[20px] lg:p-[65px] relative z-10">
           {acfFlex.map((item, index) => {
             if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Faq') {
-              return item?.listCategoriesRep.map((item, index) => (
+              return filteredFaq.map((item, index) => (
                 <Faqgroup key={index} data={item} />
               ))
             }

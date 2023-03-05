@@ -24,11 +24,11 @@ const DATA = [
 
 const BlocWithImage = () => {
   return (
-    <div className="flex items-center">
-      <div className="bloc-img min-w-[375px] max-w-[375px]">
+    <div className="lg:flex items-center">
+      <div className="bloc-img min-w-[275px] max-w-[275px] lg:min-w-[375px] lg:max-w-[375px]">
         <Image src="/bgs/happy-women.png" width={372} height={394} alt="" />
       </div>
-      <div className="bloc min-w-[530px] max-w-[530px] ml-[59px]">
+      <div className="bloc lg:min-w-[530px] lg:max-w-[530px] lg:ml-[59px]">
         {DATA.map((item) => (
           <CardBloc data={item} key={item.id} />
         ))}

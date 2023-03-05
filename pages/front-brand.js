@@ -54,7 +54,7 @@ export default function FrontBrandPage() {
   return (
     <>
       <SEO />
-      <HeroSolution classsName="h-[780px]">
+      <HeroSolution classsName="h-[560px] lg:h-[780px]">
         <Title className="uppercase" title={translation.title} />
         <SubTitle
           className="text-primary lg:mb-[100px]"
@@ -68,14 +68,14 @@ export default function FrontBrandPage() {
         sectionClassName="-mt-[90px]"
         gap={<SectionGap className="h-[80px] bottom-0 bg-[#f3f4f6]" />}
       >
-        <Slice className="mb-[95px]">
+        <Slice className="mb-[40px] lg:mb-[95px]">
           <SliceTitle title={SAY_HELLO_FB.sectionTitle} />
           <ListUl data={SAY_HELLO_FB.repeater} />
         </Slice>
 
         <Slice>
           <SliceTitle
-            className="mb-[90px]"
+            className="mb-[40px] lg:mb-[90px]"
             title="Re-think your internationalisation strategy"
           />
           <BlocWithImage />
@@ -99,15 +99,15 @@ export default function FrontBrandPage() {
           <ListWithImage data={BUILD_MONITOR.list} />
         </Slice>
 
-        <Slice>
+        {/* <Slice>
           <SliceTitle title="Quicker, compliant, <br>high-tech way to build your offer " />
           <ClassicAndMitech data={CLASSIC_MITECH_COMPARAISON_DATA} />
-        </Slice>
+        </Slice> */}
       </WhiteContainer>
 
-      <HowOperate data={HOW_OPERATE_DATA} />
+      {/* <HowOperate data={HOW_OPERATE_DATA} />
 
-      <Getintouch className=" pt-[70px]" />
+      <Getintouch className=" pt-[70px]" /> */}
 
       <PopIn data={DATA_OC_POP} />
     </>

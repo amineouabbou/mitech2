@@ -3,7 +3,7 @@ import Vericalbox from '../../Ui/Others/Vericalbox'
 
 const List4cols = ({ data }) => {
   return (
-    <div className="grid grid-cols-4 gap-x-[26px]">
+    <div className="grid lg:grid-cols-4 gap-[26px]">
       {data.map((item) => (
         <Vericalbox
           key={item.id}

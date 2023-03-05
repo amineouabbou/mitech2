@@ -9,7 +9,7 @@ const IntroFb = () => {
   return (
     <>
       <div className="grid w-full">
-        <div className="bloc max-w-[695px] bloc-Solution-pres leading-[28px] text-[18px] text-[#737483] pl-[20px]">
+        <div className="bloc max-w-[695px] bloc-Solution-pres text-[14px] text-justify lg:text-left lg:leading-[28px] lg:text-[18px] text-[#737483] lg:pl-[20px]">
           <div
             dangerouslySetInnerHTML={{ __html: FB_INTRO.introSolutions.texte }}
           />

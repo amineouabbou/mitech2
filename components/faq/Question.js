@@ -30,7 +30,7 @@ const Question = ({ question, answer }) => {
           <div className="text-[20px] lg:text-[39px] leading-[41px] text-[#e8e9ed] mr-[22px]">
             A.
           </div>
-          <div className="lg:text-[16px] lg:leading-[22px] w-[80%]">
+          <div className="lg:text-[16px] lg:leading-[22px] w-[80%] font-light">
             {answer}
           </div>
         </div>

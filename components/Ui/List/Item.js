@@ -3,7 +3,7 @@ import React from 'react'
 
 const Item = ({ data }) => {
   return (
-    <div className="text-[17px] leading-[23px] text-lightblue flex items-start mb-[20px] last:mb-0">
+    <div className="leading-normal lg:text-[17px] lg:leading-[23px] text-lightblue flex items-start mb-[20px] last:mb-0">
       <span className="mr-[20px] min-w-[17px]">
         <Image
           alt=""
