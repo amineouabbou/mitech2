@@ -4,7 +4,7 @@ import Card from './Card'
 const ClassicAndMitech = ({ data }) => {
   return (
     <>
-      <div className="tb-list flex flex-col items-end mb-[15px]">
+      <div className="tb-list hidden lg:flex flex-col items-end mb-[15px]">
         <div className="max-w-[475px] lg:min-w-[475px] flex items-center lg:mr-[125px]">
           {data.brandsRepeater.map((item, index) => (
             <div

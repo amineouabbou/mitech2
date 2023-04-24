@@ -101,7 +101,7 @@ export default function FrontBrandPage({ data }) {
       })}
 
       <WhiteContainer
-        sectionClassName="bg-[#fafbfb]"
+        sectionClassName="bg-[#fafbfb] overflow-hidden"
         gap={<SectionGap className="h-[95px] top-0 bg-[#f3f4f6]" />}
       >
         {acfFlex.map((item, index) => {

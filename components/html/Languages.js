@@ -15,14 +15,14 @@ const Languages = () => {
       {router.locale === 'en' ? (
         <div
           onClick={() => handleLocaleChange('fr')}
-          className="w-[20px] md:w-[29px] h-[20px] md:h-[29px] relative cursor-pointer"
+          className="w-[24px] h-[24px]  md:w-[32px] md:h-[32px] relative cursor-pointer"
         >
           <Image src="/icons/fr.png" alt="fr" layout="fill" />
         </div>
       ) : (
         <div
           onClick={() => handleLocaleChange('en')}
-          className="w-[20px] md:w-[29px] h-[20px] md:h-[29px] relative cursor-pointer"
+          className="w-[24px] h-[24px] md:w-[32px] md:h-[32px] relative cursor-pointer"
         >
           <Image src="/icons/en.png" alt="en" layout="fill" />
         </div>

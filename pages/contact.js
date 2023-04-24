@@ -13,6 +13,7 @@ import Submit from '../components/html/Submit'
 import HeroinnerSimple from '../components/Ui/HeroinnerSimple'
 import SubTitle from '../components/Ui/Heroinner/SubTitle'
 import Title from '../components/Ui/Heroinner/Title'
+import { getCountriesList } from '../Utilis'
 
 const schema = yup
   .object({
@@ -105,7 +106,14 @@ export default function Contact() {
                 register={register}
                 errors={errors}
                 placeholder="- Please Choose one -"
-                options={['France', 'Maroc', 'Brazil', 'Espagne']}
+                options={[
+                  'Bank',
+                  'Fintech',
+                  'Money transferring operator (MTO)',
+                  'Insurance',
+                  'Ecommerce',
+                  'Other',
+                ]}
               />
 
               <Select
@@ -115,7 +123,7 @@ export default function Contact() {
                 register={register}
                 errors={errors}
                 placeholder="- Please Choose one -"
-                options={['France', 'Maroc', 'Brazil', 'Espagne']}
+                options={getCountriesList()}
               />
             </div>
 

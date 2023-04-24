@@ -49,7 +49,7 @@ const Nav = () => {
             <li
               onClick={handleOpenMegaMenu}
               className={clsx(
-                'md:mx-[5px] pl-[10px] pr-[22px] mb:border-b-[1px] mb:border-[#eaeaed] cursor-pointer relative',
+                'md:mx-[15px] pl-[10px] pr-[22px] mb:border-b-[1px] mb:border-[#eaeaed] cursor-pointer relative',
                 "before:bg-[url('/icons/arrow-down.svg')] before:bg-no-repeat before:bg-[length:15px_9px]",
                 'before:w-[15px] before:h-[9px] before:block  before:absolute before:top-0 before:right-0',
                 'before:bottom-0 before:top-0 before:my-auto before:right-0 before:duration-200',

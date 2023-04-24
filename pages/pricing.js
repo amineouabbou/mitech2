@@ -74,11 +74,11 @@ const Pricing = () => {
           </div>
 
           <div className="table-pricing">
-            <div className="head grid lg:grid-cols-3 sticky lg:static top-[84px] bg-white z-10">
+            <div className="head grid lg:grid-cols-3 sticky lg:static top-[84px] bg-white z-10 border-b-[1px] border-[#e2e2e2]">
               <div></div>
               <div className="lg:col-span-2">
                 <div className="grid grid-cols-2 border-[#dde0e7] rounded-[5px] rounded-b-none border-t-[1px] border-l-[1px] border-r-[1px]">
-                  <div className="border-r-[1px] pt-[25px] pb-[15px] px-[10px] lg:p-0 border-[#dde0e7] lg:h-[86px] flex flex-col justify-center items-center">
+                  <div className="border-r-[1px] pt-[5px] px-[10px] lg:p-0 border-[#dde0e7] lg:h-[86px] flex flex-col justify-center items-center">
                     <span className="hidden lg:block">
                       <Image
                         alt="logo"
@@ -90,13 +90,13 @@ const Pricing = () => {
                     <span className="block lg:hidden">
                       <Image
                         alt="logo"
-                        height="20"
-                        width="40"
-                        src="/icons/front-brand-gray.svg"
+                        height="51"
+                        width="90"
+                        src="/logos/fb-vertical.svg"
                       />
                     </span>
                   </div>
-                  <div className="lg:h-[86px] pt-[25px] pb-[15px] px-[10px] lg:p-0 flex flex-col justify-center items-center">
+                  <div className="lg:h-[86px] pt-[5px]  px-[10px] lg:p-0 flex flex-col justify-center items-center">
                     <span className="hidden lg:block">
                       <Image
                         alt="logo"
@@ -108,16 +108,16 @@ const Pricing = () => {
                     <span className="block lg:hidden">
                       <Image
                         alt="logo"
-                        height="20"
-                        width="40"
-                        src="/icons/open-remit-gray.svg"
+                        height="51"
+                        width="90"
+                        src="/logos/or-vertical.svg"
                       />
                     </span>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="box border-[1px] border-[#e1e4ea]">
+            <div className="box border-[1px] border-[#e1e4ea] border-t-0">
               {DATA.map((item, index) => (
                 <div
                   key={index}
@@ -125,16 +125,16 @@ const Pricing = () => {
                     ' border-b-[1px] border-[#dde0e7]',
                     'item grid lg:grid-cols-3 ',
                     'lg:h-[70px]',
-                    'lg:odd:bg-[#f3f4f6] lg:even:bg-white',
+                    'odd:bg-[#f3f4f6] even:bg-white',
                     '',
                     'text-[13.9px] text-[#7b86a2] tracking-[0.03em] font-medium'
                   )}
                 >
-                  <div className="font-medium text-center bg-[#f3f4f6] lg:bg-transparent lg:text-left py-[15px] lg:py-0 px-[25px] lg:text-[16.7px] tracking-[0.03em] flex flex-col justify-center text-[#242754] ">
+                  <div className="font-medium text-center lg:text-left py-[15px] lg:py-0 px-[25px] lg:text-[16.7px] tracking-[0.03em] flex flex-col justify-center text-[#242754] ">
                     <span>{item.label}</span>
                   </div>
 
-                  <div className="grid grid-cols-2 lg:col-span-2 border-t-[1px] border-[#e1e4ea] py-[10px] lg:border-0 lg:p-0">
+                  <div className="grid grid-cols-2 lg:col-span-2  py-[10px] lg:p-0">
                     {item.options.map((item, index) => (
                       <div
                         key={index}
@@ -160,15 +160,15 @@ const Pricing = () => {
                 </div>
               ))}
 
-              <div className="head grid grid-cols-3">
-                <div className="font-medium text-[16.7px] tracking-[0.03em] flex flex-col justify-center"></div>
-                <div className="flex flex-col justify-center items-center py-[25px]">
-                  <span className="text-[15.28px] text-[#232753] text-center leading-[20px] font-medium">
+              <div className="head grid grid-cols-2 lg:grid-cols-3">
+                <div className="font-medium text-[16.7px] tracking-[0.03em] hidden lg:flex flex-col justify-center"></div>
+                <div className="flex flex-col justify-center items-center px-[20px] lg:px-0 py-[15px] lg:py-[25px] [&>span>br]:hidden [&>span>br]:lg:block ">
+                  <span className="text-[14px] lg:text-[15.28px] text-[#232753] text-center leading-[20px] font-medium">
                     Custom Price based on <br /> the configurations
                   </span>
                 </div>
-                <div className="flex flex-col justify-center items-center py-[25px]">
-                  <span className="text-[15.28px] text-[#232753] text-center leading-[20px] font-medium">
+                <div className="flex flex-col justify-center items-center px-[20px] lg:px-0  py-[15px] lg:py-[25px] [&>span>br]:hidden [&>span>br]:lg:block">
+                  <span className="text-[14px] lg:text-[15.28px] text-[#232753] text-center leading-[20px] font-medium">
                     Custom Price based on <br /> the configurations
                   </span>
                 </div>
