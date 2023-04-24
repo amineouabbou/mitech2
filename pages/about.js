@@ -118,7 +118,7 @@ export default function AboutPage({ data }) {
   )
 }
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_ABOUT_PAGE, 504, locale)
 
   return {

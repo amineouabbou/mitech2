@@ -136,7 +136,7 @@ export default function OpenRemitPage({ data }) {
   )
 }
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_OPEN_REMIT, 393, locale)
 
   return {
