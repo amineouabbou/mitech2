@@ -25,7 +25,7 @@ const Frontbrand = ({ data }) => {
             </div>
           </div>
           <div className="w-full lg:w-2/5 md:flex flex-col items-end lg:translate-x-[155px] order-1 lg:order-2">
-            <div className="relative w-full md:w-[319px] h-[610px] md:h-[610px]">
+            <div className="relative w-full md:w-[319px] h-[470px] md:h-[610px]">
               <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[50px] lg:h-[65px] w-[190px] lg:w-[245px] rounded-[10px] absolute top-[110px] left-[0] lg:-left-[148px] lg:top-[180px] z-10 flex flex-col justify-center items-center">
                 <div className="ball bg-primary rounded-full h-[9px] w-[9px] absolute left-[15px] top-auto bottom-auto"></div>
                 <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain absolute left-[18px] bottom-[calc(100%_-_23px)]"></div>

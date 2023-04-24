@@ -58,9 +58,9 @@ const Pricing = () => {
         }
         description="A customized offer means a customized price"
       />
-      <div className="container mx-auto">
+      <div className="container mx-auto px-0 md:px-4">
         <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] p-[20px] lg:p-[65px] relative z-10 -mt-[70px] lg:-mt-[125px]">
-          <div className="text-[18px] text-center leading-[35px] text-[#737483] mb-[45px]">
+          <div className="text-[15px] lg:text-[18px] text-center leading-[27px] lg:leading-[35px] text-[#737483] mb-[45px]">
             Pricing depends on which product and services your need for your
             specific project.
             <br />
@@ -74,12 +74,12 @@ const Pricing = () => {
           </div>
 
           <div className="table-pricing">
-            <div className="head grid grid-cols-3">
-              <div className=""></div>
-              <div className="col-span-2">
+            <div className="head grid lg:grid-cols-3 sticky lg:static top-[84px] bg-white z-10">
+              <div></div>
+              <div className="lg:col-span-2">
                 <div className="grid grid-cols-2 border-[#dde0e7] rounded-[5px] rounded-b-none border-t-[1px] border-l-[1px] border-r-[1px]">
-                  <div className="border-r-[1px] border-[#dde0e7] h-[86px] flex flex-col justify-center items-center">
-                    <span>
+                  <div className="border-r-[1px] pt-[25px] pb-[15px] px-[10px] lg:p-0 border-[#dde0e7] lg:h-[86px] flex flex-col justify-center items-center">
+                    <span className="hidden lg:block">
                       <Image
                         alt="logo"
                         height="24"
@@ -87,14 +87,30 @@ const Pricing = () => {
                         src="/logos/front-brand.svg"
                       />
                     </span>
+                    <span className="block lg:hidden">
+                      <Image
+                        alt="logo"
+                        height="20"
+                        width="40"
+                        src="/icons/front-brand-gray.svg"
+                      />
+                    </span>
                   </div>
-                  <div className="h-[86px] flex flex-col justify-center items-center">
-                    <span>
+                  <div className="lg:h-[86px] pt-[25px] pb-[15px] px-[10px] lg:p-0 flex flex-col justify-center items-center">
+                    <span className="hidden lg:block">
                       <Image
                         alt="logo"
                         height="24"
                         width="189"
                         src="/logos/open-remit.svg"
+                      />
+                    </span>
+                    <span className="block lg:hidden">
+                      <Image
+                        alt="logo"
+                        height="20"
+                        width="40"
+                        src="/icons/open-remit-gray.svg"
                       />
                     </span>
                   </div>
@@ -107,37 +123,40 @@ const Pricing = () => {
                   key={index}
                   className={twclsx(
                     ' border-b-[1px] border-[#dde0e7]',
-                    'item grid grid-cols-3 ',
-                    'h-[70px] px-[25px]',
-                    'odd:bg-[#f3f4f6] even:bg-white',
+                    'item grid lg:grid-cols-3 ',
+                    'lg:h-[70px]',
+                    'lg:odd:bg-[#f3f4f6] lg:even:bg-white',
+                    '',
                     'text-[13.9px] text-[#7b86a2] tracking-[0.03em] font-medium'
                   )}
                 >
-                  <div className="font-medium text-[16.7px] tracking-[0.03em] flex flex-col justify-center text-[#242754]">
+                  <div className="font-medium text-center bg-[#f3f4f6] lg:bg-transparent lg:text-left py-[15px] lg:py-0 px-[25px] lg:text-[16.7px] tracking-[0.03em] flex flex-col justify-center text-[#242754] ">
                     <span>{item.label}</span>
                   </div>
 
-                  {item.options.map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex flex-col justify-center items-center"
-                    >
-                      {item == true && (
-                        <span>
-                          <Image
-                            alt=""
-                            src="/icons/check-mark.svg"
-                            height="16"
-                            width="22"
-                          />
-                        </span>
-                      )}
+                  <div className="grid grid-cols-2 lg:col-span-2 border-t-[1px] border-[#e1e4ea] py-[10px] lg:border-0 lg:p-0">
+                    {item.options.map((item, index) => (
+                      <div
+                        key={index}
+                        className="flex flex-col justify-center items-center"
+                      >
+                        {item == true && (
+                          <span>
+                            <Image
+                              alt=""
+                              src="/icons/check-mark.svg"
+                              height="16"
+                              width="22"
+                            />
+                          </span>
+                        )}
 
-                      {item == false && <span>-</span>}
+                        {item == false && <span>-</span>}
 
-                      {item == 'Built-in' && <span className="">{item}</span>}
-                    </div>
-                  ))}
+                        {item == 'Built-in' && <span className="">{item}</span>}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
 
@@ -159,7 +178,7 @@ const Pricing = () => {
         </main>
       </div>
 
-      <Getintouch className="pt-[70px]" />
+      <Getintouch className=" pt-[50px] lg:pt-[70px]" />
     </>
   )
 }

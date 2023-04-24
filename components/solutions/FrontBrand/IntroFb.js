@@ -5,15 +5,14 @@ const FB_INTRO = {
   },
 }
 
-const IntroFb = () => {
+const IntroFb = ({ data }) => {
   return (
     <>
       <div className="grid w-full">
-        <div className="bloc max-w-[695px] bloc-Solution-pres text-[14px] text-justify lg:text-left lg:leading-[28px] lg:text-[18px] text-[#737483] lg:pl-[20px]">
-          <div
-            dangerouslySetInnerHTML={{ __html: FB_INTRO.introSolutions.texte }}
-          />
-        </div>
+        <div
+          className="bloc max-w-[695px] bloc-Solution-pres text-[14px] text-justify lg:text-left lg:leading-[28px] lg:text-[18px] text-[#737483] lg:pl-[20px] [&>p]:mb-7"
+          dangerouslySetInnerHTML={{ __html: data }}
+        />
       </div>
     </>
   )

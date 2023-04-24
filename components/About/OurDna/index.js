@@ -25,15 +25,16 @@ const DATA = [
   },
 ]
 
-const OurDna = () => {
+const OurDna = ({ data }) => {
+  const { subtitle, cardsRepeater } = data
   return (
     <div>
-      <p className="text-[20px] text-[#878ea2] mb-[35px]">
-        From MTOs to Open Remittance
+      <p className="text-[17px] lg:text-[20px] text-[#878ea2] mb-[35px]">
+        {subtitle}
       </p>
 
-      <div className="grid grid-cols-3 gap-x-[11px]">
-        {DATA.map((item, index) => (
+      <div className="grid lg:grid-cols-3 gap-5 gap-x-[11px]">
+        {cardsRepeater.map((item, index) => (
           <CardDna data={item} key={index} />
         ))}
       </div>

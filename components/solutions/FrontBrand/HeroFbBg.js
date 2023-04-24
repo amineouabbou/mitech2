@@ -1,8 +1,11 @@
 import React from 'react'
 
-const HeroFbBg = () => {
+const HeroFbBg = ({ img }) => {
   return (
-    <div className="w-[434px] h-[90px] lg:h-[918px] hidden lg:block lg:w-[869px] absolute -bottom-[90px lg:-bottom-[180px] -right-[190px] bg-[url('/bgs/front-brand-herobg.png')] bg-no-repeat bg-cover"></div>
+    <div
+      style={{ backgroundImage: `url(${img})` }}
+      className="w-[500px] h-[500px] lg:h-[918px] lg:w-[869px] absolute -bottom-[210px] lg:-bottom-[180px] -right-[190px] bg-[url('/bgs/front-brand-herobg.png')] bg-no-repeat bg-cover"
+    ></div>
   )
 }
 

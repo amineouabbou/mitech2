@@ -5,7 +5,7 @@ const SliceTitle = ({ title, className }) => {
   return (
     <h2
       className={clsx(
-        'text-[20px] lg:text-[34px] leading-normal lg:leading-[41px] font-semibold',
+        'text-[30px] lg:text-[34px] leading-[36px] lg:leading-[41px] font-semibold',
         {
           [`${className}`]: className,
           'mb-[30px] lg:mb-[65px]': !className,

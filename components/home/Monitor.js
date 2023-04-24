@@ -9,10 +9,10 @@ import {
 
 const Monitor = ({ data }) => {
   return (
-    <section className="bg-[#fcfcfc] py-[60px] lg:pt-[80px] lg:pb-[100px] relative before:hidden lg:before:block before:h-[65px] before:bg-[#f3f4f6] lg:before:content-[''] before:absolute before:bottom-0 before:w-full overflow-hidden">
-      <div className="overlay absolute top-0 bottom-0 left-0 right-0 m-auto hidden md:flex flex-col items-end md:pt-[82px]">
+    <section className="bg-[#fcfcfc] pt-[60px] pb-[40px] lg:pt-[80px] lg:pb-[100px] relative before:hidden lg:before:block before:h-[65px] before:bg-[#f3f4f6] lg:before:content-[''] before:absolute before:bottom-0 before:w-full overflow-hidden flex flex-col">
+      <div className="overlay order-2 lg:order-1 w-full lg:absolute top-0 bottom-0 left-0 right-0 m-auto md:flex flex-col items-end md:pt-[82px] mt-8 lg:mt-0">
         <motion.div
-          className="w-1/2	relative h-full"
+          className="lg:w-1/2	relative h-full"
           initial={{ y: 100, opacity: 0 }}
           whileInView={{
             opacity: 1,
@@ -25,12 +25,17 @@ const Monitor = ({ data }) => {
           }}
           viewport={{ once: true }}
         >
-          <div className="-right-[55px] h-full w-full relative">
-            <Image src="/bgs/console.png" layout="fill" alt="" />
+          <div className="lg:-right-[55px] h-[280px] lg:h-full lg:w-full relative">
+            <Image
+              src="/bgs/console.png"
+              layout="fill"
+              alt=""
+              className="object-contain lg:object-fill"
+            />
           </div>
         </motion.div>
       </div>
-      <div className="container mx-auto">
+      <div className="container mx-auto order-1 lg:order-2">
         <motion.div
           variants={titesStagger()}
           initial="initial"

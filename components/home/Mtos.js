@@ -41,7 +41,7 @@ const Mtos = ({ data }) => {
             {data?.blocsListRep.map((item, index) => (
               <div
                 key={index}
-                className={`bloc lg:min-w-[315px] lg:max-w-[315px] px-[20px] py-[30px] lg:p-0  border-[#e4e6ec] border-b-[1px] last:border-0 ${
+                className={`bloc lg:min-w-[315px] lg:max-w-[315px] px-[20px] py-[30px] lg:p-0  border-[#e4e6ec] border-b-[1px] lg:border-0 last:border-0 ${
                   index === 1 ? 'ml-auto' : 'text-[#7f7f90]'
                 }`}
               >

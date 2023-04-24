@@ -19,10 +19,6 @@ const MENU = [
     path: '/features',
   },
   {
-    label: 'Use case',
-    path: '/use-case',
-  },
-  {
     label: 'Pricing',
     path: '/pricing',
   },
@@ -39,8 +35,6 @@ const MENU = [
 const Nav = () => {
   const { closeMobileNav, megamenuOpened, changeMegaMenuOpened } =
     useGlobalState()
-
-  console.log('megamenuOpened', megamenuOpened)
 
   const handleOpenMegaMenu = (e) => {
     e.preventDefault()

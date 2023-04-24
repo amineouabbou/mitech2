@@ -43,10 +43,10 @@ export default function Contact() {
       />
 
       <div className="container mx-auto max-w-[1030px] ">
-        <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] py-[40px] px-[20px] lg:p-[65px] relative z-10 -mt-[70px] lg:-mt-[125px]">
+        <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] py-[20px] px-[20px] lg:p-[65px] relative z-10 -mt-[100px] lg:-mt-[125px]">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="lg:px-[25px] mt-[15px]"
+            className="lg:px-[25px] lg:mt-[15px]"
           >
             <div className="grid lg:grid-cols-2 lg:gap-x-[58px] gap-y-[20px] mb-[30px] lg:mb-[55px]">
               <Input

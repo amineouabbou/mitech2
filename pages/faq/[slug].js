@@ -46,9 +46,7 @@ export default function Faq({ data }) {
         </main>
       </div>
 
-      <div className="md:mt-[75px] md:mb-[60px]">
-        <Getintouch />
-      </div>
+      <Getintouch className=" pt-[50px] lg:pt-[70px]" />
     </>
   )
 }

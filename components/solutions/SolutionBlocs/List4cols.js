@@ -4,19 +4,19 @@ import Vericalbox from '../../Ui/Others/Vericalbox'
 const List4cols = ({ data }) => {
   return (
     <div className="grid lg:grid-cols-4 gap-[26px]">
-      {data.map((item) => (
+      {data.map((item, index) => (
         <Vericalbox
-          key={item.id}
+          key={index}
           align="center"
           icone={{
-            url: item.icone.url,
+            url: item.logo.mediaItemUrl,
             width: 'w-[95px]',
             height: 'h-[95px]',
             marginBottom: 'mb-[15px]',
           }}
           title={{
             title: item.title,
-            fontSize: 'text-[25px] leading-[33px]',
+            fontSize: 'text-[22px] lg:text-[25px] leading-[33px]',
             marginBottom: 'mb-[25px] lg:mb-[25px]',
           }}
           description={item.description}

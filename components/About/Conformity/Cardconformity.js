@@ -2,24 +2,26 @@ import Image from 'next/image'
 import React from 'react'
 
 const Cardconformity = ({ data }) => {
+  const { icone, title, descriptions, preDescription, photo } = data
   return (
-    <div className="card border-[1px] border-[#dfe0e4] py-[0]  rounded-[10px] flex items-center">
-      <div className="bloc grow max-w-[690px] pl-[50px]">
-        <div className="mb-[15px] flex items-center">
-          <div className="mr-[15px]">
-            <Image alt="" src={data.icon} width={46} height={46} />
-          </div>
-          <h2 className="text-[26px] font-semibold text-primary leading-[33px] tracking-[0.03em]">
-            {data.title}
+    <div className="card border-[1px] border-[#dfe0e4] py-[0]  rounded-[10px] lg:flex items-center">
+      <div className="bloc grow max-w-[690px] lg:pl-[50px] pt-[35px] pb-0 px-[25px] lg:px-0 lg:py-0">
+        <div className="mb-[50px] lg:mb-[15px] flex items-center">
+          {icone && (
+            <div className="mr-[15px] w-[35px] h-[35px] lg:w-[46px] lg:h-[46px]">
+              <Image alt="" src={icone.mediaItemUrl} width={46} height={46} />
+            </div>
+          )}
+
+          <h2 className="text-[22px] lg:text-[26px] font-semibold text-primary leading-[33px] tracking-[0.03em]">
+            {title}
           </h2>
         </div>
-        <div className="liste pl-[30px]">
-          <div className="mb-[10px]">{data.intro}</div>
-          {data.liste.map((item) => (
-            <div
-              key={item.id}
-              className="flex items-start text-[15px] mb-[8px]"
-            >
+        <div className="liste lg:pl-[30px]">
+          {preDescription && <div className="mb-[10px]">{preDescription}</div>}
+
+          {descriptions.map((item, index) => (
+            <div key={index} className="flex items-start text-[15px] mb-[8px]">
               <div className="min-w-[18px] mr-[15px]">
                 <span className="relative top-[1px]">
                   <Image
@@ -32,21 +34,23 @@ const Cardconformity = ({ data }) => {
               </div>
 
               <div className="leading-[21px] tracking-[0.025em]">
-                {item.title}
+                {item.texte}
               </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="bloc-img min-w-[290px] max-w-[290px] flex flex-col items-end ml-auto">
-        <Image
-          alt=""
-          width={290}
-          height={290}
-          objectFit="contain"
-          src={data.photo}
-        />
-      </div>
+      {photo && (
+        <div className="bloc-img min-w-[290px] max-w-[290px] flex flex-col items-end ml-auto">
+          <Image
+            alt=""
+            width={290}
+            height={290}
+            objectFit="contain"
+            src={photo.mediaItemUrl}
+          />
+        </div>
+      )}
     </div>
   )
 }

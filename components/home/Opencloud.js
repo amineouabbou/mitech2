@@ -6,13 +6,13 @@ const Opencloud = ({ data }) => {
   return (
     <section className="bg-[#fff] py-[60px] lg:pt-[120px] lg:pb-[50px]">
       <div className="container mx-auto flex flex-col items-end">
-        <div className="flex w-full">
-          <div className="md:w-1/2 hidden md:flex flex-col">
-            <div className="relative md:w-[502px] md:h-[427px]">
-              <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[65px] w-[245px] rounded-[10px] absolute mx-auto bottom-[calc(100%_+_10px)] md:left-[60px] right-0 z-10 flex flex-col justify-center items-center">
+        <div className="lg:flex w-full">
+          <div className="md:w-1/2 md:flex flex-col mb-7 lg:mb-0">
+            <div className="relative w-full md:w-[502px] h-[280px] lg:h-[427px]">
+              <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[50px] lg:h-[65px] w-[190px] lg:w-[245px] rounded-[10px] absolute mx-auto bottom-[calc(100%_+_30px)] lg:bottom-[calc(100%_+_10px)] md:left-[60px] right-0 z-10 flex flex-col justify-center items-center">
                 <div className="ball bg-primary rounded-full h-[9px] w-[9px] absolute right-[15px] top-auto bottom-auto"></div>
                 <div className="dots w-[2px] h-[270px] bg-[url('/bgs/vertical-dots.png')] bg-contain  absolute right-[18px] bottom-[calc(100%_-_23px)] bg-[center_bottom_-100px] bg-no-repeat"></div>
-                <div>
+                <div className="w-[70%] lg:w-auto">
                   <Image
                     src="/logos/open-cloud-gray.svg"
                     width="180"
@@ -25,6 +25,7 @@ const Opencloud = ({ data }) => {
                 src={data?.illustration?.mediaItemUrl}
                 layout="fill"
                 alt=""
+                className="bg-contain"
               />
             </div>
           </div>

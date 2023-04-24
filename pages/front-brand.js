@@ -1,3 +1,4 @@
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import SEO from '../components/SEO'
 import Getintouch from '../components/Ui/Getintouch'
 import Title from '../components/Ui/Heroinner/Title'
@@ -26,90 +27,136 @@ import List4cols from '../components/solutions/SolutionBlocs/List4cols'
 import HeroFbBg from '../components/solutions/FrontBrand/HeroFbBg'
 import BlocWithImage from '../components/solutions/BlocWithImage'
 import PopIn from '../components/solutions/PopIn'
+import { GET_FRONT_BRAND } from '../queries'
+import { getPageData } from '../utils'
 
-const {
-  data: { translation },
-} = {
-  data: {
-    translation: {
-      title: 'Open Cloud',
-      pagesHero: {
-        subTitle: 'White-labeled Mobile app for cross-border remittance',
-      },
-    },
-  },
-}
+export default function FrontBrandPage({ data }) {
+  const {
+    title: pageTitle,
+    ACFPage: { acfFlex },
+  } = data.page.translation
 
-const DATA_OC_POP = {
-  title:
-    'You want to create an cross-border <br> remittance offer from scratch?',
-  logoImg: '/logos/fb-white-logo.svg',
-  link: {
-    label: 'Front Brand may suit your need',
-    url: '/open-remit',
-  },
-}
-
-export default function FrontBrandPage() {
   return (
     <>
-      <SEO />
-      <HeroSolution classsName="h-[560px] lg:h-[780px]">
-        <Title className="uppercase" title={translation.title} />
-        <SubTitle
-          className="text-primary lg:mb-[100px]"
-          subtitle={translation.pagesHero.subTitle}
-        />
-        <IntroFb />
-        <HeroFbBg />
-      </HeroSolution>
+      <SEO title={pageTitle} />
+
+      {acfFlex.map((item, index) => {
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_HeroSolution') {
+          return (
+            <HeroSolution
+              key={index}
+              classsName="min-h-[680px] lg:min-h-[780px]"
+            >
+              <Title className="uppercase" title={item.title} />
+              <SubTitle
+                className="text-primary lg:mb-[100px]"
+                subtitle={item.subtitle}
+              />
+              <IntroFb data={item.description} />
+              <HeroFbBg img={item.photo?.mediaItemUrl} />
+            </HeroSolution>
+          )
+        }
+      })}
 
       <WhiteContainer
         sectionClassName="-mt-[90px]"
         gap={<SectionGap className="h-[80px] bottom-0 bg-[#f3f4f6]" />}
       >
-        <Slice className="mb-[40px] lg:mb-[95px]">
-          <SliceTitle title={SAY_HELLO_FB.sectionTitle} />
-          <ListUl data={SAY_HELLO_FB.repeater} />
-        </Slice>
+        {acfFlex.map((item, index) => {
+          if (
+            item.fieldGroupName === 'Page_Acfpage_AcfFlex_SolutionAdvantages'
+          ) {
+            return (
+              <Slice key={index} className="mb-[40px] lg:mb-[95px]">
+                <SliceTitle title={item.title} />
+                <ListUl data={item.advantagesRepeater} />
+              </Slice>
+            )
+          }
 
-        <Slice>
-          <SliceTitle
-            className="mb-[40px] lg:mb-[90px]"
-            title="Re-think your internationalisation strategy"
-          />
-          <BlocWithImage />
-        </Slice>
+          if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_ReThink') {
+            return (
+              <Slice key={index}>
+                <SliceTitle
+                  className="mb-[40px] lg:mb-[90px]"
+                  title={item.title}
+                />
+                <BlocWithImage {...item} />
+              </Slice>
+            )
+          }
+        })}
       </WhiteContainer>
 
-      <SolutionBlocs className="max-w-1560">
-        <TitleSolution title={ADVANTAGES_BLOCS_FRONT_BRAND.sectionTitle} />
-        <List4cols data={ADVANTAGES_BLOCS_FRONT_BRAND.liste} />
-      </SolutionBlocs>
+      {acfFlex.map((item, index) => {
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_SolutionFeatured') {
+          return (
+            <SolutionBlocs key={index} className="max-w-1560">
+              <TitleSolution title={item.title} />
+              <List4cols data={item.advantagesRepeater} />
+            </SolutionBlocs>
+          )
+        }
+      })}
 
       <WhiteContainer
         sectionClassName="bg-[#fafbfb]"
         gap={<SectionGap className="h-[95px] top-0 bg-[#f3f4f6]" />}
       >
-        <Slice className="mb-[80px]">
-          <SliceTitle
-            title={BUILD_MONITOR.sectionTitle}
-            className="mb-[50px]"
-          />
-          <ListWithImage data={BUILD_MONITOR.list} />
-        </Slice>
+        {acfFlex.map((item, index) => {
+          if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_BuildAndMonitor') {
+            return (
+              <Slice key={index} className="mb-[30px] lg:mb-[80px]">
+                <SliceTitle
+                  title={item.title}
+                  className="mb-[30px] lg:mb-[50px]"
+                />
+                <ListWithImage data={item} />
+              </Slice>
+            )
+          }
 
-        {/* <Slice>
-          <SliceTitle title="Quicker, compliant, <br>high-tech way to build your offer " />
-          <ClassicAndMitech data={CLASSIC_MITECH_COMPARAISON_DATA} />
-        </Slice> */}
+          if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_ComparisonTable') {
+            return (
+              <Slice key={index}>
+                <SliceTitle title={item.title} />
+                <ClassicAndMitech
+                  data={{
+                    brandsRepeater: item.brandsRepeater,
+                    comparisonRepeater: item.comparisonRepeater,
+                  }}
+                />
+              </Slice>
+            )
+          }
+        })}
       </WhiteContainer>
 
-      {/* <HowOperate data={HOW_OPERATE_DATA} />
+      {acfFlex.map((item, index) => {
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_HowWeOperate') {
+          return <HowOperate key={index} data={item} />
+        }
+      })}
 
-      <Getintouch className=" pt-[70px]" /> */}
+      <Getintouch className=" pt-[50px] lg:pt-[70px]" />
 
-      <PopIn data={DATA_OC_POP} />
+      {acfFlex.map((item, index) => {
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_PopIn') {
+          return <PopIn data={item} key={index} />
+        }
+      })}
     </>
   )
+}
+
+export async function getStaticProps({ locale }) {
+  const data = await getPageData(GET_FRONT_BRAND, 370, locale)
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      data: data,
+    },
+  }
 }

@@ -20,7 +20,7 @@ const Mobilemenu = () => {
         opacity: 0,
         transition: { ease: globaleasing, duration: 0.9 },
       }}
-      className="mobile-nav mb:bg-white mb:absolute mb:top-[100%] mb:left-0 mb:right-0 bg-red-500"
+      className="mobile-nav mb:bg-white mb:absolute mb:top-[100%] mb:left-0 mb:right-0"
     >
       <Nav />
       <div className="md:ml-[25px] py-[30px] px-[25px]">

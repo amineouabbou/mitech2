@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import Button from '../html/Button'
 import { globaleasing, shortFadeUp, titesStagger } from '../../data/useVariants'
 import { useTranslation } from 'next-i18next'
+import Image from 'next/image'
 
 const Hero = ({ data }) => {
   const { t } = useTranslation('common')
@@ -14,9 +15,9 @@ const Hero = ({ data }) => {
         backgroundColor: '#f3f4f6',
         transition: { ease: globaleasing, duration: 1.4 },
       }}
-      className="hero-section min-h-[630px] flex flex-col justify-end"
+      className="hero-section min-h-[890px] lg:min-h-[630px] flex flex-col justify-end overflow-hidden"
     >
-      <div className="container mx-auto max-w-[1090px] relative py-[60px] md:py-[90px]">
+      <div className="container mx-auto max-w-[1090px] relative py-[20px] md:py-[90px] flex flex-col">
         <motion.div
           initial={{ x: 90, opacity: 0 }}
           animate={{
@@ -24,13 +25,22 @@ const Hero = ({ data }) => {
             opacity: 1,
             transition: { ease: globaleasing, duration: 3 },
           }}
-          className="illustration hidden lg:block lg:w-[711px] h-[542px] lg:absolute top-10 lg:-right-[150px] bg-[url('/bgs/bg-slide.png')] bg-no-repeat bg-cover lg:bg-[length:711px_542px] lg:bg-[right_0_top_0]"
+          className="illustration lg:block lg:w-[711px] h-[280px] lg:h-[542px] lg:absolute top-10 lg:-right-[150px] bg-[url('/bgs/bg-slide.png')] bg-no-repeat bg-contain lg:bg-[length:711px_542px] bg-center lg:bg-[right_0_top_0]"
         ></motion.div>
+        <div className="illustration hidden">
+          <Image
+            src="/bgs/bg-slide-mobile.png"
+            alt=""
+            width={200}
+            height={200}
+            className="w-[100%]"
+          />
+        </div>
         <motion.div
           variants={titesStagger(0.2)}
           initial="initial"
           animate="animate"
-          className="bloc"
+          className="bloc mb-[60px] lg:mb-0"
         >
           <motion.h3
             variants={shortFadeUp(1.5)}

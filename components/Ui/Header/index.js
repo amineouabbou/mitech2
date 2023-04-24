@@ -35,7 +35,7 @@ const Header = () => {
   }
 
   const handleScroll = () => {
-    if (window.scrollY > 90) {
+    if (window.scrollY > 20) {
       setSticky(true)
     } else {
       setSticky(false)
@@ -54,20 +54,13 @@ const Header = () => {
           'header bg-white md:bg-transparent',
           'py-[25px] md:py-[35px] fixed w-full top-0 z-30 transition-all duration-300 drop-shadow-[0px_0px_13.8px_rgba(0,0,0,0.04)] md:drop-shadow-none',
           {
-            'backdrop-blur-md backdrop-brightness-100 md:py-[25px]': sticky,
+            ' md:bg-white md:py-[25px] md:drop-shadow-[0px_0px_25px_rgba(0,0,0,0.1)]':
+              sticky,
             ' md:bg-white duration-75': megamenuOpened,
           }
         )}
       >
-        <motion.div
-          initial={{ y: -10, opacity: 0 }}
-          animate={{
-            y: 0,
-            opacity: 1,
-            transition: { ease: globaleasing, duration: 2, delay: 0.8 },
-          }}
-          className="container mx-auto md:flex items-center"
-        >
+        <div className="container mx-auto md:flex items-center">
           <div className="flex items-center md:block">
             <div className="logo-box">
               <Link href="/">
@@ -126,7 +119,7 @@ const Header = () => {
               <Languages />
             </div>
           </div>
-        </motion.div>
+        </div>
 
         <AnimatePresence>{megamenuOpened && <Megamenu />}</AnimatePresence>
       </motion.div>

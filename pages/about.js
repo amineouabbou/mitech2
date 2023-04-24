@@ -17,6 +17,9 @@ import OurVision from '../components/About/OurVision'
 import OurDna from '../components/About/OurDna'
 import OurTechnology from '../components/About/OurTechnology'
 import Conformity from '../components/About/Conformity'
+import { GET_ABOUT_PAGE } from '../queries'
+import { getPageData } from '../utils'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const {
   data: { translation },
@@ -31,42 +34,97 @@ const {
   },
 }
 
-export default function AboutPage() {
+export default function AboutPage({ data }) {
+  const {
+    title: pageTitle,
+    ACFPage: { acfFlex },
+  } = data.page.translation
+
   return (
     <>
       <SEO />
-      <HeroSolution classsName="h-[700px]">
-        <Title title={translation.title} />
-        <SubTitle
-          className="text-primary lg:mb-[100px]"
-          subtitle={translation.pagesHero.subTitle}
-        />
-        <IntroAbout />
-      </HeroSolution>
+
+      {acfFlex.map((item, index) => {
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_HeroSolution') {
+          return (
+            <HeroSolution
+              key={index}
+              classsName="min-h-[820px] lg:min-h-[700px]"
+            >
+              <Title title={item.title} />
+              <SubTitle
+                className="text-primary lg:mb-[100px]"
+                subtitle={item.subtitle}
+              />
+              <IntroAbout data={item} />
+            </HeroSolution>
+          )
+        }
+      })}
 
       <WhiteContainer sectionClassName="-mt-[90px]">
-        <Slice>
-          <SliceTitle className="mb-[90px]" title="Our vision" />
-          <OurVision />
-        </Slice>
+        {acfFlex.map((item, index) => {
+          if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_AboutOurVision') {
+            return (
+              <Slice key={index} className="mb-[50px] lg:mb-0">
+                <SliceTitle
+                  className="mb-[35px] lg:mb-[90px]"
+                  title={item.title}
+                />
+                <OurVision data={item} />
+              </Slice>
+            )
+          }
 
-        <Slice className="mb-[95px]">
-          <SliceTitle className="mb-[35px]" title="Our DNA" />
-          <OurDna />
-        </Slice>
+          if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_AboutOurDna') {
+            return (
+              <Slice key={index} className="mb-[50px] lg:mb-[95px]">
+                <SliceTitle
+                  className="mb-[10px] lg:mb-[35px]"
+                  title={item.title}
+                />
+                <OurDna data={item} />
+              </Slice>
+            )
+          }
 
-        <Slice className="mb-[95px]">
-          <SliceTitle className="mb-[35px]" title="Our technology" />
-          <OurTechnology />
-        </Slice>
+          if (
+            item.fieldGroupName === 'Page_Acfpage_AcfFlex_AboutOurTechnology'
+          ) {
+            return (
+              <Slice key={index} className="mb-[95px]">
+                <SliceTitle
+                  className="mb-[10px] lg:mb-[35px]"
+                  title={item.title}
+                />
+                <OurTechnology data={item} />
+              </Slice>
+            )
+          }
 
-        <Slice>
-          <SliceTitle className="mb-[35px]" title="Conformity is key" />
-          <Conformity />
-        </Slice>
+          if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_AboutConformity') {
+            return (
+              <Slice key={index}>
+                <SliceTitle className="mb-[35px]" title={item.title} />
+                <Conformity data={item} />
+              </Slice>
+            )
+          }
+        })}
       </WhiteContainer>
 
-      <Getintouch className="pt-[70px]" />
+      <Getintouch className=" pt-[50px] lg:pt-[70px]" />
     </>
   )
+}
+
+export async function getStaticProps({ locale }) {
+  const data = await getPageData(GET_ABOUT_PAGE, 504, locale)
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      data: data,
+    },
+  }
 }

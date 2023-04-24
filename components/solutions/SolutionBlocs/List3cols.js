@@ -2,14 +2,16 @@ import React from 'react'
 import Vericalbox from '../../Ui/Others/Vericalbox'
 
 const List3cols = ({ data }) => {
+  const { advantagesRepeater } = data
+
   return (
-    <div className="grid grid-cols-3 gap-x-[26px]">
-      {data.map((item) => (
+    <div className="grid lg:grid-cols-3 gap-y-7 gap-x-[26px]">
+      {advantagesRepeater.map((item, index) => (
         <Vericalbox
-          key={item.id}
+          key={index}
           align="center"
           icone={{
-            url: item.icone.url,
+            url: item.logo?.mediaItemUrl,
             width: 'w-[95px]',
             height: 'h-[95px]',
             marginBottom: 'mb-[15px]',

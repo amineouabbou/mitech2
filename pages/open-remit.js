@@ -27,87 +27,122 @@ import {
 import TitleSolution from '../components/solutions/SolutionBlocs/TitleSolution'
 import List3cols from '../components/solutions/SolutionBlocs/List3cols'
 import PopIn from '../components/solutions/PopIn'
+import { getPageData } from '../utils'
+import { GET_OPEN_REMIT } from '../queries'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-const {
-  data: { translation },
-} = {
-  data: {
-    translation: {
-      title: 'Open cloud',
-      pagesHero: {
-        subTitle:
-          '<strong>Cross-border remittance</strong> solutions for your existing digital offer',
-      },
-    },
-  },
-}
+export default function OpenRemitPage({ data }) {
+  const {
+    title: pageTitle,
+    ACFPage: { acfFlex },
+  } = data.page.translation
 
-const DATA_FB_POP = {
-  title:
-    'You want to create an cross-border <br> remittance offer from scratch?',
-  logoImg: '/logos/oc-white-logo.svg',
-  link: {
-    label: 'Front Brand may suit your need',
-    url: '/front-brand',
-  },
-}
-
-export default function OpenRemitPage() {
   return (
     <>
-      <SEO />
-      <HeroSolution>
-        <Title className="uppercase" title={translation.title} />
-        <SubTitle
-          className="text-primary lg:mb-[75px]"
-          subtitle={translation.pagesHero.subTitle}
-        />
-        <IntroOc />
-      </HeroSolution>
+      <SEO title={pageTitle} />
+      {acfFlex.map((item, index) => {
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_HeroSolution') {
+          return (
+            <HeroSolution
+              key={index}
+              classsName="min-h-[1090px] lg:min-h-[880px]"
+            >
+              <Title className="uppercase" title={item.title} />
+              <SubTitle
+                className="text-primary lg:mb-[100px]"
+                subtitle={item.subtitle}
+              />
+              <IntroOc data={item} />
+            </HeroSolution>
+          )
+        }
+      })}
 
       <WhiteContainer
         sectionClassName="-mt-[90px]"
         gap={<SectionGap className="h-[80px] bottom-0 bg-[#f3f4f6]" />}
       >
-        <Slice className="mb-[120px]">
-          <SliceTitle title={SAY_HELLO.sectionTitle} />
-          <ListUl data={SAY_HELLO.repeater} />
-        </Slice>
+        {acfFlex.map((item, index) => {
+          if (
+            item.fieldGroupName === 'Page_Acfpage_AcfFlex_SolutionAdvantages'
+          ) {
+            return (
+              <Slice key={index} className="mb-[40px] lg:mb-[120px]">
+                <SliceTitle title={item.title} />
+                <ListUl data={item.advantagesRepeater} />
+              </Slice>
+            )
+          }
 
-        <Slice>
-          <SliceTitle title={PLUG_IMPROVE.sectionTitle} />
-          <PlugAndImprove data={PLUG_IMPROVE.list} />
-        </Slice>
+          if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_PlugAndImprove') {
+            return (
+              <Slice key={index}>
+                <SliceTitle title={item.title} />
+                <PlugAndImprove data={item} />
+              </Slice>
+            )
+          }
+        })}
       </WhiteContainer>
 
-      <SolutionBlocs>
-        <TitleSolution title={ADVANTAGES_BLOCS_OPEN_CLOUD.sectionTitle} />
-        <List3cols data={ADVANTAGES_BLOCS_OPEN_CLOUD.liste} />
-      </SolutionBlocs>
+      {acfFlex.map((item, index) => {
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_SolutionFeatured') {
+          return (
+            <SolutionBlocs key={index}>
+              <TitleSolution title={item.title} />
+              <List3cols data={item} />
+            </SolutionBlocs>
+          )
+        }
+      })}
 
       <WhiteContainer
         sectionClassName="bg-[#fafbfb]"
         gap={<SectionGap className="h-[95px] top-0 bg-[#f3f4f6]" />}
       >
-        <Slice className="mb-[80px]">
-          <SliceTitle
-            title={BUILD_MONITOR.sectionTitle}
-            className="mb-[50px]"
-          />
-          <ListWithImage data={BUILD_MONITOR.list} />
-        </Slice>
+        {acfFlex.map((item, index) => {
+          if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_BuildAndMonitor') {
+            return (
+              <Slice key={index} className="mb-[30px] lg:mb-[80px]">
+                <SliceTitle title={item.title} className="mb-[50px]" />
+                <ListWithImage data={item} />
+              </Slice>
+            )
+          }
 
-        <Slice>
-          <SliceTitle title="Quicker, compliant, <br>high-tech way to build your offer " />
-          <ClassicAndMitech data={CLASSIC_MITECH_COMPARAISON_DATA} />
-        </Slice>
+          if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_ComparisonTable') {
+            return (
+              <Slice key={index}>
+                <SliceTitle title={item.title} />
+                <ClassicAndMitech data={item} />
+              </Slice>
+            )
+          }
+        })}
       </WhiteContainer>
 
-      <HowOperate data={HOW_OPERATE_DATA} />
+      {acfFlex.map((item, index) => {
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_HowWeOperate') {
+          return <HowOperate key={index} data={item} />
+        }
 
-      <Getintouch className="pt-[70px]" />
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_PopIn') {
+          return <PopIn key={index} data={item} />
+        }
+      })}
 
-      <PopIn data={DATA_FB_POP} />
+      <Getintouch className=" pt-[50px] lg:pt-[70px]" />
     </>
   )
+}
+
+export async function getStaticProps({ locale }) {
+  const data = await getPageData(GET_OPEN_REMIT, 393, locale)
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      data: data,
+    },
+  }
 }

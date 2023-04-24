@@ -1,63 +1,41 @@
 import Image from 'next/image'
 import React from 'react'
 
-const OurVision = () => {
+const OurVision = ({ data }) => {
+  const { photo, listPointsRepeater } = data
   return (
-    <div className="flex w-full">
-      <div className="bloc min-w-[440px] max-w-[440px] lg:text-[17px] text-[#636e88]">
-        <div className="item mb-[30px] flex items-start has-ul-dots-gray">
-          <div className="min-w-[18px] mr-[15px]">
-            <span className="relative top-[2px]">
-              <Image
-                src="/icons/check-orange.svg"
-                width={18}
-                height={13}
-                alt="icon"
-              />
-            </span>
+    <div className="lg:flex w-full">
+      <div className="bloc lg:min-w-[440px] max-w-[440px] text-[14px] lg:text-[17px] text-[#636e88]">
+        {listPointsRepeater.map((item, index) => (
+          <div
+            key={index}
+            className="item mb-[30px] flex items-start has-ul-dots-gray"
+          >
+            <div className="min-w-[18px] mr-[15px]">
+              <span className="relative top-[2px]">
+                <Image
+                  src="/icons/check-orange.svg"
+                  width={18}
+                  height={13}
+                  alt="icon"
+                />
+              </span>
+            </div>
+            <div
+              className="[&>p]:font-medium [&>ul]:leading-[27px]"
+              dangerouslySetInnerHTML={{ __html: item.texte }}
+            />
           </div>
-          <div>
-            <p className="font-medium flex items-top leading-[27px]">
-              We believe in the sustainability power of digital remittance :
-            </p>
-            <ul className="leading-[27px]">
-              <li>As it allows for lower costs</li>
-              <li>More compliance</li>
-              <li>Greater reach</li>
-            </ul>
-          </div>
-        </div>
-        <div className="item flex items-start">
-          <div className="min-w-[18px] mr-[15px]">
-            <span className="relative top-[2px]">
-              <Image
-                src="/icons/check-orange.svg"
-                width={18}
-                height={13}
-                alt="icon"
-              />
-            </span>
-          </div>
-          <div>
-            <p className="font-medium leading-[27px]">
-              A world where every local institutions can propose its own
-              remittance offer, to promote innovation and sustainability rather
-              than keeping the status quo
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
 
-      <div className="bloc-img min-w-[417px] max-w-[417px] ml-auto -mt-[105px]">
-        <span>
-          <Image
-            width={417}
-            height={510}
-            alt=""
-            src="/bgs/about-3persons.png"
-          />
-        </span>
-      </div>
+      {photo && (
+        <div className="bloc-img lg:min-w-[417px] max-w-[417px] ml-auto mt-[50px] lg:-mt-[105px]">
+          <span>
+            <Image width={417} height={510} alt="" src={photo.mediaItemUrl} />
+          </span>
+        </div>
+      )}
     </div>
   )
 }

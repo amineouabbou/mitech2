@@ -89,7 +89,7 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
-              <ul className="text-[20px] md:text-[26px] flex items-center gap-x-[13px] mt-[20px]">
+              <ul className="text-[26px] flex items-center gap-x-[13px] mt-[20px]">
                 <li>
                   <a href="#">
                     <FaTwitter />

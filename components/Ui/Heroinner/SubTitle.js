@@ -6,10 +6,10 @@ import { twclsx } from '../../../libs/twclsx'
 const SubTitle = ({ subtitle, className }) => {
   return (
     <>
-      <motion.p
+      <motion.div
         variants={shortFadeUp(1.5)}
         className={twclsx(
-          'hero-subtitle text-[17px] leading-[22px] lg:text-[28px] mb-[13px] lg:mb-[20px]',
+          'hero-subtitle text-[17px] text-center leading-[22px] lg:text-[28px] mb-[13px] lg:mb-[20px]',
           {
             [className]: className,
           }

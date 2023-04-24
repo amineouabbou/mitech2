@@ -13,10 +13,10 @@ const Item = ({ data }) => {
           src="/icons/check-mark-orange.png"
         />
       </span>
-      <div>
-        <span className="font-semibold">{data.title} : </span>
-        {data.description}
-      </div>
+      <div
+        className="text-[14px] lg:text-[16px] text-[#737587] leading-[24px] lg:leading-[26px] [&>p>strong]:font-semibold"
+        dangerouslySetInnerHTML={{ __html: data.texte }}
+      />
     </div>
   )
 }

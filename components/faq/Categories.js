@@ -10,7 +10,7 @@ const Categories = ({ data }) => {
       <ul className="flex justify-between gap-x-[3px]">
         <li key="all">
           <Link href="/faq">
-            <a className="lg:text-[16.6px] rounded-t-[5px] bg-white flex flex-col items-center justify-center lg:h-[66px] py-[10px] leading-tight  lg:py-0 px-[25px]">
+            <a className="lg:text-[16.6px] rounded-t-[5px] bg-white flex flex-col items-center justify-center h-full lg:h-[66px] py-[10px] leading-tight  lg:py-0 px-[25px]">
               <span>All</span>
             </a>
           </Link>
@@ -19,7 +19,7 @@ const Categories = ({ data }) => {
           <li key={item.category} className="grow">
             <Link href={`/faq/${slugify(item.category, { lower: true })}`}>
               <a
-                className={`lg:text-[16.6px] rounded-t-[5px] bg-white flex flex-col items-center justify-center lg:h-[66px] py-[10px] leading-tight lg:py-0 px-[25px] ${
+                className={`lg:text-[16.6px] rounded-t-[5px] bg-white flex flex-col items-center justify-center h-full  lg:h-[66px] py-[10px] leading-tight lg:py-0 px-[25px] ${
                   router.asPath ==
                   `/faq/${slugify(item.category, { lower: true })}`
                     ? 'active text-primary'

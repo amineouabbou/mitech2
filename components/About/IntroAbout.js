@@ -1,30 +1,22 @@
 import Image from 'next/image'
 import React from 'react'
 
-const IntroAbout = () => {
+const IntroAbout = ({ data }) => {
+  const { description, photo } = data
   return (
-    <div className="grid grid-cols-2 gap-x-10 w-full px-[45px]">
-      <div className="bloc bloc-Solution-pres max-w-[518px] tracking-[0.02em] leading-[24px] text-[17px] text-[#737483]">
-        Money International NV has been in existence since 2001 payment
-        institution under Belgian law Licensed by the Belgian National Bank
-        (BNB).
-        <br />
-        <br />
-        Money International holds the European passport Giving access to 27
-        countries in the European Union Money transfer - foreign exchange -
-        payment services
-      </div>
+    <div className="grid lg:grid-cols-2 gap-x-10 w-full lg:px-[45px] mt-[30px] lg:mt-0">
+      <div
+        className="bloc bloc-Solution-pres max-w-[518px] tracking-[0.02em] lg:leading-[24px] lg:text-[17px] text-[#737483] [&>p]:mb-7"
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
 
-      <div className="bloc-img flex flex-col items-end">
-        <div>
-          <Image
-            alt="OC"
-            height={203}
-            width={484}
-            src="/bgs/mitech-about-logo.png"
-          />
+      {photo && (
+        <div className="bloc-img flex flex-col items-end mt-[30px] lg:mt-0">
+          <div>
+            <Image alt="OC" height={203} width={484} src={photo.mediaItemUrl} />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

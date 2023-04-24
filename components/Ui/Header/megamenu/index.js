@@ -43,7 +43,7 @@ const variants = {
 
 const transition = {
   ease: globaleasing,
-  duration: 0.9,
+  duration: 0.35,
 }
 
 const Megamenu = () => {

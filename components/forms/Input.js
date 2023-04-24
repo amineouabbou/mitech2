@@ -4,7 +4,7 @@ const Input = ({ name, register, errors, placeholder, required, label }) => {
   return (
     <>
       <div className="form-field">
-        <label className="block px-[17px] mb-[9px]">
+        <label className="block px-[17px] mb-[9px] text-[14px] lg:text-[16px]">
           {label} {required && <span className="text-primary">*</span>}
         </label>
         <input
