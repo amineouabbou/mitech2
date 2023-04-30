@@ -2,12 +2,10 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Button from '../html/Button'
 import { globaleasing, shortFadeUp, titesStagger } from '../../data/useVariants'
-import { useTranslation } from 'next-i18next'
-import Image from 'next/image'
 
 const Hero = ({ data }) => {
-  const { t } = useTranslation('common')
-  const { title, advantagesRep } = data
+  const { title, advantagesRep, callToAction } = data
+  const { label, slug } = callToAction
   return (
     <motion.div
       initial={{ backgroundColor: '#fff' }}
@@ -58,7 +56,7 @@ const Hero = ({ data }) => {
             variants={shortFadeUp(1.5)}
             className="read-more flex justify-center lg:justify-start"
           >
-            <Button title={t('Contact our team')} url="/contact" />
+            {label && <Button title={label} url={slug} />}
           </motion.div>
         </motion.div>
       </div>

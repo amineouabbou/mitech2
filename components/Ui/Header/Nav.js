@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React, { useCallback, useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { useGlobalState } from '../../../providers/globalProvider'
 import { twclsx } from '../../../libs/twclsx'
 import Submenu from './Submenu'
@@ -99,7 +99,6 @@ const Nav = () => {
   const handleMeuClick = (e) => {
     e.preventDefault()
     setAccodion((prev) => !prev)
-    console.log('Clicked open')
   }
 
   const handleRouteChange = useCallback(() => {
@@ -117,32 +116,10 @@ const Nav = () => {
   return (
     <ul className="md:flex items-center">
       {MENU.map((item) => {
-        // if (item.path === '/products') {
-        //   return (
-        //     <li
-        //       onClick={handleOpenMegaMenu}
-        //       className={clsx(
-        //         'md:mx-[15px] pl-[10px] pr-[22px] mb:border-b-[1px] mb:border-[#eaeaed] cursor-pointer relative',
-        //         "before:bg-[url('/icons/arrow-down.svg')] before:bg-no-repeat before:bg-[length:15px_9px]",
-        //         'before:w-[15px] before:h-[9px] before:block  before:absolute before:top-0 before:right-0',
-        //         'before:bottom-0 before:top-0 before:my-auto before:right-0 before:duration-200',
-        //         {
-        //           'before:rotate-180': megamenuOpened,
-        //         }
-        //       )}
-        //       key={item.path}
-        //     >
-        //       <a className="font-medium text-[15.28px] mb:block mb:px-[25px] mb:py-[20px] mb:font-normal">
-        //         {item.label}
-        //       </a>
-        //     </li>
-        //   )
-        // }
-
         return (
           <li
             className={twclsx(
-              'md:px-[15px] lg:px-[25px] mb:border-b-[1px] mb:border-[#eaeaed] relative',
+              'md:px-[15px] lg:px-[25px] mb:border-b-[1px] mb:border-[#eaeaed] relative mb:last:border-b-0',
               {
                 "lg:mr-[20px]  before:bg-[url('/icons/arrow-down.svg')] before:bg-no-repeat before:bg-[length:15px_9px] before:w-[15px] before:h-[9px] before:block  before:absolute before:top-[25px] lg:before:top-[7px] lg:before:right-0 before:right-[15px] before:duration-200":
                   item.submeu && item.submeu.length > 1,
@@ -158,14 +135,14 @@ const Nav = () => {
                 <a
                   href="#"
                   onClick={handleMeuClick}
-                  className="font-medium text-[15.28px] mb:block mb:px-[25px] mb:py-[20px] mb:font-normal lg:hidden"
+                  className="font-medium text-[14.28px] lg:text-[15.28px] mb:block mb:px-[25px] mb:py-[14px] lg:hidden"
                 >
                   {item.label}
                 </a>
                 <a
                   href="#"
                   onClick={handleOpenMegaMenu}
-                  className="font-medium text-[15.28px] mb:hidden mb:px-[25px] mb:py-[20px] mb:font-normal "
+                  className="font-medium text-[14.28px] lg:text-[15.28px] mb:hidden mb:px-[25px] mb:py-[14px]"
                 >
                   {item.label}
                 </a>
@@ -174,7 +151,7 @@ const Nav = () => {
               <Link href={item.slug}>
                 <a
                   className={twclsx(
-                    'font-medium text-[15.28px] mb:block mb:px-[25px] mb:py-[20px] mb:font-normal',
+                    'font-medium text-[14.28px] lg:text-[15.28px] mb:block mb:px-[25px] mb:py-[14px]',
                     {
                       'text-primary': router.pathname == item.slug,
                     }

@@ -2,13 +2,10 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { titesStagger, titlesAnimation } from '../../data/useVariants'
-import Getintouch from '../Ui/Getintouch'
-import Newsletter from './Newsletter'
 
 const Diaspocentric = ({ data }) => {
   return (
     <>
-      <Newsletter />
       <section className="bg-white pt-[60px] lg:pt-[60px] lg:pb-0">
         <div className="container mx-auto">
           <div className="md:flex">

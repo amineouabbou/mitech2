@@ -14,6 +14,7 @@ import Diaspocentric from '../components/home/Diaspocentric'
 import { getPageData } from '../utils'
 import { GET_HOME } from '../queries'
 import Getintouch from '../components/Ui/Getintouch'
+import Newsletter from '../components/home/Newsletter'
 
 export default function Home({ data }) {
   const {
@@ -53,6 +54,10 @@ export default function Home({ data }) {
 
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Mtos') {
           return <Mtos key={index} data={item} />
+        }
+
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Newsletter') {
+          return <Newsletter key={index} data={item} />
         }
 
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_DiasporaCentric') {

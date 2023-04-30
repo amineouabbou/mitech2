@@ -23,12 +23,13 @@ const Mobilemenu = () => {
       className="mobile-nav mb:bg-white mb:absolute mb:top-[100%] mb:left-0 mb:right-0"
     >
       <Nav />
-      <div className="md:ml-[25px] py-[30px] px-[25px]">
+      <div className="md:ml-[25px] py-[20px] px-[25px] flex flex-col items-center hidden:lg">
         <Button
           lowercase="true"
           title={t('Get Started')}
           largeur="small"
           url="/contact"
+          className="min-w-[160px] text-center"
         />
       </div>
     </motion.div>

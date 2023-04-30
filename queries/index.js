@@ -15,6 +15,10 @@ export const GET_HOME = gql`
               advantagesRep {
                 label
               }
+              callToAction {
+                label
+                slug
+              }
             }
             ... on Page_Acfpage_AcfFlex_WhatMitech {
               fieldGroupName
@@ -95,6 +99,15 @@ export const GET_HOME = gql`
                   label
                 }
                 bottomText
+              }
+            }
+            ... on Page_Acfpage_AcfFlex_Newsletter {
+              fieldGroupName
+              title
+              inputLabel
+              button {
+                label
+                slug
               }
             }
             ... on Page_Acfpage_AcfFlex_DiasporaCentric {
