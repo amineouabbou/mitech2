@@ -142,24 +142,34 @@ const Nav = () => {
         return (
           <li
             className={twclsx(
-              'md:mx-[15px] md:px-[5px] mb:border-b-[1px] mb:border-[#eaeaed] relative',
+              'md:px-[15px] lg:px-[25px] mb:border-b-[1px] mb:border-[#eaeaed] relative',
               {
-                "before:bg-[url('/icons/arrow-down.svg')] before:bg-no-repeat before:bg-[length:15px_9px] before:w-[15px] before:h-[9px] before:block  before:absolute before:top-[25px] before:right-[15px] before:duration-200":
+                "lg:mr-[20px]  before:bg-[url('/icons/arrow-down.svg')] before:bg-no-repeat before:bg-[length:15px_9px] before:w-[15px] before:h-[9px] before:block  before:absolute before:top-[25px] lg:before:top-[7px] lg:before:right-0 before:right-[15px] before:duration-200":
                   item.submeu && item.submeu.length > 1,
-                'before:rotate-180':
-                  item.submeu && item.submeu.length > 1 && accordion,
+                ' before:rotate-180':
+                  (item.submeu && item.submeu.length > 1 && accordion) ||
+                  megamenuOpened,
               }
             )}
             key={item.slug}
           >
             {!item.slug || item.slug === '#' ? (
-              <a
-                href="#"
-                onClick={handleMeuClick}
-                className="font-medium text-[15.28px] mb:block mb:px-[25px] mb:py-[20px] mb:font-normal"
-              >
-                {item.label}
-              </a>
+              <>
+                <a
+                  href="#"
+                  onClick={handleMeuClick}
+                  className="font-medium text-[15.28px] mb:block mb:px-[25px] mb:py-[20px] mb:font-normal lg:hidden"
+                >
+                  {item.label}
+                </a>
+                <a
+                  href="#"
+                  onClick={handleOpenMegaMenu}
+                  className="font-medium text-[15.28px] mb:hidden mb:px-[25px] mb:py-[20px] mb:font-normal "
+                >
+                  {item.label}
+                </a>
+              </>
             ) : (
               <Link href={item.slug}>
                 <a className="font-medium text-[15.28px] mb:block mb:px-[25px] mb:py-[20px] mb:font-normal">

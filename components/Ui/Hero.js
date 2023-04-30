@@ -25,16 +25,10 @@ const Hero = ({ data }) => {
             opacity: 1,
             transition: { ease: globaleasing, duration: 3 },
           }}
-          className="illustration lg:block lg:w-[711px] h-[280px] lg:h-[542px] lg:absolute top-10 lg:-right-[150px] bg-[url('/bgs/bg-slide.png')] bg-no-repeat bg-contain lg:bg-[length:711px_542px] bg-center lg:bg-[right_0_top_0]"
+          className="illustration hidden lg:block lg:w-[711px] h-[280px] lg:h-[542px] lg:absolute top-10 lg:-right-[150px] bg-[url('/bgs/bg-slide.png')] bg-no-repeat bg-contain lg:bg-[length:711px_542px] bg-center lg:bg-[right_0_top_0]"
         ></motion.div>
-        <div className="illustration hidden">
-          <Image
-            src="/bgs/bg-slide-mobile.png"
-            alt=""
-            width={200}
-            height={200}
-            className="w-[100%]"
-          />
+        <div className="illustration md:hidden">
+          <img src="/bgs/bg-slide-mobile.png" alt="" />
         </div>
         <motion.div
           variants={titesStagger(0.2)}
