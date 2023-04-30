@@ -96,7 +96,7 @@ export default function Contact() {
                 register={register}
                 errors={errors}
                 placeholder="- List of countries -"
-                options={['France', 'Maroc', 'Brazil', 'Espagne']}
+                options={getCountriesList()}
               />
 
               <Select
@@ -123,7 +123,15 @@ export default function Contact() {
                 register={register}
                 errors={errors}
                 placeholder="- Please Choose one -"
-                options={getCountriesList()}
+                options={[
+                  'Social media (Linkedin, Facebook, Twitter…)',
+                  'Blog post',
+                  'Webinar',
+                  'Event',
+                  'Podcast',
+                  'Recommandation',
+                  'Other',
+                ]}
               />
             </div>
 
