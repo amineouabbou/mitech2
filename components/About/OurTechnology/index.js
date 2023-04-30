@@ -10,7 +10,7 @@ const OurTechnology = ({ data }) => {
 
       <div className="grid lg:grid-cols-2  gap-5 gap-x-[18px]">
         {cardsListRepeater.map((item, index) => (
-          <CardTechnology data={item} key={item} />
+          <CardTechnology data={item} key={index} />
         ))}
       </div>
     </div>

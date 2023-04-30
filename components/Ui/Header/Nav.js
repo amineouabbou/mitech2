@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useGlobalState } from '../../../providers/globalProvider'
 import { twclsx } from '../../../libs/twclsx'
@@ -102,17 +102,17 @@ const Nav = () => {
     console.log('Clicked open')
   }
 
-  const handleRouteChange = () => {
+  const handleRouteChange = useCallback(() => {
     setAccodion(false)
     closeMobileNav()
-  }
+  }, [closeMobileNav])
 
   useEffect(() => {
     router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
-  }, [router.events])
+  }, [router.events, handleRouteChange])
 
   return (
     <ul className="md:flex items-center">
@@ -172,7 +172,14 @@ const Nav = () => {
               </>
             ) : (
               <Link href={item.slug}>
-                <a className="font-medium text-[15.28px] mb:block mb:px-[25px] mb:py-[20px] mb:font-normal">
+                <a
+                  className={twclsx(
+                    'font-medium text-[15.28px] mb:block mb:px-[25px] mb:py-[20px] mb:font-normal',
+                    {
+                      'text-primary': router.pathname == item.slug,
+                    }
+                  )}
+                >
                   {item.label}
                 </a>
               </Link>
