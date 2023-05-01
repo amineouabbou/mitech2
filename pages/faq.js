@@ -1,7 +1,7 @@
 import SEO from '../components/SEO'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getPageData } from '../utils'
-import { GET_FAQ } from '../queries'
+import { GET_FAQ, GLOBAL_DATA } from '../queries'
 import Faqgroup from '../components/faq/Faqgroup'
 import Getintouch from '../components/Ui/Getintouch'
 import Title from '../components/Ui/Heroinner/Title'
@@ -10,16 +10,20 @@ import FaqHeroBloc from '../components/faq/FaqHeroBloc'
 import Description from '../components/Ui/Heroinner/Description'
 import HeroFaq from '../components/faq/HeroFaq'
 import { useState } from 'react'
-import { filterFaqlist } from '../Utilis'
+import { filterFaqlist, getGetInTouchBlock } from '../Utilis'
 import { useMemo } from 'react'
 
-export default function Faq({ data }) {
+export default function Faq({ data, global }) {
   const [searchQuery, setSearchQuery] = useState('')
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
     pagesHero,
   } = data.page.translation
+
+  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+
+  const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
   const filteredFaq = useMemo(
     () =>
@@ -55,18 +59,23 @@ export default function Faq({ data }) {
         </main>
       </div>
 
-      <Getintouch className="md:mt-[75px] md:mb-[60px]" />
+      <Getintouch
+        data={getIntouchBlock}
+        className="md:mt-[75px] md:mb-[60px]"
+      />
     </>
   )
 }
 
 export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_FAQ, 168, locale)
+  const global = await getPageData(GLOBAL_DATA, 563, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
-      data: data,
+      data,
+      global,
     },
   }
 }

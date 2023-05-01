@@ -2,24 +2,23 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { globaleasing } from '../../../data/useVariants'
 import Button from '../../html/Button'
 import Languages from '../../html/Languages'
 import Mobilemenu from './Mobilemenu'
 import Nav from './Nav'
 import { useGlobalState } from '../../../providers/globalProvider'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
 import { twclsx } from '../../../libs/twclsx'
 import dynamic from 'next/dynamic'
 const Megamenu = dynamic(() => import('./megamenu'), {
   loading: () => '',
 })
 
-const Header = () => {
-  const { t } = useTranslation('common')
+const Header = (props) => {
   const router = useRouter()
   const [sticky, setSticky] = useState(false)
+
+  const { data: globalData } = props
   const {
     state: { isMenuOpen },
     handleMobileMenu,
@@ -101,15 +100,17 @@ const Header = () => {
 
           <div className="right-side md:flex items-center ml-auto">
             <nav className="hidden md:block">
-              <Nav />
+              <Nav data={globalData} />
             </nav>
 
-            <AnimatePresence>{isMenuOpen && <Mobilemenu />}</AnimatePresence>
+            <AnimatePresence>
+              {isMenuOpen && <Mobilemenu data={globalData} />}
+            </AnimatePresence>
 
             <div className="md:ml-[25px] hidden md:block">
               <Button
                 lowercase="true"
-                title={t('Get Started')}
+                title="Get Started"
                 largeur="small"
                 url="/contact"
               />
@@ -121,7 +122,9 @@ const Header = () => {
           </div>
         </div>
 
-        <AnimatePresence>{megamenuOpened && <Megamenu />}</AnimatePresence>
+        <AnimatePresence>
+          {megamenuOpened && <Megamenu data={globalData} />}
+        </AnimatePresence>
       </motion.div>
     </>
   )

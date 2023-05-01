@@ -3,7 +3,7 @@ import slugify from 'slugify'
 import SEO from '../../components/SEO'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getPageData } from '../../utils'
-import { GET_FAQ } from '../../queries'
+import { GET_FAQ, GLOBAL_DATA } from '../../queries'
 import Faqgroup from '../../components/faq/Faqgroup'
 import Getintouch from '../../components/Ui/Getintouch'
 import { useRouter } from 'next/router'
@@ -12,8 +12,9 @@ import SubTitle from '../../components/Ui/Heroinner/SubTitle'
 import Description from '../../components/Ui/Heroinner/Description'
 import FaqHeroBloc from '../../components/faq/FaqHeroBloc'
 import HeroFaq from '../../components/faq/HeroFaq'
+import { getGetInTouchBlock } from '../../Utilis'
 
-export default function Faq({ data }) {
+export default function Faq({ data, global }) {
   const router = useRouter()
   const { slug } = router.query
   const {
@@ -21,6 +22,10 @@ export default function Faq({ data }) {
     ACFPage: { acfFlex },
     pagesHero,
   } = data.page.translation
+
+  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+
+  const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
   return (
     <>
@@ -46,7 +51,7 @@ export default function Faq({ data }) {
         </main>
       </div>
 
-      <Getintouch className=" pt-[50px] lg:pt-[70px]" />
+      <Getintouch data={getIntouchBlock} className=" pt-[50px] lg:pt-[70px]" />
     </>
   )
 }
@@ -68,11 +73,13 @@ export async function getStaticPaths({ locale }) {
 
 export async function getStaticProps({ locale }) {
   const data = await getPageData(GET_FAQ, 168, locale)
+  const global = await getPageData(GLOBAL_DATA, 563, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
-      data: data,
+      data,
+      global,
     },
   }
 }

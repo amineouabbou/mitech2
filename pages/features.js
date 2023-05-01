@@ -3,18 +3,23 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import SEO from '../components/SEO'
 import Largebox from '../components/features/Largebox'
 import Getintouch from '../components/Ui/Getintouch'
-import { GET_FEATURES } from '../queries'
+import { GET_FEATURES, GLOBAL_DATA } from '../queries'
 import { getPageData } from '../utils'
 import Title from '../components/Ui/Heroinner/Title'
 import SubTitle from '../components/Ui/Heroinner/SubTitle'
 import HeroinnerSimple from '../components/Ui/HeroinnerSimple'
+import { getGetInTouchBlock } from '../Utilis'
 
-export default function Featured({ data }) {
+export default function Featured({ data, global }) {
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
     pagesHero,
   } = data.page.translation
+
+  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+
+  const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
   return (
     <>
@@ -46,18 +51,23 @@ export default function Featured({ data }) {
           })}
         </main>
       </div>
-      <Getintouch className="my-[40px] md:mt-[75px] md:mb-[60px]" />
+      <Getintouch
+        data={getIntouchBlock}
+        className="my-[40px] md:mt-[75px] md:mb-[60px]"
+      />
     </>
   )
 }
 
 export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_FEATURES, 9, locale)
+  const global = await getPageData(GLOBAL_DATA, 563, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
-      data: data,
+      data,
+      global,
     },
   }
 }

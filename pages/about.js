@@ -17,9 +17,10 @@ import OurVision from '../components/About/OurVision'
 import OurDna from '../components/About/OurDna'
 import OurTechnology from '../components/About/OurTechnology'
 import Conformity from '../components/About/Conformity'
-import { GET_ABOUT_PAGE } from '../queries'
+import { GET_ABOUT_PAGE, GLOBAL_DATA } from '../queries'
 import { getPageData } from '../utils'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { getGetInTouchBlock } from '../Utilis'
 
 const {
   data: { translation },
@@ -34,11 +35,15 @@ const {
   },
 }
 
-export default function AboutPage({ data }) {
+export default function AboutPage({ data, global }) {
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
   } = data.page.translation
+
+  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+
+  const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
   return (
     <>
@@ -113,18 +118,20 @@ export default function AboutPage({ data }) {
         })}
       </WhiteContainer>
 
-      <Getintouch className=" pt-[50px] lg:pt-[70px]" />
+      <Getintouch data={getIntouchBlock} className=" pt-[50px] lg:pt-[70px]" />
     </>
   )
 }
 
 export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_ABOUT_PAGE, 504, locale)
+  const global = await getPageData(GLOBAL_DATA, 563, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
       data: data,
+      global,
     },
   }
 }

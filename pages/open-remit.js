@@ -28,14 +28,19 @@ import TitleSolution from '../components/solutions/SolutionBlocs/TitleSolution'
 import List3cols from '../components/solutions/SolutionBlocs/List3cols'
 import PopIn from '../components/solutions/PopIn'
 import { getPageData } from '../utils'
-import { GET_OPEN_REMIT } from '../queries'
+import { GET_OPEN_REMIT, GLOBAL_DATA } from '../queries'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { getGetInTouchBlock } from '../Utilis'
 
-export default function OpenRemitPage({ data }) {
+export default function OpenRemitPage({ data, global }) {
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
   } = data.page.translation
+
+  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+
+  const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
   return (
     <>
@@ -131,18 +136,20 @@ export default function OpenRemitPage({ data }) {
         }
       })}
 
-      <Getintouch className=" pt-[50px] lg:pt-[70px]" />
+      <Getintouch data={getIntouchBlock} className=" pt-[50px] lg:pt-[70px]" />
     </>
   )
 }
 
 export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_OPEN_REMIT, 393, locale)
+  const global = await getPageData(GLOBAL_DATA, 563, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
       data: data,
+      global,
     },
   }
 }

@@ -12,14 +12,20 @@ import Whymitech from '../components/home/Whymitech'
 import Mtos from '../components/home/Mtos'
 import Diaspocentric from '../components/home/Diaspocentric'
 import { getPageData } from '../utils'
-import { GET_HOME } from '../queries'
+import { GET_HOME, GLOBAL_DATA } from '../queries'
 import Getintouch from '../components/Ui/Getintouch'
 import Newsletter from '../components/home/Newsletter'
+import { getGetInTouchBlock } from '../Utilis'
 
-export default function Home({ data }) {
+export default function Home(props) {
+  const { data, global } = props
   const {
     ACFPage: { acfFlex },
   } = data.page.translation
+
+  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+
+  const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
   return (
     <>
       <SEO />
@@ -64,18 +70,20 @@ export default function Home({ data }) {
           return <Diaspocentric key={index} data={item} />
         }
       })}
-      <Getintouch className="mt-[80px] lg:mt-[150px]" />
+      <Getintouch data={getIntouchBlock} className="mt-[80px] lg:mt-[150px]" />
     </>
   )
 }
 
 export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_HOME, 7, locale)
+  const global = await getPageData(GLOBAL_DATA, 563, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
       data: data,
+      global,
     },
   }
 }

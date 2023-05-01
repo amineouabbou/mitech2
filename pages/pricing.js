@@ -7,6 +7,10 @@ import SubTitle from '../components/Ui/Heroinner/SubTitle'
 import Title from '../components/Ui/Heroinner/Title'
 import HeroinnerSimple from '../components/Ui/HeroinnerSimple'
 import { twclsx } from '../libs/twclsx'
+import { GLOBAL_DATA } from '../queries'
+import { getPageData } from '../utils'
+import { getGetInTouchBlock } from '../Utilis'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const DATA = [
   {
@@ -47,7 +51,10 @@ const DATA = [
   },
 ]
 
-const Pricing = () => {
+const Pricing = ({ global }) => {
+  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+
+  const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
   return (
     <>
       <SEO />
@@ -178,9 +185,20 @@ const Pricing = () => {
         </main>
       </div>
 
-      <Getintouch className=" pt-[50px] lg:pt-[70px]" />
+      <Getintouch data={getIntouchBlock} className=" pt-[50px] lg:pt-[70px]" />
     </>
   )
 }
 
 export default Pricing
+
+export async function getServerSideProps({ locale }) {
+  const global = await getPageData(GLOBAL_DATA, 563, locale)
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      global,
+    },
+  }
+}

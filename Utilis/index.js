@@ -274,3 +274,35 @@ export const getCountriesList = () => {
     'Åland Islands',
   ]
 }
+
+export const getMegaMenuData = (arr) => {
+  const data = arr.find((item) => {
+    return item.__typename === 'Page_Acfglobal_SectionsOthers_MegaMenu'
+  })
+
+  return { data }
+}
+
+export const getGetInTouchBlock = (arr) => {
+  const data = arr.find((item) => {
+    return item.__typename === 'Page_Acfglobal_SectionsOthers_GetInTouch'
+  })
+
+  return { data }
+}
+
+export const getFooterData = (arr) => {
+  const data = arr.find((item) => {
+    return item.__typename === 'Page_Acfglobal_SectionsOthers_Footer'
+  })
+
+  return { data }
+}
+
+export const getNavData = (arr) => {
+  const data = arr.find((item) => {
+    return item.__typename === 'Page_Acfglobal_SectionsOthers_PrimaryMenu'
+  })
+
+  return { data }
+}

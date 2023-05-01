@@ -471,3 +471,86 @@ export const GET_ABOUT_PAGE = gql`
     }
   }
 `
+
+export const GLOBAL_DATA = gql`
+  query getPage($id: ID!, $lang: LanguageCodeEnum!) {
+    page(id: $id, idType: DATABASE_ID) {
+      title
+      translation(language: $lang) {
+        databaseId
+        title
+        ACFGlobal {
+          sectionsOthers {
+            __typename
+            ... on Page_Acfglobal_SectionsOthers_GetInTouch {
+              title
+              subTitle
+              cta {
+                label
+                slug
+              }
+            }
+            ... on Page_Acfglobal_SectionsOthers_PrimaryMenu {
+              __typename
+              navRep {
+                label
+                slug
+                submenuRep {
+                  label
+                  slug
+                }
+              }
+              cta {
+                label
+                slug
+              }
+            }
+            ... on Page_Acfglobal_SectionsOthers_MegaMenu {
+              introTitle
+              introDescription
+              solutionsRep {
+                logo {
+                  mediaItemUrl
+                }
+                title
+                subTitle
+              }
+              secteursTitle
+              listeSecteursRep {
+                label
+                slug
+              }
+            }
+            ... on Page_Acfglobal_SectionsOthers_Footer {
+              blocksRep {
+                title
+                linksRep {
+                  title
+                  slug
+                }
+              }
+              blockBesoin {
+                title
+                linksRep {
+                  title
+                  slug
+                }
+                socialRep {
+                  icon
+                  url
+                }
+              }
+              copyrightsBlock {
+                texte
+                logosRep {
+                  logo
+                  slug
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

@@ -13,7 +13,10 @@ import Submit from '../components/html/Submit'
 import HeroinnerSimple from '../components/Ui/HeroinnerSimple'
 import SubTitle from '../components/Ui/Heroinner/SubTitle'
 import Title from '../components/Ui/Heroinner/Title'
-import { getCountriesList } from '../Utilis'
+import { getCountriesList, getGetInTouchBlock } from '../Utilis'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { getPageData } from '../utils'
+import { GLOBAL_DATA } from '../queries'
 
 const schema = yup
   .object({
@@ -22,7 +25,11 @@ const schema = yup
   })
   .required()
 
-export default function Contact() {
+export default function Contact({ global }) {
+  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+
+  const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
+
   const {
     handleSubmit,
     register,
@@ -198,4 +205,15 @@ export default function Contact() {
       </div>
     </>
   )
+}
+
+export async function getServerSideProps({ locale }) {
+  const global = await getPageData(GLOBAL_DATA, 563, locale)
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      global,
+    },
+  }
 }

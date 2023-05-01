@@ -27,14 +27,19 @@ import List4cols from '../components/solutions/SolutionBlocs/List4cols'
 import HeroFbBg from '../components/solutions/FrontBrand/HeroFbBg'
 import BlocWithImage from '../components/solutions/BlocWithImage'
 import PopIn from '../components/solutions/PopIn'
-import { GET_FRONT_BRAND } from '../queries'
+import { GET_FRONT_BRAND, GLOBAL_DATA } from '../queries'
 import { getPageData } from '../utils'
+import { getGetInTouchBlock } from '../Utilis'
 
-export default function FrontBrandPage({ data }) {
+export default function FrontBrandPage({ data, global }) {
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
   } = data.page.translation
+
+  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+
+  const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
   return (
     <>
@@ -139,7 +144,7 @@ export default function FrontBrandPage({ data }) {
         }
       })}
 
-      <Getintouch className=" pt-[50px] lg:pt-[70px]" />
+      <Getintouch data={getIntouchBlock} className=" pt-[50px] lg:pt-[70px]" />
 
       {acfFlex.map((item, index) => {
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_PopIn') {
@@ -152,11 +157,13 @@ export default function FrontBrandPage({ data }) {
 
 export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_FRONT_BRAND, 370, locale)
+  const global = await getPageData(GLOBAL_DATA, 563, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
-      data: data,
+      data,
+      global,
     },
   }
 }
