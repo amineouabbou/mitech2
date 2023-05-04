@@ -3,7 +3,7 @@ import slugify from 'slugify'
 import SEO from '../../components/SEO'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getPageData } from '../../utils'
-import { GET_FAQ, GLOBAL_DATA } from '../../queries'
+import { GET_FAQ } from '../../queries'
 import Faqgroup from '../../components/faq/Faqgroup'
 import Getintouch from '../../components/Ui/Getintouch'
 import { useRouter } from 'next/router'
@@ -14,7 +14,7 @@ import FaqHeroBloc from '../../components/faq/FaqHeroBloc'
 import HeroFaq from '../../components/faq/HeroFaq'
 import { getGetInTouchBlock } from '../../Utilis'
 
-export default function Faq({ data, global }) {
+export default function Faq({ data, globalProps }) {
   const router = useRouter()
   const { slug } = router.query
   const {
@@ -23,7 +23,7 @@ export default function Faq({ data, global }) {
     pagesHero,
   } = data.page.translation
 
-  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+  const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
@@ -56,30 +56,28 @@ export default function Faq({ data, global }) {
   )
 }
 
-export async function getStaticPaths({ locale }) {
+// export async function getStaticPaths({ locale }) {
+//   const data = await getPageData(GET_FAQ, 168, locale)
+
+//   const paths = data.page.translation.ACFPage.acfFlex[0].listCategoriesRep.map(
+//     (item) => {
+//       return { params: { slug: slugify(item.category, { lower: true }) } }
+//     }
+//   )
+
+//   return {
+//     paths,
+//     fallback: false, // can also be true or 'blocking'
+//   }
+// }
+
+export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_FAQ, 168, locale)
-
-  const paths = data.page.translation.ACFPage.acfFlex[0].listCategoriesRep.map(
-    (item) => {
-      return { params: { slug: slugify(item.category, { lower: true }) } }
-    }
-  )
-
-  return {
-    paths,
-    fallback: false, // can also be true or 'blocking'
-  }
-}
-
-export async function getStaticProps({ locale }) {
-  const data = await getPageData(GET_FAQ, 168, locale)
-  const global = await getPageData(GLOBAL_DATA, 563, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
       data,
-      global,
     },
   }
 }

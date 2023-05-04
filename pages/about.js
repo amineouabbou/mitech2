@@ -35,13 +35,13 @@ const {
   },
 }
 
-export default function AboutPage({ data, global }) {
+export default function AboutPage({ data, globalProps }) {
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
   } = data.page.translation
 
-  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+  const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
@@ -123,15 +123,13 @@ export default function AboutPage({ data, global }) {
   )
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   const data = await getPageData(GET_ABOUT_PAGE, 504, locale)
-  const global = await getPageData(GLOBAL_DATA, 563, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
       data: data,
-      global,
     },
   }
 }

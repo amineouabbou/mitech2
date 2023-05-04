@@ -4,10 +4,14 @@ import Header from '../Header'
 import { getFooterData } from '../../../Utilis'
 
 const Layout = (props) => {
-  const { global } = props
+  const { globalProps } = props
   const { sectionsOthers: globalData } =
-    global?.page?.translation?.ACFGlobal || []
+    globalProps?.page?.translation?.ACFGlobal || []
+
   const { data: footerData } = getFooterData(globalData || [])
+
+  console.log('zzzzzz propspropsprops', props)
+  console.log('Footer data', footerData)
 
   return (
     <div className="global">

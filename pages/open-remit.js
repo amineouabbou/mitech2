@@ -32,13 +32,13 @@ import { GET_OPEN_REMIT, GLOBAL_DATA } from '../queries'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getGetInTouchBlock } from '../Utilis'
 
-export default function OpenRemitPage({ data, global }) {
+export default function OpenRemitPage({ data, globalProps }) {
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
   } = data.page.translation
 
-  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+  const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
@@ -141,15 +141,13 @@ export default function OpenRemitPage({ data, global }) {
   )
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   const data = await getPageData(GET_OPEN_REMIT, 393, locale)
-  const global = await getPageData(GLOBAL_DATA, 563, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
       data: data,
-      global,
     },
   }
 }

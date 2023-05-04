@@ -23,8 +23,8 @@ const Whatmitech = ({ data }) => {
             <Image
               src={schemaMobile?.mediaItemUrl}
               alt=""
-              layout="fill"
-              objectFit="contain"
+              fill
+              className="object-contain"
             />
           </div>
         </motion.div>

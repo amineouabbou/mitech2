@@ -51,8 +51,8 @@ const DATA = [
   },
 ]
 
-const Pricing = ({ global }) => {
-  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+export default function Pricing({ globalProps }) {
+  const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
   return (
@@ -190,15 +190,10 @@ const Pricing = ({ global }) => {
   )
 }
 
-export default Pricing
-
-export async function getServerSideProps({ locale }) {
-  const global = await getPageData(GLOBAL_DATA, 563, locale)
-
+export async function getStaticProps({ locale }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
-      global,
     },
   }
 }

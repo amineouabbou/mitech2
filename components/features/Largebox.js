@@ -7,7 +7,7 @@ const Largebox = ({ icon, title, description, size }) => {
       <div className="flex flex-col lg:flex-row items-center lg:px-[20px] mb-[50px] lg:mb-[60px] first:mt-[40px]">
         <div className="ball min-w-[100px] h-[100px] w-[100px] rounded-full flex flex-col justify-center items-center">
           <div className={`h-[100%] w-[100%] relative mb-[20px] lg:mb-0`}>
-            <Image src={icon} alt="" layout="fill" />
+            <Image src={icon} alt="" fill />
           </div>
         </div>
         <div className="md:ml-[60px]">

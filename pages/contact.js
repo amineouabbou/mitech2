@@ -25,8 +25,8 @@ const schema = yup
   })
   .required()
 
-export default function Contact({ global }) {
-  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+export default function Contact({ globalProps }) {
+  const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
@@ -207,13 +207,10 @@ export default function Contact({ global }) {
   )
 }
 
-export async function getServerSideProps({ locale }) {
-  const global = await getPageData(GLOBAL_DATA, 563, locale)
-
+export async function getStaticProps({ locale }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
-      global,
     },
   }
 }

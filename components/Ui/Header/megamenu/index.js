@@ -7,29 +7,6 @@ import { useGlobalState } from '../../../../providers/globalProvider'
 import { useRouter } from 'next/router'
 import { getMegaMenuData } from '../../../../Utilis'
 
-const DATA_LINKS = [
-  {
-    id: 0,
-    title: 'Banking',
-    url: '/open-cloud',
-  },
-  {
-    id: 1,
-    title: "Transfert d'argent",
-    url: '/open-cloud',
-  },
-  {
-    id: 2,
-    title: 'Initiation de paiement',
-    url: '/open-cloud',
-  },
-  {
-    id: 3,
-    title: 'Paiement de masse',
-    url: '/open-remit',
-  },
-]
-
 const variants = {
   hidden: {
     y: 20,

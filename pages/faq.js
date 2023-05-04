@@ -1,7 +1,7 @@
 import SEO from '../components/SEO'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getPageData } from '../utils'
-import { GET_FAQ, GLOBAL_DATA } from '../queries'
+import { GET_FAQ } from '../queries'
 import Faqgroup from '../components/faq/Faqgroup'
 import Getintouch from '../components/Ui/Getintouch'
 import Title from '../components/Ui/Heroinner/Title'
@@ -13,7 +13,7 @@ import { useState } from 'react'
 import { filterFaqlist, getGetInTouchBlock } from '../Utilis'
 import { useMemo } from 'react'
 
-export default function Faq({ data, global }) {
+export default function Faq({ data, globalProps }) {
   const [searchQuery, setSearchQuery] = useState('')
   const {
     title: pageTitle,
@@ -21,7 +21,7 @@ export default function Faq({ data, global }) {
     pagesHero,
   } = data.page.translation
 
-  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+  const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
@@ -69,13 +69,11 @@ export default function Faq({ data, global }) {
 
 export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_FAQ, 168, locale)
-  const global = await getPageData(GLOBAL_DATA, 563, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
       data,
-      global,
     },
   }
 }

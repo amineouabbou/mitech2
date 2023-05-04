@@ -21,19 +21,19 @@ const Diaspocentric = ({ data }) => {
                   className="relative h-[217px] w-[120px] lg:h-[434px] lg:w-[255px] mt-[28px]"
                   variants={titlesAnimation}
                 >
-                  <Image src="/delete/face-3.png" layout="fill" alt="" />
+                  <Image src="/delete/face-3.png" fill alt="" />
                 </motion.div>
                 <motion.div
                   className="absolute h-[217px] w-[120px] lg:h-[434px] lg:w-[255px] left-0 top-[60px] md:top-[105px] right-0 mx-auto z-10"
                   variants={titlesAnimation}
                 >
-                  <Image src="/delete/face-2.png" layout="fill" alt="" />
+                  <Image src="/delete/face-2.png" fill alt="" />
                 </motion.div>
                 <motion.div
                   className="relative h-[217px] w-[120px] lg:h-[434px] lg:w-[255px] ml-auto"
                   variants={titlesAnimation}
                 >
-                  <Image src="/delete/face-1.png" layout="fill" alt="" />
+                  <Image src="/delete/face-1.png" fill alt="" />
                 </motion.div>
               </motion.div>
             </div>

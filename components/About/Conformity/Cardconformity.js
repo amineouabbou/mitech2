@@ -46,7 +46,7 @@ const Cardconformity = ({ data }) => {
             alt=""
             width={290}
             height={290}
-            objectFit="contain"
+            className="object-contain"
             src={photo.mediaItemUrl}
           />
         </div>

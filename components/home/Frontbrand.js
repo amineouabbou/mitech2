@@ -30,18 +30,14 @@ const Frontbrand = ({ data }) => {
                 <div className="ball bg-primary rounded-full h-[9px] w-[9px] absolute left-[15px] top-auto bottom-auto"></div>
                 <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain absolute left-[18px] bottom-[calc(100%_-_23px)]"></div>
                 <div className="relative w-[70%] h-[70%]">
-                  <Image
-                    src="/logos/front-brand-gray.svg"
-                    alt=""
-                    layout="fill"
-                  />
+                  <Image src="/logos/front-brand-gray.svg" alt="" fill />
                 </div>
               </div>
               <Image
                 src={data?.illustration?.mediaItemUrl}
-                layout="fill"
+                fill
                 alt=""
-                objectFit="contain"
+                className="object-contain"
               />
             </div>
           </div>

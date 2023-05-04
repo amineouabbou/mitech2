@@ -1,4 +1,3 @@
-import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import SEO from '../components/SEO'
@@ -18,12 +17,12 @@ import Newsletter from '../components/home/Newsletter'
 import { getGetInTouchBlock } from '../Utilis'
 
 export default function Home(props) {
-  const { data, global } = props
+  const { data, globalProps } = props
   const {
     ACFPage: { acfFlex },
   } = data.page.translation
 
-  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+  const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
   return (
@@ -75,15 +74,13 @@ export default function Home(props) {
   )
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   const data = await getPageData(GET_HOME, 7, locale)
-  const global = await getPageData(GLOBAL_DATA, 563, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
       data: data,
-      global,
     },
   }
 }

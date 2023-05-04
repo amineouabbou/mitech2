@@ -10,14 +10,14 @@ import SubTitle from '../components/Ui/Heroinner/SubTitle'
 import HeroinnerSimple from '../components/Ui/HeroinnerSimple'
 import { getGetInTouchBlock } from '../Utilis'
 
-export default function Featured({ data, global }) {
+export default function Featured({ data, globalProps }) {
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
     pagesHero,
   } = data.page.translation
 
-  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+  const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
@@ -59,15 +59,13 @@ export default function Featured({ data, global }) {
   )
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   const data = await getPageData(GET_FEATURES, 9, locale)
-  const global = await getPageData(GLOBAL_DATA, 563, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
       data,
-      global,
     },
   }
 }

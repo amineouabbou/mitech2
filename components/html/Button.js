@@ -51,7 +51,7 @@ const Button = ({
   return (
     <div className="button">
       <Link href={url ? url : '/'}>
-        <a
+        <span
           className={twclsx(
             'inline-block rounded-[30px] duration-500 text-white',
             {
@@ -71,7 +71,7 @@ const Button = ({
           href="#"
         >
           {title}
-        </a>
+        </span>
       </Link>
     </div>
   )

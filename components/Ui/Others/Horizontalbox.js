@@ -12,7 +12,7 @@ const Horizontalbox = ({ icon, title }) => {
       <div className="flex items-center">
         <div className="ball h-[67px] lg:h-[87px] w-[67px] lg:w-[87px] bg-[#f3f4f6] rounded-full flex flex-col justify-center items-center">
           <div className={`relative h-[75%] w-[75%]`}>
-            <Image src={icon} alt="" layout="fill" />
+            <Image src={icon} alt="" fill />
           </div>
         </div>
         <div className="text-[16px] lg:text-[19px] font-medium grow text-center px-[5px] lg:px-[10px]">

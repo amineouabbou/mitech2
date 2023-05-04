@@ -12,7 +12,6 @@ const ListWithImage = ({ data }) => {
           width={200}
           height={200}
           src={data.ilustration.mediaItemUrl}
-          layout="fill"
           className="object-contain"
         />
       </div>
@@ -22,7 +21,7 @@ const ListWithImage = ({ data }) => {
           <Image
             alt=""
             src="/delete/dash-solution-mobile.png"
-            layout="fill"
+            fill
             className="object-contain"
           />
         </div>

@@ -129,15 +129,15 @@ const Footer = ({ data }) => {
 
           <div className="logos flex items-center gap-x-[35px] mt-[35px] justify-center">
             <div className="w-[135px] h-[30px] relative">
-              <Image src="/logos/mitech-gray.svg" layout="fill" alt="" />
+              <Image src="/logos/mitech-gray.svg" fill alt="" />
             </div>
 
             <div className="w-[135px] h-[30px] relative">
-              <Image src="/logos/front-brand-gray.svg" layout="fill" alt="" />
+              <Image src="/logos/front-brand-gray.svg" fill alt="" />
             </div>
 
             <div className="w-[135px] h-[30px] relative">
-              <Image src="/logos/open-cloud-gray.svg" layout="fill" alt="" />
+              <Image src="/logos/open-cloud-gray.svg" fill alt="" />
             </div>
           </div>
 

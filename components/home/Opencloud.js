@@ -16,14 +16,14 @@ const Opencloud = ({ data }) => {
                   <Image
                     src="/logos/open-cloud-gray.svg"
                     width="180"
-                    height="35px"
+                    height={35}
                     alt=""
                   />
                 </div>
               </div>
               <Image
                 src={data?.illustration?.mediaItemUrl}
-                layout="fill"
+                fill
                 alt=""
                 className="bg-contain"
               />

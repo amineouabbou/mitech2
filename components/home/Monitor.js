@@ -28,7 +28,7 @@ const Monitor = ({ data }) => {
           <div className="lg:-right-[55px] h-[280px] lg:h-full lg:w-full relative">
             <Image
               src="/bgs/console.png"
-              layout="fill"
+              fill
               alt=""
               className="object-contain lg:object-fill"
             />
@@ -69,8 +69,8 @@ const Monitor = ({ data }) => {
                 <div className="relative mr-[45px] last:mr-0" key={index}>
                   <Image
                     src={item.mediaItemUrl}
-                    width="156px"
-                    height="30px"
+                    width={156}
+                    height={30}
                     alt=""
                   />
                 </div>

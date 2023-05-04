@@ -31,7 +31,7 @@ const Vericalbox = ({ title, description, icone, align, className }) => {
             }
           )}
         >
-          <Image src={icone.url} layout="fill" alt="" />
+          <Image src={icone.url} fill alt="" />
         </div>
       </div>
 

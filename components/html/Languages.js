@@ -17,14 +17,14 @@ const Languages = () => {
           onClick={() => handleLocaleChange('fr')}
           className="w-[24px] h-[24px]  md:w-[32px] md:h-[32px] relative cursor-pointer"
         >
-          <Image src="/icons/fr.png" alt="fr" layout="fill" />
+          <Image src="/icons/fr.png" alt="fr" fill />
         </div>
       ) : (
         <div
           onClick={() => handleLocaleChange('en')}
           className="w-[24px] h-[24px] md:w-[32px] md:h-[32px] relative cursor-pointer"
         >
-          <Image src="/icons/en.png" alt="en" layout="fill" />
+          <Image src="/icons/en.png" alt="en" fill />
         </div>
       )}
     </div>

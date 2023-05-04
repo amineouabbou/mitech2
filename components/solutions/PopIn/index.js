@@ -33,7 +33,6 @@ const PopIn = ({ data }) => {
               src={logo.mediaItemUrl}
               height={60}
               width={60}
-              layout="fill"
             />
           </span>
         </motion.div>
@@ -65,11 +64,7 @@ const PopIn = ({ data }) => {
                     </div>
                     <div className="icon bg-primary h-[30px] w-[30px] rounded-full flex flex-col items-center justify-center ml-[10px] duration-300 group-hover:translate-x-3 group-hover:bg-secondary">
                       <div className=" h-[15px] w-[15px] relative left-[1px]">
-                        <Image
-                          alt=""
-                          src="/icons/arrow-white.svg"
-                          layout="fill"
-                        />
+                        <Image alt="" src="/icons/arrow-white.svg" fill />
                       </div>
                     </div>
                   </div>

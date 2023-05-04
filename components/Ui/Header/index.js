@@ -63,11 +63,9 @@ const Header = (props) => {
           <div className="flex items-center md:block">
             <div className="logo-box">
               <Link href="/">
-                <a>
-                  <div className="w-[115px] h-[24px] md:w-[193px] md:h-[41px] relative">
-                    <Image src="/logo.svg" layout="fill" alt="" />
-                  </div>
-                </a>
+                <div className="w-[115px] h-[24px] md:w-[193px] md:h-[41px] relative">
+                  <Image src="/logo.svg" fill alt="" />
+                </div>
               </Link>
             </div>
             <div className="mobile-tools ml-auto flex items-center md:hidden">

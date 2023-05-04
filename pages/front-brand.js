@@ -27,17 +27,17 @@ import List4cols from '../components/solutions/SolutionBlocs/List4cols'
 import HeroFbBg from '../components/solutions/FrontBrand/HeroFbBg'
 import BlocWithImage from '../components/solutions/BlocWithImage'
 import PopIn from '../components/solutions/PopIn'
-import { GET_FRONT_BRAND, GLOBAL_DATA } from '../queries'
+import { GET_FRONT_BRAND } from '../queries'
 import { getPageData } from '../utils'
 import { getGetInTouchBlock } from '../Utilis'
 
-export default function FrontBrandPage({ data, global }) {
+export default function FrontBrandPage({ data, globalProps }) {
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
   } = data.page.translation
 
-  const { sectionsOthers } = global?.page?.translation?.ACFGlobal || []
+  const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
@@ -155,15 +155,13 @@ export default function FrontBrandPage({ data, global }) {
   )
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   const data = await getPageData(GET_FRONT_BRAND, 370, locale)
-  const global = await getPageData(GLOBAL_DATA, 563, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
       data,
-      global,
     },
   }
 }

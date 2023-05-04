@@ -10,7 +10,7 @@ const Card = ({ data }) => {
       <div className="hidden lg:block w-0 h-0 border-x-[9.5px] border-t-[12px] border-b-0 border-x-transparent border-t-[#fff] border-b-transparent absolute -bottom-[12px] left-0 right-0 mx-auto"></div>
       <div className="icon flex flex-col justify-center items-center mb-[20px]">
         <div className="w-[75px] h-[75px] relative">
-          <Image src={logo.mediaItemUrl} alt="" layout="fill" />
+          <Image src={logo.mediaItemUrl} alt="" fill />
         </div>
       </div>
       <div className="text-[22px] lg:text-[19px] font-medium tracking-[0.03em] leading-[33px] mb-[20px] text-center">
