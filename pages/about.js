@@ -56,7 +56,7 @@ export default function AboutPage({ data, globalProps }) {
               key={index}
               classsName="min-h-[820px] lg:min-h-[700px]"
             >
-              <Title title={item.title} />
+              <Title title={item.title || pageTitle} />
               <SubTitle
                 className="text-primary lg:mb-[100px]"
                 subtitle={item.subtitle}

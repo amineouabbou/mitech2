@@ -102,19 +102,21 @@ const Megamenu = (props) => {
               </div>
             )}
 
-            <div className="bloc">
-              <div className="text-[17px] font-bold mb-[15px]">
-                {secteursTitle}
+            {secteursTitle && (
+              <div className="bloc">
+                <div className="text-[17px] font-bold mb-[15px]">
+                  {secteursTitle}
+                </div>
+                <ul className="text-[14px] text-[#87888c] font-light leading-[33px]">
+                  {listeSecteursRep &&
+                    listeSecteursRep.map((item, index) => (
+                      <li key={index}>
+                        <Link href={item.slug}>{item.label}</Link>
+                      </li>
+                    ))}
+                </ul>
               </div>
-              <ul className="text-[14px] text-[#87888c] font-light leading-[33px]">
-                {listeSecteursRep &&
-                  listeSecteursRep.map((item, index) => (
-                    <li key={index}>
-                      <Link href={item.slug}>{item.label}</Link>
-                    </li>
-                  ))}
-              </ul>
-            </div>
+            )}
           </div>
         </div>
       </motion.div>
