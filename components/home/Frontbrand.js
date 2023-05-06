@@ -20,9 +20,11 @@ const Frontbrand = ({ data }) => {
                 className="text-[18px] lg:text-[22px] leading-[28px] lg:leading-[32px] tracking-[0.02em] mb-[40px] lg:mb-[55px] [&>p>strong]:font-medium"
                 dangerouslySetInnerHTML={{ __html: data?.description }}
               />
-              <div className="read-more flex justify-center lg:justify-start">
-                <Button url="/front-brand" title="Dicover Front Brand" />
-              </div>
+              {data?.cta && (
+                <div className="read-more flex justify-center lg:justify-start">
+                  <Button url={data?.cta?.slug} title={data?.cta?.label} />
+                </div>
+              )}
             </div>
           </div>
           <div className="w-full lg:w-2/5 md:flex flex-col items-end lg:translate-x-[155px] order-1 lg:order-2">

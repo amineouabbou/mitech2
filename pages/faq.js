@@ -35,7 +35,7 @@ export default function Faq({ data, globalProps }) {
 
   return (
     <>
-      <SEO />
+      <SEO title={pageTitle} />
       <HeroFaq>
         <Title title={pageTitle} />
         <SubTitle subtitle={pagesHero?.subTitle} />

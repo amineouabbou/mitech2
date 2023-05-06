@@ -36,16 +36,18 @@ const Features = ({ data }) => {
           )
         })}
 
-        <motion.div
-          variants={titlesAnimation}
-          initial="initial"
-          animate="animate"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="read-more flex flex-col items-center"
-        >
-          <Button url="/features" title="Discover more" />
-        </motion.div>
+        {data.cta && (
+          <motion.div
+            variants={titlesAnimation}
+            initial="initial"
+            animate="animate"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="read-more flex flex-col items-center"
+          >
+            <Button url={data?.cta?.slug} title={data?.cta?.label} />
+          </motion.div>
+        )}
       </div>
     </section>
   )

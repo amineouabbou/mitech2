@@ -39,6 +39,10 @@ export const GET_HOME = gql`
               illustration {
                 mediaItemUrl
               }
+              cta {
+                label
+                slug
+              }
             }
             ... on Page_Acfpage_AcfFlex_OpenCloudSolution {
               fieldGroupName
@@ -47,6 +51,10 @@ export const GET_HOME = gql`
               description
               illustration {
                 mediaItemUrl
+              }
+              cta {
+                label
+                slug
               }
             }
             ... on Page_Acfpage_AcfFlex_Features {
@@ -61,6 +69,10 @@ export const GET_HOME = gql`
                     }
                   }
                 }
+              }
+              cta {
+                label
+                slug
               }
             }
             ... on Page_Acfpage_AcfFlex_Monitor {

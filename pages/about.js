@@ -47,7 +47,7 @@ export default function AboutPage({ data, globalProps }) {
 
   return (
     <>
-      <SEO />
+      <SEO title={pageTitle} />
 
       {acfFlex.map((item, index) => {
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_HeroSolution') {

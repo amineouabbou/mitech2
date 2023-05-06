@@ -41,7 +41,7 @@ export default function Contact({ globalProps }) {
 
   return (
     <>
-      <SEO />
+      <SEO title="Contact" />
       <HeroinnerSimple
         title={<Title title="Contact us" />}
         subtitle={

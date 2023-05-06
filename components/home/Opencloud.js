@@ -41,9 +41,11 @@ const Opencloud = ({ data }) => {
                 className="text-[18px] lg:text-[22px] leading-[28px] lg:leading-[32px] tracking-[0.02em] mb-[40px] lg:mb-[55px] [&>p>strong]:font-medium"
                 dangerouslySetInnerHTML={{ __html: data?.description }}
               />
-              <div className="read-more flex justify-center lg:justify-start">
-                <Button url="/open-remit" title="Discover Open Remit" />
-              </div>
+              {data?.cta && (
+                <div className="read-more flex justify-center lg:justify-start">
+                  <Button url={data?.cta?.slug} title={data?.cta?.label} />
+                </div>
+              )}
             </div>
           </div>
         </div>

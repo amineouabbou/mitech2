@@ -1,5 +1,5 @@
 const config = {
-  defaultTitle: 'Money International',
+  defaultTitle: 'Mitech Money International',
   url:
     process.env.NODE_ENV !== 'development'
       ? 'https://moneyinternational.be/'

@@ -57,7 +57,7 @@ export default function Pricing({ globalProps }) {
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
   return (
     <>
-      <SEO />
+      <SEO title="Pricing" />
       <HeroinnerSimple
         title={<Title title="Pricing" />}
         subtitle={

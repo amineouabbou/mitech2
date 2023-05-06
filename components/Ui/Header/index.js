@@ -10,6 +10,7 @@ import { useGlobalState } from '../../../providers/globalProvider'
 import { useRouter } from 'next/router'
 import { twclsx } from '../../../libs/twclsx'
 import dynamic from 'next/dynamic'
+import { getNavData } from '../../../Utilis'
 const Megamenu = dynamic(() => import('./megamenu'), {
   loading: () => '',
 })
@@ -24,6 +25,8 @@ const Header = (props) => {
     handleMobileMenu,
     megamenuOpened,
   } = useGlobalState()
+
+  const { data: navData } = getNavData(globalData || [])
 
   const handleLocaleChange = (event) => {
     const value = event.target.value
@@ -105,14 +108,16 @@ const Header = (props) => {
               {isMenuOpen && <Mobilemenu data={globalData} />}
             </AnimatePresence>
 
-            <div className="md:ml-[25px] hidden md:block">
-              <Button
-                lowercase="true"
-                title="Get Started"
-                largeur="small"
-                url="/contact"
-              />
-            </div>
+            {navData?.cta && (
+              <div className="md:ml-[25px] hidden md:block">
+                <Button
+                  lowercase="true"
+                  title={navData?.cta?.label}
+                  largeur="small"
+                  url={navData?.cta?.slug}
+                />
+              </div>
+            )}
 
             <div className="hidden md:block">
               <Languages />

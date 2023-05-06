@@ -23,7 +23,7 @@ export default function Featured({ data, globalProps }) {
 
   return (
     <>
-      <SEO />
+      <SEO title={pageTitle} />
       <HeroinnerSimple
         title={<Title title={pageTitle} />}
         subtitle={<SubTitle subtitle={pagesHero?.subTitle} />}
