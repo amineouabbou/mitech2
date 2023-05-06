@@ -59,7 +59,7 @@ export default function Featured({ data, globalProps }) {
   )
 }
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_FEATURES, 9, locale)
 
   return {

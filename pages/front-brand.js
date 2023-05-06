@@ -155,7 +155,7 @@ export default function FrontBrandPage({ data, globalProps }) {
   )
 }
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_FRONT_BRAND, 370, locale)
 
   return {

@@ -1,3 +1,4 @@
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import SEO from '../components/SEO'
 import Getintouch from '../components/Ui/Getintouch'
 import Title from '../components/Ui/Heroinner/Title'
@@ -6,33 +7,31 @@ import WhiteContainer from '../components/solutions/Whitecontainer'
 import SolutionBlocs from '../components/solutions/SolutionBlocs'
 import HowOperate from '../components/solutions/HowOperate'
 import HeroSolution from '../components/solutions/Ui/HeroSolution'
-import IntroOc from '../components/solutions/OpenCloud/IntroOc'
 import SectionGap from '../components/Ui/Others/SectionGap'
 import Slice from '../components/solutions/Slice/Slice'
 import ListUl from '../components/Ui/List'
 import SliceTitle from '../components/solutions/Slice/SliceTitle'
-import PlugAndImprove from '../components/solutions/PlugAndImprove'
 import ListWithImage from '../components/solutions/ListWithImage'
 import ClassicAndMitech from '../components/solutions/ClassMitech'
 
 import {
-  ADVANTAGES_BLOCS,
-  ADVANTAGES_BLOCS_OPEN_CLOUD,
+  ADVANTAGES_BLOCS_FRONT_BRAND,
   BUILD_MONITOR,
   CLASSIC_MITECH_COMPARAISON_DATA,
   HOW_OPERATE_DATA,
-  PLUG_IMPROVE,
-  SAY_HELLO,
+  SAY_HELLO_FB,
 } from '../components/solutions/DummyData'
+import IntroFb from '../components/solutions/FrontBrand/IntroFb'
 import TitleSolution from '../components/solutions/SolutionBlocs/TitleSolution'
-import List3cols from '../components/solutions/SolutionBlocs/List3cols'
+import List4cols from '../components/solutions/SolutionBlocs/List4cols'
+import HeroFbBg from '../components/solutions/FrontBrand/HeroFbBg'
+import BlocWithImage from '../components/solutions/BlocWithImage'
 import PopIn from '../components/solutions/PopIn'
+import { GET_FRONT_BRAND } from '../queries'
 import { getPageData } from '../utils'
-import { GET_OPEN_REMIT, GLOBAL_DATA } from '../queries'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getGetInTouchBlock } from '../Utilis'
 
-export default function OpenRemitPage({ data, globalProps }) {
+export default function WorldPayPage({ data, globalProps }) {
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
@@ -45,19 +44,21 @@ export default function OpenRemitPage({ data, globalProps }) {
   return (
     <>
       <SEO title={pageTitle} />
+
       {acfFlex.map((item, index) => {
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_HeroSolution') {
           return (
             <HeroSolution
               key={index}
-              classsName="min-h-[1090px] lg:min-h-[880px]"
+              classsName="min-h-[680px] lg:min-h-[780px]"
             >
               <Title className="uppercase" title={item.title} />
               <SubTitle
                 className="text-primary lg:mb-[100px]"
                 subtitle={item.subtitle}
               />
-              <IntroOc data={item} />
+              <IntroFb data={item.description} />
+              <HeroFbBg img={item.photo?.mediaItemUrl} />
             </HeroSolution>
           )
         }
@@ -72,18 +73,21 @@ export default function OpenRemitPage({ data, globalProps }) {
             item.fieldGroupName === 'Page_Acfpage_AcfFlex_SolutionAdvantages'
           ) {
             return (
-              <Slice key={index} className="mb-[40px] lg:mb-[120px]">
+              <Slice key={index} className="mb-[40px] lg:mb-[95px]">
                 <SliceTitle title={item.title} />
                 <ListUl data={item.advantagesRepeater} />
               </Slice>
             )
           }
 
-          if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_PlugAndImprove') {
+          if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_ReThink') {
             return (
               <Slice key={index}>
-                <SliceTitle title={item.title} />
-                <PlugAndImprove data={item} />
+                <SliceTitle
+                  className="mb-[40px] lg:mb-[90px]"
+                  title={item.title}
+                />
+                <BlocWithImage {...item} />
               </Slice>
             )
           }
@@ -93,23 +97,26 @@ export default function OpenRemitPage({ data, globalProps }) {
       {acfFlex.map((item, index) => {
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_SolutionFeatured') {
           return (
-            <SolutionBlocs key={index}>
+            <SolutionBlocs key={index} className="max-w-1560">
               <TitleSolution title={item.title} />
-              <List3cols data={item} />
+              <List4cols data={item.advantagesRepeater} />
             </SolutionBlocs>
           )
         }
       })}
 
       <WhiteContainer
-        sectionClassName="bg-[#fafbfb]"
+        sectionClassName="bg-[#fafbfb] overflow-hidden"
         gap={<SectionGap className="h-[95px] top-0 bg-[#f3f4f6]" />}
       >
         {acfFlex.map((item, index) => {
           if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_BuildAndMonitor') {
             return (
               <Slice key={index} className="mb-[30px] lg:mb-[80px]">
-                <SliceTitle title={item.title} className="mb-[50px]" />
+                <SliceTitle
+                  title={item.title}
+                  className="mb-[30px] lg:mb-[50px]"
+                />
                 <ListWithImage data={item} />
               </Slice>
             )
@@ -119,7 +126,12 @@ export default function OpenRemitPage({ data, globalProps }) {
             return (
               <Slice key={index}>
                 <SliceTitle title={item.title} />
-                <ClassicAndMitech data={item} />
+                <ClassicAndMitech
+                  data={{
+                    brandsRepeater: item.brandsRepeater,
+                    comparisonRepeater: item.comparisonRepeater,
+                  }}
+                />
               </Slice>
             )
           }
@@ -130,24 +142,26 @@ export default function OpenRemitPage({ data, globalProps }) {
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_HowWeOperate') {
           return <HowOperate key={index} data={item} />
         }
-
-        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_PopIn') {
-          return <PopIn key={index} data={item} />
-        }
       })}
 
       <Getintouch data={getIntouchBlock} className=" pt-[50px] lg:pt-[70px]" />
+
+      {acfFlex.map((item, index) => {
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_PopIn') {
+          return <PopIn data={item} key={index} />
+        }
+      })}
     </>
   )
 }
 
 export async function getServerSideProps({ locale }) {
-  const data = await getPageData(GET_OPEN_REMIT, 393, locale)
+  const data = await getPageData(GET_FRONT_BRAND, 711, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
-      data: data,
+      data,
     },
   }
 }
