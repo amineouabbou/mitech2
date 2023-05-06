@@ -12,9 +12,10 @@ const Features = ({ data }) => {
         {data.featuredListRep.map((item, index) => {
           return (
             <div key={index}>
-              <div className="text-[25px] lg:text-[28px] leading-[32px] lg:leading-[48px] text-center mb-[45px]">
-                <span dangerouslySetInnerHTML={{ __html: item.title }} />
-              </div>
+              <div
+                className="text-[25px] lg:text-[28px] leading-[32px] lg:leading-[48px] text-center mb-[45px] [&>p>strong]:font-semibold"
+                dangerouslySetInnerHTML={{ __html: item.title }}
+              />
 
               <motion.div
                 variants={titesStagger()}

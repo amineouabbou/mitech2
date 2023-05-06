@@ -514,6 +514,7 @@ export const GLOBAL_DATA = gql`
                 }
                 title
                 subTitle
+                slug
               }
               secteursTitle
               listeSecteursRep {

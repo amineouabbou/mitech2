@@ -9,7 +9,6 @@ import { getNavData } from '../../../Utilis'
 
 const Nav = ({ data }) => {
   const router = useRouter()
-  console.log(router.pathname)
 
   const { data: navData } = getNavData(data || [])
 

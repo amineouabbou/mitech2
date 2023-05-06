@@ -37,9 +37,10 @@ const Opencloud = ({ data }) => {
               <div className="font-semibold text-[28px] lg:text-[31px] leading-[36px] lg:leading-[43px]  tracking-[0.02em] mb-[35px]">
                 <div dangerouslySetInnerHTML={{ __html: data?.title }} />
               </div>
-              <p className="text-[18px] lg:text-[22px] leading-[28px] lg:leading-[32px] tracking-[0.02em] mb-[40px] lg:mb-[55px]">
-                <span dangerouslySetInnerHTML={{ __html: data?.description }} />
-              </p>
+              <div
+                className="text-[18px] lg:text-[22px] leading-[28px] lg:leading-[32px] tracking-[0.02em] mb-[40px] lg:mb-[55px] [&>p>strong]:font-medium"
+                dangerouslySetInnerHTML={{ __html: data?.description }}
+              />
               <div className="read-more flex justify-center lg:justify-start">
                 <Button url="/open-remit" title="Discover Open Remit" />
               </div>

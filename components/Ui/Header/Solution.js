@@ -9,22 +9,24 @@ const Solution = (props) => {
   const router = useRouter()
 
   const handleClick = (link) => {
-    router.push(link)
+    router.push(`/${link}`)
   }
 
   return (
     <div
-      className="item flex items-center mb-[30px] cursor-pointer"
+      className="item flex items-center mb-[30px] cursor-pointer group"
       onClick={() => handleClick(url)}
     >
-      <div className="icon mr-[5px]">
-        <Image width={62} height={18} alt="front brand" src={logoUrl} />
+      <div className="icon mr-[10px]">
+        <Image width={42} height={8} alt="front brand" src={logoUrl} />
       </div>
       <div className="text-[15px]">
-        <div className="font-bold uppercase mb-[2px] leading-[15px]">
+        <div className="font-bold uppercase mb-[2px] leading-[15px] group-hover:text-primary duration-300">
           {title}
         </div>
-        <p className="text-[#87888c]">{domain}</p>
+        <p className="text-[#87888c] group-hover:text-primary duration-300">
+          {domain}
+        </p>
       </div>
     </div>
   )

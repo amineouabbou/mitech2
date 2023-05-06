@@ -10,9 +10,6 @@ const Layout = (props) => {
 
   const { data: footerData } = getFooterData(globalData || [])
 
-  console.log('zzzzzz propspropsprops', props)
-  console.log('Footer data', footerData)
-
   return (
     <div className="global">
       <Header data={globalData} />

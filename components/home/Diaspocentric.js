@@ -52,14 +52,11 @@ const Diaspocentric = ({ data }) => {
                 >
                   <span dangerouslySetInnerHTML={{ __html: data?.title }} />
                 </motion.h2>
-                <motion.p
+                <motion.div
                   variants={titlesAnimation}
-                  className="text-[19px] lg:text-[22px] leading-[26px] lg:leading-[33px] text-primary"
-                >
-                  <span
-                    dangerouslySetInnerHTML={{ __html: data?.description }}
-                  />
-                </motion.p>
+                  className="text-[19px] lg:text-[22px] leading-[26px] lg:leading-[33px] text-primary [&>p_strong]:font-semibold"
+                  dangerouslySetInnerHTML={{ __html: data?.description }}
+                />
               </motion.div>
             </div>
           </div>

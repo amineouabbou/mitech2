@@ -55,11 +55,11 @@ const Mtos = ({ data }) => {
                     />
                   </div>
                   <div
-                    className="uppercase lg:leading-[28px] text-[20px] lg:text-[22px] tracking-[0.04em] br-show"
+                    className="uppercase lg:leading-[28px] text-[20px] lg:text-[22px] tracking-[0.04em] br-show [&>p_strong]:font-semibold"
                     dangerouslySetInnerHTML={{
                       __html: item?.titleGroup?.title,
                     }}
-                  ></div>
+                  />
                 </div>
 
                 <ul className={`bg-white border-[#e3e5eb] lg:text-[16px]`}>
@@ -78,11 +78,11 @@ const Mtos = ({ data }) => {
                 </ul>
                 <div className="flex items-center justify-center pt-[35px]">
                   <div
-                    className="uppercase text-center text-[20px] lg:leading-[28px]  lg:text-[22px] tracking-[0.04em] br-show"
+                    className="uppercase text-center text-[20px] lg:leading-[28px]  lg:text-[22px] tracking-[0.04em] br-show [&>p_strong]:font-semibold"
                     dangerouslySetInnerHTML={{
                       __html: item?.bottomText,
                     }}
-                  ></div>
+                  />
                 </div>
               </div>
             ))}

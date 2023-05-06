@@ -38,7 +38,10 @@ const Hero = ({ data }) => {
             variants={shortFadeUp(1.5)}
             className="text-[31px] lg:text-[42px] leading-[40px] lg:leading-[60px] font-medium mb-[25px]"
           >
-            <div dangerouslySetInnerHTML={{ __html: title }} />
+            <div
+              className="[&>p>strong]:font-semibold"
+              dangerouslySetInnerHTML={{ __html: title }}
+            />
           </motion.h3>
           <motion.ul
             variants={shortFadeUp(1.5)}
@@ -46,7 +49,7 @@ const Hero = ({ data }) => {
           >
             {advantagesRep.map((item, index) => (
               <li
-                className="relative mb-[14px] last:mb-0 before:block before:h-[9px] before:w-[9px] before:bg-[#a0a1b3] before:rounded before:absolute before:top-[6px] before:left-0 before:my-auto pl-[20px]"
+                className="relative mb-[14px] last:mb-0 before:block before:h-[9px] before:w-[9px] before:bg-[#a0a1b3] before:rounded before:absolute before:top-[6px] before:left-0 before:my-auto pl-[20px] [&>p>strong]:font-medium"
                 key={index}
                 dangerouslySetInnerHTML={{ __html: item.label }}
               ></li>
