@@ -11,59 +11,18 @@ import { GET_PRICING_PAGE } from '../queries'
 import { getPageData } from '../utils'
 import { getGetInTouchBlock } from '../Utilis'
 
-const DATA = [
-  {
-    label: 'IOS and android App',
-    options: [true, false],
-  },
-  {
-    label: 'Fee pricing',
-    options: [true, true],
-  },
-  {
-    label: 'Forex pricing',
-    options: [true, true],
-  },
-  {
-    label: 'Account aggregation',
-    options: [true, true],
-  },
-  {
-    label: 'Collecting methods',
-    options: [true, false],
-  },
-  {
-    label: 'In app ads ',
-    options: [true, true],
-  },
-  {
-    label: 'Loyalty program',
-    options: ['Built-in', true],
-  },
-  {
-    label: 'eKYC',
-    options: ['Built-in', true],
-  },
-  {
-    label: 'AML',
-    options: ['Built-in', true],
-  },
-]
-
 export default function Pricing({ globalProps, data }) {
   const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
-  const { title } = data.page
-
   const {
+    title,
     pagesHero: { subTitle, intro },
     pagePricing,
   } = data.page.translation
   const { introduction, tableRepeater } = pagePricing
 
-  console.log('data', data)
   return (
     <>
       <SEO title={title} />
