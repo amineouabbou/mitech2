@@ -567,3 +567,28 @@ export const GLOBAL_DATA = gql`
     }
   }
 `
+
+export const GET_PRICING_PAGE = gql`
+  query getPage($id: ID!, $lang: LanguageCodeEnum!) {
+    page(id: $id, idType: DATABASE_ID) {
+      title
+      translation(language: $lang) {
+        databaseId
+        title
+        pagesHero {
+          subTitle
+          intro
+        }
+        pagePricing {
+          introduction
+          tableRepeater {
+            options {
+              label
+            }
+            texte
+          }
+        }
+      }
+    }
+  }
+`

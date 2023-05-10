@@ -14,7 +14,7 @@ import FaqHeroBloc from '../../components/faq/FaqHeroBloc'
 import HeroFaq from '../../components/faq/HeroFaq'
 import { getGetInTouchBlock } from '../../Utilis'
 
-export default function Faq({ data, globalProps }) {
+export default function FaqSlug({ data, globalProps }) {
   const router = useRouter()
   const { slug } = router.query
   const {

@@ -7,10 +7,9 @@ import SubTitle from '../components/Ui/Heroinner/SubTitle'
 import Title from '../components/Ui/Heroinner/Title'
 import HeroinnerSimple from '../components/Ui/HeroinnerSimple'
 import { twclsx } from '../libs/twclsx'
-import { GLOBAL_DATA } from '../queries'
+import { GET_PRICING_PAGE } from '../queries'
 import { getPageData } from '../utils'
 import { getGetInTouchBlock } from '../Utilis'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const DATA = [
   {
@@ -51,34 +50,34 @@ const DATA = [
   },
 ]
 
-export default function Pricing({ globalProps }) {
+export default function Pricing({ globalProps, data }) {
   const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
+
+  const { title } = data.page
+
+  const {
+    pagesHero: { subTitle, intro },
+    pagePricing,
+  } = data.page.translation
+  const { introduction, tableRepeater } = pagePricing
+
+  console.log('data', data)
   return (
     <>
-      <SEO title="Pricing" />
+      <SEO title={title} />
       <HeroinnerSimple
-        title={<Title title="Pricing" />}
-        subtitle={
-          <SubTitle subtitle="We offer a pricing relevant to your need and use of Mitech" />
-        }
-        description="A customized offer means a customized price"
+        title={<Title title={title} />}
+        subtitle={<SubTitle subtitle={subTitle} />}
+        description={intro}
       />
       <div className="container mx-auto px-0 md:px-4">
         <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] p-[20px] lg:p-[65px] relative z-10 -mt-[70px] lg:-mt-[125px]">
-          <div className="text-[15px] lg:text-[18px] text-center leading-[27px] lg:leading-[35px] text-[#737483] mb-[45px]">
-            Pricing depends on which product and services your need for your
-            specific project.
-            <br />
-            Please{' '}
-            <Link href="/contact">
-              <span className="text-primary underline hover:text-secondary cursor-pointer">
-                contact our sales
-              </span>
-            </Link>{' '}
-            team to learn more about how we price our offer.
-          </div>
+          <div
+            className="text-[15px] lg:text-[18px] text-center leading-[27px] lg:leading-[35px] text-[#737483] mb-[45px]"
+            dangerouslySetInnerHTML={{ __html: introduction }}
+          />
 
           <div className="table-pricing">
             <div className="head grid lg:grid-cols-3 sticky lg:static top-[84px] bg-white z-10 border-b-[1px] border-[#e2e2e2]">
@@ -125,7 +124,7 @@ export default function Pricing({ globalProps }) {
               </div>
             </div>
             <div className="box border-[1px] border-[#e1e4ea] border-t-0">
-              {DATA.map((item, index) => (
+              {tableRepeater.map((item, index) => (
                 <div
                   key={index}
                   className={twclsx(
@@ -138,7 +137,7 @@ export default function Pricing({ globalProps }) {
                   )}
                 >
                   <div className="font-medium text-center lg:text-left py-[15px] lg:py-0 px-[25px] lg:text-[16.7px] tracking-[0.03em] flex flex-col justify-center text-[#242754] ">
-                    <span>{item.label}</span>
+                    <span>{item.texte}</span>
                   </div>
 
                   <div className="grid grid-cols-2 lg:col-span-2  py-[10px] lg:p-0">
@@ -147,7 +146,7 @@ export default function Pricing({ globalProps }) {
                         key={index}
                         className="flex flex-col justify-center items-center"
                       >
-                        {item == true && (
+                        {item.label == 'yes' && (
                           <span>
                             <Image
                               alt=""
@@ -158,9 +157,11 @@ export default function Pricing({ globalProps }) {
                           </span>
                         )}
 
-                        {item == false && <span>-</span>}
+                        {item.label == 'no' && <span>-</span>}
 
-                        {item == 'Built-in' && <span className="">{item}</span>}
+                        {item.label == 'built-in' && (
+                          <span className="">{item.label}</span>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -191,9 +192,11 @@ export default function Pricing({ globalProps }) {
 }
 
 export async function getServerSideProps({ locale }) {
+  const data = await getPageData(GET_PRICING_PAGE, 197, locale)
+
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),
+      data,
     },
   }
 }
