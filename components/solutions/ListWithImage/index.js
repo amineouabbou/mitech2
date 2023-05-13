@@ -12,7 +12,7 @@ const ListWithImage = ({ data }) => {
           width={200}
           height={200}
           src={data.ilustration.mediaItemUrl}
-          className="object-contain"
+          className="object-contain w-full"
         />
       </div>
 

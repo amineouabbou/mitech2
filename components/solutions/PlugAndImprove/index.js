@@ -18,7 +18,7 @@ const PlugAndImprove = ({ data }) => {
               width={200}
               height={200}
               src={photo.mediaItemUrl}
-              className="object-contain lg:object-none"
+              className="object-contain lg:object-none w-full"
             />
           </div>
         )}
