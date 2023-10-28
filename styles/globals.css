@@ -45,3 +45,15 @@
     }
   }
 }
+
+.std {
+  @apply text-[15px] lg:text-[16px] text-[#737587] leading-[26px];
+}
+
+.std p {
+  @apply mb-6;
+}
+
+.std p strong {
+  @apply font-bold;
+}

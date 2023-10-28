@@ -42,7 +42,7 @@ export default function Pricing({ globalProps, data }) {
             <div className="head grid lg:grid-cols-3 sticky lg:static top-[84px] bg-white z-10 border-b-[1px] border-[#e2e2e2]">
               <div></div>
               <div className="lg:col-span-2">
-                <div className="grid grid-cols-2 border-[#dde0e7] rounded-[5px] rounded-b-none border-t-[1px] border-l-[1px] border-r-[1px]">
+                <div className="grid grid-cols-3 border-[#dde0e7] rounded-[5px] rounded-b-none border-t-[1px] border-l-[1px] border-r-[1px]">
                   <div className="border-r-[1px] pt-[5px] px-[10px] lg:p-0 border-[#dde0e7] lg:h-[86px] flex flex-col justify-center items-center">
                     <span className="hidden lg:block">
                       <Image
@@ -61,7 +61,7 @@ export default function Pricing({ globalProps, data }) {
                       />
                     </span>
                   </div>
-                  <div className="lg:h-[86px] pt-[5px]  px-[10px] lg:p-0 flex flex-col justify-center items-center">
+                  <div className="border-r-[1px] pt-[5px] px-[10px] lg:p-0 border-[#dde0e7] lg:h-[86px] flex flex-col justify-center items-center">
                     <span className="hidden lg:block">
                       <Image
                         alt="logo"
@@ -76,6 +76,24 @@ export default function Pricing({ globalProps, data }) {
                         height="51"
                         width="90"
                         src="/logos/or-vertical.svg"
+                      />
+                    </span>
+                  </div>
+                  <div className="lg:h-[86px] pt-[5px]  px-[10px] lg:p-0 flex flex-col justify-center items-center">
+                    <span className="hidden lg:block">
+                      <Image
+                        alt="logo"
+                        height="24"
+                        width="189"
+                        src="/logos/front-brand.svg"
+                      />
+                    </span>
+                    <span className="block lg:hidden">
+                      <Image
+                        alt="logo"
+                        height="51"
+                        width="90"
+                        src="/logos/fb-vertical.svg"
                       />
                     </span>
                   </div>
@@ -99,7 +117,7 @@ export default function Pricing({ globalProps, data }) {
                     <span>{item.texte}</span>
                   </div>
 
-                  <div className="grid grid-cols-2 lg:col-span-2  py-[10px] lg:p-0">
+                  <div className="grid grid-cols-3 lg:col-span-2  py-[10px] lg:p-0">
                     {item.options.map((item, index) => (
                       <div
                         key={index}
@@ -127,17 +145,26 @@ export default function Pricing({ globalProps, data }) {
                 </div>
               ))}
 
-              <div className="head grid grid-cols-2 lg:grid-cols-3">
-                <div className="font-medium text-[16.7px] tracking-[0.03em] hidden lg:flex flex-col justify-center"></div>
-                <div className="flex flex-col justify-center items-center px-[20px] lg:px-0 py-[15px] lg:py-[25px] [&>span>br]:hidden [&>span>br]:lg:block ">
-                  <span className="text-[14px] lg:text-[15.28px] text-[#232753] text-center leading-[20px] font-medium">
-                    Custom Price based on <br /> the configurations
-                  </span>
-                </div>
-                <div className="flex flex-col justify-center items-center px-[20px] lg:px-0  py-[15px] lg:py-[25px] [&>span>br]:hidden [&>span>br]:lg:block">
-                  <span className="text-[14px] lg:text-[15.28px] text-[#232753] text-center leading-[20px] font-medium">
-                    Custom Price based on <br /> the configurations
-                  </span>
+              <div className="head grid lg:grid-cols-3 bg-white border-b-[1px] border-[#e2e2e2]">
+                <div className=""></div>
+                <div className="lg:col-span-2">
+                  <div className="grid grid-cols-3">
+                    <div className="flex flex-col justify-center items-center px-[20px] lg:px-0  py-[15px] lg:py-[25px] [&>span>br]:hidden [&>span>br]:lg:block">
+                      <span className="text-[14px] lg:text-[15.28px] text-[#232753] text-center leading-[20px] font-medium">
+                        Custom Price based on <br /> the configurations
+                      </span>
+                    </div>
+                    <div className="flex flex-col justify-center items-center px-[20px] lg:px-0  py-[15px] lg:py-[25px] [&>span>br]:hidden [&>span>br]:lg:block">
+                      <span className="text-[14px] lg:text-[15.28px] text-[#232753] text-center leading-[20px] font-medium">
+                        Custom Price based on <br /> the configurations
+                      </span>
+                    </div>
+                    <div className="flex flex-col justify-center items-center px-[20px] lg:px-0  py-[15px] lg:py-[25px] [&>span>br]:hidden [&>span>br]:lg:block">
+                      <span className="text-[14px] lg:text-[15.28px] text-[#232753] text-center leading-[20px] font-medium">
+                        Custom Price based on <br /> the configurations
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

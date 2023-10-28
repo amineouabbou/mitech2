@@ -24,8 +24,8 @@ const GlobalProvider = ({ children }) => {
     }))
   }
 
-  const changeMegaMenuOpened = () => {
-    setMegamenuOpened((prev) => !prev)
+  const changeMegaMenuOpened = (value) => {
+    setMegamenuOpened(value)
   }
 
   const values = {

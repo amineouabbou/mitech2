@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Button from '../../html/Button'
 import Languages from '../../html/Languages'
@@ -18,6 +18,7 @@ const Megamenu = dynamic(() => import('./megamenu'), {
 const Header = (props) => {
   const router = useRouter()
   const [sticky, setSticky] = useState(false)
+  const ref = useRef()
 
   const { data: globalData } = props
   const {
@@ -49,21 +50,22 @@ const Header = (props) => {
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [sticky])
+
   return (
     <>
       <motion.div
         className={twclsx(
-          'header bg-white md:bg-transparent',
-          'py-[25px] md:py-[35px] fixed w-full top-0 z-30 transition-all duration-300 drop-shadow-[0px_0px_13.8px_rgba(0,0,0,0.04)] md:drop-shadow-none',
+          'header bg-white md:bg-transparent md:flex md:flex-col justify-center',
+          'py-[25px] lg:py-0 lg:min-h-[118px] fixed w-full top-0 z-30 transition-all duration-300 drop-shadow-[0px_0px_13.8px_rgba(0,0,0,0.04)] md:drop-shadow-none',
           {
-            ' md:bg-white md:py-[25px] md:drop-shadow-[0px_0px_25px_rgba(0,0,0,0.1)]':
+            ' md:bg-white md:py-0 lg:min-h-[90px] md:drop-shadow-[0px_0px_25px_rgba(0,0,0,0.1)]':
               sticky,
             ' md:bg-white duration-75': megamenuOpened,
           }
         )}
       >
-        <div className="container mx-auto md:flex items-center">
-          <div className="flex items-center md:block">
+        <div className="container mx-auto grow md:flex">
+          <div className="flex items-center justify-center md:flex md:flex-col">
             <div className="logo-box">
               <Link href="/">
                 <div className="w-[115px] h-[24px] md:w-[193px] md:h-[41px] relative">
@@ -100,7 +102,7 @@ const Header = (props) => {
           </div>
 
           <div className="right-side md:flex items-center ml-auto">
-            <nav className="hidden md:block">
+            <nav className="hidden md:flex md:grow lg:h-full">
               <Nav data={globalData} />
             </nav>
 
@@ -126,7 +128,7 @@ const Header = (props) => {
         </div>
 
         <AnimatePresence>
-          {megamenuOpened && <Megamenu data={globalData} />}
+          {megamenuOpened && <Megamenu ref={ref} data={globalData} />}
         </AnimatePresence>
       </motion.div>
     </>

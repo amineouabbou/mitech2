@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import Button from '../html/Button'
 
-const Frontbrand = ({ data }) => {
+const DataAnays = ({ data }) => {
   return (
     <section className="bg-[#fcfcfc] pt-0 pb-[60px] lg:pb-[40px] relative before:block before:h-[130px] lg:before:h-[55px] before:bg-[#fcfcfc] before:content-[''] before:absolute before:top-0 before:w-full">
       <div className="container mx-auto max-w-[1010px]">
@@ -50,4 +50,4 @@ const Frontbrand = ({ data }) => {
   )
 }
 
-export default Frontbrand
+export default DataAnays

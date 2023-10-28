@@ -2,9 +2,9 @@ import Image from 'next/image'
 import React from 'react'
 import Button from '../html/Button'
 
-const Opencloud = ({ data }) => {
+const OpenRemit = ({ data }) => {
   return (
-    <section className="bg-[#fff] py-[60px] lg:pt-[120px] lg:pb-[50px]">
+    <section className="bg-[#f3f4f6] py-[60px] lg:pt-[120px] lg:pb-[50px]">
       <div className="container mx-auto flex flex-col items-end">
         <div className="lg:flex w-full">
           <div className="md:w-1/2 md:flex flex-col mb-7 lg:mb-0">
@@ -54,4 +54,4 @@ const Opencloud = ({ data }) => {
   )
 }
 
-export default Opencloud
+export default OpenRemit

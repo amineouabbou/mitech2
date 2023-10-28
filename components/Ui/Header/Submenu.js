@@ -6,7 +6,7 @@ function Submenu({ data }) {
   return (
     <motion.div
       initial={{ opacity: 0, height: 0 }}
-      animate={{ opacity: 1, height: '90px' }}
+      animate={{ opacity: 1, height: '135px' }}
       exit={{ opacity: 0, height: 0 }}
       transition={{ ease: globaleasing, duration: 0.5 }}
     >

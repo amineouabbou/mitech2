@@ -38,6 +38,10 @@ const Megamenu = (props) => {
 
   const router = useRouter()
 
+  const handleMouseOut = () => {
+    changeMegaMenuOpened(false)
+  }
+
   useEffect(() => {
     const handleRouteChange = () => {
       changeMegaMenuOpened()
@@ -58,12 +62,13 @@ const Megamenu = (props) => {
         animate="visible"
         exit="exit"
         transition={transition}
-        className="bg-white border-t-[1px] border-[#f0f0f0] pt-[50px] pb-[70px] absolute top-full w-full"
+        onMouseLeave={handleMouseOut}
+        className="bg-white border-t-[1px] border-[#f0f0f0] pt-[50px] pb-[70px] absolute top-full w-full mega-menu-wrapper"
       >
         <div className="container">
           <div className="grid grid-cols-3 gap-x-[20px]">
             <div className="bloc">
-              <motion.h2
+              <h2
                 variants={variants}
                 initial="hidden"
                 animate="visible"
@@ -72,8 +77,8 @@ const Megamenu = (props) => {
                 className="font-bold text-[22px] mb-[25px]"
               >
                 {introTitle}
-              </motion.h2>
-              <motion.p
+              </h2>
+              <p
                 dangerouslySetInnerHTML={{ __html: introDescription }}
                 variants={variants}
                 initial="hidden"

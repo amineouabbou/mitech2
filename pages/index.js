@@ -4,7 +4,6 @@ import SEO from '../components/SEO'
 import Hero from '../components/Ui/Hero'
 import Whatmitech from '../components/home/Whatmitech'
 import Frontbrand from '../components/home/Frontbrand'
-import Opencloud from '../components/home/Opencloud'
 import Features from '../components/home/Features'
 import Monitor from '../components/home/Monitor'
 import Whymitech from '../components/home/Whymitech'
@@ -15,6 +14,9 @@ import { GET_HOME, GLOBAL_DATA } from '../queries'
 import Getintouch from '../components/Ui/Getintouch'
 import Newsletter from '../components/home/Newsletter'
 import { getGetInTouchBlock } from '../Utilis'
+import OpenRemit from '../components/home/OpenRemit'
+import WorldFastPay from '../components/home/WorldFastPay'
+import DataAnays from '../components/home/DataAnalys'
 
 export default function Home(props) {
   const { data, globalProps } = props
@@ -37,12 +39,20 @@ export default function Home(props) {
           return <Whatmitech key={index} data={item} />
         }
 
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_OpenRemitSolution') {
+          return <OpenRemit key={index} data={item} />
+        }
+
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_FrontBrandSolution') {
           return <Frontbrand key={index} data={item} />
         }
 
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_OpenCloudSolution') {
-          return <Opencloud key={index} data={item} />
+          return <WorldFastPay key={index} data={item} />
+        }
+
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_DataAnalysSolution') {
+          return <DataAnays key={index} data={item} />
         }
 
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Features') {

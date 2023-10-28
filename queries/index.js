@@ -31,6 +31,19 @@ export const GET_HOME = gql`
                 mediaItemUrl
               }
             }
+            ... on Page_Acfpage_AcfFlex_OpenRemitSolution {
+              fieldGroupName
+              subTitle
+              title
+              description
+              illustration {
+                mediaItemUrl
+              }
+              cta {
+                label
+                slug
+              }
+            }
             ... on Page_Acfpage_AcfFlex_FrontBrandSolution {
               fieldGroupName
               subTitle
@@ -45,6 +58,19 @@ export const GET_HOME = gql`
               }
             }
             ... on Page_Acfpage_AcfFlex_OpenCloudSolution {
+              fieldGroupName
+              subTitle
+              title
+              description
+              illustration {
+                mediaItemUrl
+              }
+              cta {
+                label
+                slug
+              }
+            }
+            ... on Page_Acfpage_AcfFlex_DataAnalysSolution {
               fieldGroupName
               subTitle
               title
@@ -159,6 +185,23 @@ export const GET_FEATURES = gql`
             }
           }
         }
+        pagesHero {
+          subTitle
+          intro
+        }
+      }
+    }
+  }
+`
+
+export const GET_PRIVACY_POLICY = gql`
+  query getPage($id: ID!, $lang: LanguageCodeEnum!) {
+    page(id: $id, idType: DATABASE_ID) {
+      title
+      translation(language: $lang) {
+        databaseId
+        title
+        content
         pagesHero {
           subTitle
           intro
