@@ -84,8 +84,8 @@ const Nav = (props, ref) => {
                   </a>
                   <a
                     href="#"
-                    // onMouseEnter={handleMouseOver}
-                    // onMouseLeave={handleMouseOut}
+                    onMouseEnter={handleMouseOver}
+                    onMouseLeave={handleMouseOut}
                     className="font-medium text-[14.28px] lg:text-[15.28px] mb:hidden mb:px-[25px] mb:py-[14px] lg:flex lg:flex-col lg:grow lg:justify-center md:px-[15px] lg:px-[25px]"
                   >
                     {item.label}
