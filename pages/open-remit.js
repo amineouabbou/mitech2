@@ -30,7 +30,7 @@ import PopIn from '../components/solutions/PopIn'
 import { getPageData } from '../utils'
 import { GET_OPEN_REMIT, GLOBAL_DATA } from '../queries'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { getGetInTouchBlock } from '../Utilis'
+import { getGetInTouchBlock, getSolutionPopups } from '../Utilis'
 
 export default function OpenRemitPage({ data, globalProps }) {
   const {
@@ -41,6 +41,12 @@ export default function OpenRemitPage({ data, globalProps }) {
   const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
+
+  const { data: solutionsPopups } = getSolutionPopups(sectionsOthers || [])
+
+  const filetred_popups = solutionsPopups?.solutionsListRep.filter((item) => {
+    return !item.button.label.toLowerCase().includes(pageTitle.toLowerCase())
+  })
 
   return (
     <>
@@ -130,11 +136,13 @@ export default function OpenRemitPage({ data, globalProps }) {
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_HowWeOperate') {
           return <HowOperate key={index} data={item} />
         }
-
-        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_PopIn') {
-          return <PopIn key={index} data={item} />
-        }
       })}
+
+      <div className="fixed w-[65px] bottom-[55px] right-4 flex flex-col gap-2 z-40">
+        {filetred_popups.map((item, index) => {
+          return <PopIn data={item} key={index} />
+        })}
+      </div>
 
       <Getintouch data={getIntouchBlock} className=" pt-[50px] lg:pt-[70px]" />
     </>

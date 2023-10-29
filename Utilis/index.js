@@ -291,6 +291,14 @@ export const getGetInTouchBlock = (arr) => {
   return { data }
 }
 
+export const getSolutionPopups = (arr) => {
+  const data = arr.find((item) => {
+    return item.__typename === 'Page_Acfglobal_SectionsOthers_SolutionsSection'
+  })
+
+  return { data }
+}
+
 export const getFooterData = (arr) => {
   const data = arr.find((item) => {
     return item.__typename === 'Page_Acfglobal_SectionsOthers_Footer'

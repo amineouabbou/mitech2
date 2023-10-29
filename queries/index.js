@@ -604,6 +604,24 @@ export const GLOBAL_DATA = gql`
                 }
               }
             }
+
+            ... on Page_Acfglobal_SectionsOthers_SolutionsSection {
+              solutionsListRep {
+                description
+                logo {
+                  mediaItemUrl
+                  altText
+                }
+                background {
+                  mediaItemUrl
+                  altText
+                }
+                button {
+                  label
+                  slug
+                }
+              }
+            }
           }
         }
       }

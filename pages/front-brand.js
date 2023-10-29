@@ -29,7 +29,7 @@ import BlocWithImage from '../components/solutions/BlocWithImage'
 import PopIn from '../components/solutions/PopIn'
 import { GET_FRONT_BRAND } from '../queries'
 import { getPageData } from '../utils'
-import { getGetInTouchBlock } from '../Utilis'
+import { getGetInTouchBlock, getSolutionPopups } from '../Utilis'
 
 export default function FrontBrandPage({ data, globalProps }) {
   const {
@@ -40,6 +40,12 @@ export default function FrontBrandPage({ data, globalProps }) {
   const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
+
+  const { data: solutionsPopups } = getSolutionPopups(sectionsOthers || [])
+
+  const filetred_popups = solutionsPopups?.solutionsListRep.filter((item) => {
+    return !item.button.label.toLowerCase().includes(pageTitle.toLowerCase())
+  })
 
   return (
     <>
@@ -146,11 +152,11 @@ export default function FrontBrandPage({ data, globalProps }) {
 
       <Getintouch data={getIntouchBlock} className=" pt-[50px] lg:pt-[70px]" />
 
-      {acfFlex.map((item, index) => {
-        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_PopIn') {
+      <div className="fixed w-[65px] bottom-[55px] right-4 flex flex-col gap-2 z-40">
+        {filetred_popups.map((item, index) => {
           return <PopIn data={item} key={index} />
-        }
-      })}
+        })}
+      </div>
     </>
   )
 }

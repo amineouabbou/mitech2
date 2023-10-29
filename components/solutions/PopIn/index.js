@@ -6,27 +6,29 @@ import { globaleasing } from '../../../data/useVariants'
 import { twclsx } from '../../../libs/twclsx'
 
 const PopIn = ({ data }) => {
-  const { logo, description, label, slug, background } = data
+  const { logo, description, background, button } = data
+  const { label, slug } = button || {}
   const [open, setOpen] = useState(false)
+
   return (
     <>
       <div
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
-        className="hidden lg:block popin items-center fixed bottom-[55px] right-4 lg:right-[50px] z-30"
+        className="hidden lg:block popin items-center relative"
       >
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1, transition: { delay: 2 } }}
           transition={{ ease: globaleasing, duration: 0.34 }}
           className={twclsx(
-            'logo relative h-[60px] w-[60px] lg:w-[106px] lg:h-[106px] bg-primary  rounded-full border-[2px] lg:border-[4px] border-white drop-shadow-[0px_0px_22px_rgba(0,0,0,0.2)] flex flex-col justify-center items-center cursor-pointer duration-300 hover:bg-secondary',
+            'logo relative h-[30px] w-[30px] lg:w-[65px] lg:h-[65px] bg-primary  rounded-full border-[2px] lg:border-[2px] border-white drop-shadow-[0px_0px_22px_rgba(0,0,0,0.2)] flex flex-col justify-center items-center cursor-pointer duration-300 hover:bg-secondary',
             {
               'bg-secondary': open,
             }
           )}
         >
-          <span className="block relative h-[30px] w-[30px] lg:w-[60px] lg:h-[60px]">
+          <span className="block relative h-[15px] w-[15px] lg:w-[40px] lg:h-[40px]">
             <Image
               alt="logo"
               className=""
