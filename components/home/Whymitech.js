@@ -6,7 +6,7 @@ import { titesStagger } from '../../data/useVariants'
 
 const Whymitech = ({ data }) => {
   return (
-    <section className="bg-[#f3f4f6] py-[60px] lg:py-[50px]">
+    <section className="bg-[#f3f4f6] py-[60px] lg:pt-[50px] lg:pb-[100px]">
       <div className="container mx-auto md:max-w-[985px]">
         <h2 className="text-center text-[31px] leading-[40px] lg:text-[39px] lg:leading-[50px] font-medium mb-[55px]">
           {data?.title}

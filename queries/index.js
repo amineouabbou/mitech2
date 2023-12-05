@@ -433,16 +433,22 @@ export const GET_OPEN_REMIT = gql`
                 }
               }
             }
-            ... on Page_Acfpage_AcfFlex_PopIn {
+
+            ... on Page_Acfpage_AcfFlex_Mtos {
               fieldGroupName
+              title
               description
-              label
-              logo {
-                mediaItemUrl
-              }
-              slug
-              background {
-                mediaItemUrl
+              blocsListRep {
+                titleGroup {
+                  icone {
+                    mediaItemUrl
+                  }
+                  title
+                }
+                listeRep {
+                  label
+                }
+                bottomText
               }
             }
           }
@@ -606,20 +612,19 @@ export const GLOBAL_DATA = gql`
             }
 
             ... on Page_Acfglobal_SectionsOthers_SolutionsSection {
+              popinTitle
+              logoMitech {
+                altText
+                mediaItemUrl
+              }
               solutionsListRep {
-                description
+                title
                 logo {
-                  mediaItemUrl
                   altText
-                }
-                background {
                   mediaItemUrl
-                  altText
                 }
-                button {
-                  label
-                  slug
-                }
+                description
+                slug
               }
             }
           }

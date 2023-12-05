@@ -31,6 +31,7 @@ import { getPageData } from '../utils'
 import { GET_OPEN_REMIT, GLOBAL_DATA } from '../queries'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getGetInTouchBlock, getSolutionPopups } from '../Utilis'
+import Mtos from '../components/home/Mtos'
 
 export default function OpenRemitPage({ data, globalProps }) {
   const {
@@ -41,12 +42,6 @@ export default function OpenRemitPage({ data, globalProps }) {
   const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
-
-  const { data: solutionsPopups } = getSolutionPopups(sectionsOthers || [])
-
-  const filetred_popups = solutionsPopups?.solutionsListRep.filter((item) => {
-    return !item.button.label.toLowerCase().includes(pageTitle.toLowerCase())
-  })
 
   return (
     <>
@@ -108,7 +103,7 @@ export default function OpenRemitPage({ data, globalProps }) {
       })}
 
       <WhiteContainer
-        sectionClassName="bg-[#fafbfb]"
+        sectionClassName=""
         gap={<SectionGap className="h-[95px] top-0 bg-[#f3f4f6]" />}
       >
         {acfFlex.map((item, index) => {
@@ -133,16 +128,14 @@ export default function OpenRemitPage({ data, globalProps }) {
       </WhiteContainer>
 
       {acfFlex.map((item, index) => {
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Mtos') {
+          return <Mtos key={index} data={item} />
+        }
+
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_HowWeOperate') {
           return <HowOperate key={index} data={item} />
         }
       })}
-
-      <div className="fixed w-[65px] bottom-[55px] right-4 flex flex-col gap-2 z-40">
-        {filetred_popups.map((item, index) => {
-          return <PopIn data={item} key={index} />
-        })}
-      </div>
 
       <Getintouch data={getIntouchBlock} className=" pt-[50px] lg:pt-[70px]" />
     </>

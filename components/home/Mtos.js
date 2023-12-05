@@ -3,7 +3,7 @@ import React from 'react'
 
 const Mtos = ({ data }) => {
   return (
-    <section className="bg-white py-[60px] lg:py-[85px]">
+    <section className="bg-[#f3f4f6] pt-[80px] pb-[60px] lg:pt-[200px] -mt-[40px] lg:-mt-[110px] relative -z-30">
       <div className="container mx-auto md:max-w-[985px]">
         <h2
           className="text-center text-[31px] leading-[40px] lg:text-[39px] lg:leading-[50px] font-medium mb-[22px] tracking-[0.04em]"

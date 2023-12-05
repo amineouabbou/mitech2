@@ -41,12 +41,6 @@ export default function FrontBrandPage({ data, globalProps }) {
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
-  const { data: solutionsPopups } = getSolutionPopups(sectionsOthers || [])
-
-  const filetred_popups = solutionsPopups?.solutionsListRep.filter((item) => {
-    return !item.button.label.toLowerCase().includes(pageTitle.toLowerCase())
-  })
-
   return (
     <>
       <SEO title={pageTitle} />
@@ -151,12 +145,6 @@ export default function FrontBrandPage({ data, globalProps }) {
       })}
 
       <Getintouch data={getIntouchBlock} className=" pt-[50px] lg:pt-[70px]" />
-
-      <div className="fixed w-[65px] bottom-[55px] right-4 flex flex-col gap-2 z-40">
-        {filetred_popups.map((item, index) => {
-          return <PopIn data={item} key={index} />
-        })}
-      </div>
     </>
   )
 }

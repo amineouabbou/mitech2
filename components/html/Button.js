@@ -20,7 +20,7 @@ const Button = ({
           'inline-block rounded-[30px] duration-500 text-white',
           {
             'uppercase tracking-[0.07em] lg:tracking-[0.1em]': !lowercase,
-            'lg:h-[60px] lg:leading-[58px] font-bold lg:text-[17px]':
+            'h-[43px] lg:h-[60px] lg:leading-[58px] font-bold lg:text-[17px]':
               size === 'large',
             'font-semibold text-[14px] h-[48px] leading-[46px]':
               size !== 'large',

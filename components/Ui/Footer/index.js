@@ -4,6 +4,8 @@ import dynamic from 'next/dynamic'
 import { useGlobalState } from '../../../providers/globalProvider'
 import { AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import PopIn from '../../solutions/PopIn'
+import { getSolutionPopups } from '../../../Utilis'
 
 const Overlaybg = dynamic(() => import('../Others/Overlaybg'), {
   loading: () => 'Loading...',
@@ -15,10 +17,17 @@ const Footer = ({ data }) => {
     megamenuOpened,
   } = useGlobalState()
 
-  const { blocksRep, blockBesoin, copyrightsBlock } = data || {}
+  const { footerData, globalProps } = data || {}
+
+  const { blocksRep, blockBesoin, copyrightsBlock } = footerData || {}
+
+  const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
+
+  const { data: solutionsPopups } = getSolutionPopups(sectionsOthers || [])
 
   return (
     <>
+      <PopIn data={solutionsPopups} />
       <footer className="md:block py-[50px] md:pt-[85px] md:pb-[35px]">
         <div className="container mx-auto">
           <div className="grid grid-cols-2 gap-y-[30px] md:grid-cols-5 gap-x-[40px]">
@@ -91,17 +100,25 @@ const Footer = ({ data }) => {
             )}
           </div>
 
-          <div className="logos flex items-center gap-x-[35px] mt-[35px] justify-center">
-            <div className="w-[135px] h-[30px] relative">
+          <div className="logos grid grid-cols-2 lg:flex items-center gap-4 lg:gap-[35px] mt-[35px] justify-center">
+            <div className="w-[116px] h-[25px] relative">
               <Image src="/logos/mitech-gray.svg" fill alt="" />
+            </div>
+
+            <div className="w-[135px] h-[30px] relative">
+              <Image src="/logos/open-cloud-gray.svg" fill alt="" />
             </div>
 
             <div className="w-[135px] h-[30px] relative">
               <Image src="/logos/front-brand-gray.svg" fill alt="" />
             </div>
 
-            <div className="w-[135px] h-[30px] relative">
-              <Image src="/logos/open-cloud-gray.svg" fill alt="" />
+            <div className="w-[186px] h-[19px] relative">
+              <Image src="/logos/world-fpay-gray.png" fill alt="" />
+            </div>
+
+            <div className="w-[145px] h-[19px] relative">
+              <Image src="/logos/DA_gray.png" fill alt="" />
             </div>
           </div>
 

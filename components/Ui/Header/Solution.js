@@ -24,7 +24,7 @@ const Solution = (props) => {
         <div className="font-bold uppercase mb-[2px] leading-[15px] group-hover:text-primary duration-300">
           {title}
         </div>
-        <p className="text-[#87888c] group-hover:text-primary duration-300">
+        <p className="text-[#c1c4cb] group-hover:text-primary duration-300 font-medium">
           {domain}
         </p>
       </div>

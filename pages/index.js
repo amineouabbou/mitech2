@@ -67,9 +67,9 @@ export default function Home(props) {
           return <Whymitech key={index} data={item} />
         }
 
-        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Mtos') {
-          return <Mtos key={index} data={item} />
-        }
+        // if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Mtos') {
+        //   return <Mtos key={index} data={item} />
+        // }
 
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Newsletter') {
           return <Newsletter key={index} data={item} />
@@ -79,7 +79,7 @@ export default function Home(props) {
           return <Diaspocentric key={index} data={item} />
         }
       })}
-      <Getintouch data={getIntouchBlock} className="mt-[80px] lg:mt-[150px]" />
+      <Getintouch data={getIntouchBlock} className="mt-[80px] lg:mt-[75px]" />
     </>
   )
 }

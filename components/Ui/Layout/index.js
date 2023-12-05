@@ -14,7 +14,7 @@ const Layout = (props) => {
     <div className="global">
       <Header data={globalData} />
       {props.children}
-      <Footer data={footerData} />
+      <Footer data={{ footerData, globalProps }} />
     </div>
   )
 }

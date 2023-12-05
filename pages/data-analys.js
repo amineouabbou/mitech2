@@ -1,4 +1,3 @@
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import SEO from '../components/SEO'
 import Getintouch from '../components/Ui/Getintouch'
 import Title from '../components/Ui/Heroinner/Title'
@@ -7,31 +6,33 @@ import WhiteContainer from '../components/solutions/Whitecontainer'
 import SolutionBlocs from '../components/solutions/SolutionBlocs'
 import HowOperate from '../components/solutions/HowOperate'
 import HeroSolution from '../components/solutions/Ui/HeroSolution'
+import IntroOc from '../components/solutions/OpenCloud/IntroOc'
 import SectionGap from '../components/Ui/Others/SectionGap'
 import Slice from '../components/solutions/Slice/Slice'
 import ListUl from '../components/Ui/List'
 import SliceTitle from '../components/solutions/Slice/SliceTitle'
+import PlugAndImprove from '../components/solutions/PlugAndImprove'
 import ListWithImage from '../components/solutions/ListWithImage'
 import ClassicAndMitech from '../components/solutions/ClassMitech'
 
 import {
-  ADVANTAGES_BLOCS_FRONT_BRAND,
+  ADVANTAGES_BLOCS,
+  ADVANTAGES_BLOCS_OPEN_CLOUD,
   BUILD_MONITOR,
   CLASSIC_MITECH_COMPARAISON_DATA,
   HOW_OPERATE_DATA,
-  SAY_HELLO_FB,
+  PLUG_IMPROVE,
+  SAY_HELLO,
 } from '../components/solutions/DummyData'
-import IntroFb from '../components/solutions/FrontBrand/IntroFb'
 import TitleSolution from '../components/solutions/SolutionBlocs/TitleSolution'
-import List4cols from '../components/solutions/SolutionBlocs/List4cols'
-import HeroFbBg from '../components/solutions/FrontBrand/HeroFbBg'
-import BlocWithImage from '../components/solutions/BlocWithImage'
+import List3cols from '../components/solutions/SolutionBlocs/List3cols'
 import PopIn from '../components/solutions/PopIn'
-import { GET_FRONT_BRAND } from '../queries'
 import { getPageData } from '../utils'
+import { GET_OPEN_REMIT, GLOBAL_DATA } from '../queries'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getGetInTouchBlock, getSolutionPopups } from '../Utilis'
 
-export default function DataAnalysPage({ data, globalProps }) {
+export default function OpenRemitPage({ data, globalProps }) {
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
@@ -41,30 +42,22 @@ export default function DataAnalysPage({ data, globalProps }) {
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
-  const { data: solutionsPopups } = getSolutionPopups(sectionsOthers || [])
-
-  const filetred_popups = solutionsPopups?.solutionsListRep.filter((item) => {
-    return !item.button.label.toLowerCase().includes(pageTitle.toLowerCase())
-  })
-
   return (
     <>
       <SEO title={pageTitle} />
-
       {acfFlex.map((item, index) => {
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_HeroSolution') {
           return (
             <HeroSolution
               key={index}
-              classsName="min-h-[680px] lg:min-h-[780px]"
+              classsName="min-h-[1090px] lg:min-h-[880px]"
             >
               <Title className="uppercase" title={item.title} />
               <SubTitle
                 className="text-primary lg:mb-[100px]"
                 subtitle={item.subtitle}
               />
-              <IntroFb data={item.description} />
-              <HeroFbBg img={item.photo?.mediaItemUrl} />
+              <IntroOc data={item} />
             </HeroSolution>
           )
         }
@@ -79,21 +72,18 @@ export default function DataAnalysPage({ data, globalProps }) {
             item.fieldGroupName === 'Page_Acfpage_AcfFlex_SolutionAdvantages'
           ) {
             return (
-              <Slice key={index} className="mb-[40px] lg:mb-[95px]">
+              <Slice key={index} className="mb-[40px] lg:mb-[120px]">
                 <SliceTitle title={item.title} />
                 <ListUl data={item.advantagesRepeater} />
               </Slice>
             )
           }
 
-          if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_ReThink') {
+          if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_PlugAndImprove') {
             return (
               <Slice key={index}>
-                <SliceTitle
-                  className="mb-[40px] lg:mb-[90px]"
-                  title={item.title}
-                />
-                <BlocWithImage {...item} />
+                <SliceTitle title={item.title} />
+                <PlugAndImprove data={item} />
               </Slice>
             )
           }
@@ -103,26 +93,23 @@ export default function DataAnalysPage({ data, globalProps }) {
       {acfFlex.map((item, index) => {
         if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_SolutionFeatured') {
           return (
-            <SolutionBlocs key={index} className="max-w-1560">
+            <SolutionBlocs key={index}>
               <TitleSolution title={item.title} />
-              <List4cols data={item.advantagesRepeater} />
+              <List3cols data={item} />
             </SolutionBlocs>
           )
         }
       })}
 
       <WhiteContainer
-        sectionClassName="bg-[#fafbfb] overflow-hidden"
+        sectionClassName="bg-[#fafbfb]"
         gap={<SectionGap className="h-[95px] top-0 bg-[#f3f4f6]" />}
       >
         {acfFlex.map((item, index) => {
           if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_BuildAndMonitor') {
             return (
               <Slice key={index} className="mb-[30px] lg:mb-[80px]">
-                <SliceTitle
-                  title={item.title}
-                  className="mb-[30px] lg:mb-[50px]"
-                />
+                <SliceTitle title={item.title} className="mb-[50px]" />
                 <ListWithImage data={item} />
               </Slice>
             )
@@ -132,12 +119,7 @@ export default function DataAnalysPage({ data, globalProps }) {
             return (
               <Slice key={index}>
                 <SliceTitle title={item.title} />
-                <ClassicAndMitech
-                  data={{
-                    brandsRepeater: item.brandsRepeater,
-                    comparisonRepeater: item.comparisonRepeater,
-                  }}
-                />
+                <ClassicAndMitech data={item} />
               </Slice>
             )
           }
@@ -151,23 +133,17 @@ export default function DataAnalysPage({ data, globalProps }) {
       })}
 
       <Getintouch data={getIntouchBlock} className=" pt-[50px] lg:pt-[70px]" />
-
-      <div className="fixed w-[65px] bottom-[55px] right-4 flex flex-col gap-2 z-40">
-        {filetred_popups.map((item, index) => {
-          return <PopIn data={item} key={index} />
-        })}
-      </div>
     </>
   )
 }
 
 export async function getServerSideProps({ locale }) {
-  const data = await getPageData(GET_FRONT_BRAND, 815, locale)
+  const data = await getPageData(GET_OPEN_REMIT, 914, locale)
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
-      data,
+      data: data,
     },
   }
 }
