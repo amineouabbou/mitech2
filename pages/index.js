@@ -87,8 +87,6 @@ export default function Home(props) {
 export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_HOME, 7, locale)
 
-  console.log('Data .......', data)
-
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
