@@ -20,7 +20,7 @@ const Card = ({ data }) => {
       <ul className="text-[14px] text-[#7b86a2] tracking-[0.03em]">
         {detailsListRepeater.map((item, index) => (
           <li className="leading-[19px] mb-[15px] flex items-start" key={index}>
-            <span className="mr-[10px] min-w-[12px]">
+            <span className="mr-[10px] min-w-[12px] mt-[5px]">
               <Image
                 alt=""
                 width={12}
