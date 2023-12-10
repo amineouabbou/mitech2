@@ -10,8 +10,6 @@ const PopIn = ({ data }) => {
 
   const { logoMitech, popinTitle, solutionsListRep } = data || {}
 
-  console.log('data data datadata', data)
-
   return (
     <>
       <div

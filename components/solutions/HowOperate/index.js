@@ -10,7 +10,7 @@ const HowOperate = ({ data }) => {
         <TitleBox title={title} subtitle={subtitle} />
         <div className="grid lg:grid-cols-3 gap-y-[20px] gap-x-[55px]">
           {listRepeater.map((item, index) => (
-            <Card data={item} key={index} />
+            <Card data={{ ...item, index }} key={index} />
           ))}
         </div>
       </div>

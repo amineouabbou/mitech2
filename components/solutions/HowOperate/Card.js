@@ -3,7 +3,8 @@ import React from 'react'
 import { twclsx } from '../../../libs/twclsx'
 
 const Card = ({ data }) => {
-  const { logo, title, detailsListRepeater } = data
+  const { logo, title, detailsListRepeater, index } = data
+
   return (
     <div className="bg-white p-[25px] drop-shadow-[1px_0px_18px_rgba(0,0,0,0.07)] rounded-[10px] relative">
       <div className="vertical-line hidden lg:block w-[2px] h-[455px] absolute -top-[35px] my-auto -right-[28px] bg-contain bg-[url('/bgs/dashed-line-vertical.png')] bg-no-repeat"></div>
@@ -36,7 +37,7 @@ const Card = ({ data }) => {
         className={twclsx(
           'hidden lg:block ball w-[17px] h-[17px] rounded-full bg-secondary border-[2px] border-[#f1f2f4] absolute -bottom-[56px] left-0 right-0 mx-auto',
           {
-            '-bottom-[36px]': data.id == 2,
+            '-bottom-[36px]': index == 2,
           }
         )}
       ></div>

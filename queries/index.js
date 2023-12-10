@@ -24,11 +24,19 @@ export const GET_HOME = gql`
               fieldGroupName
               title
               description
-              shema {
+              logoMitech {
                 mediaItemUrl
               }
-              schemaMobile {
-                mediaItemUrl
+              blocsRep {
+                logo {
+                  mediaItemUrl
+                }
+                description
+                discover {
+                  label
+                  slug
+                }
+                logoSize
               }
             }
             ... on Page_Acfpage_AcfFlex_OpenRemitSolution {
@@ -167,27 +175,26 @@ export const GET_FEATURES = gql`
       translation(language: $lang) {
         databaseId
         title
+        pagesHero {
+          subTitle
+          intro
+        }
         ACFPage {
           acfFlex {
             ... on Page_Acfpage_AcfFlex_FeaturesDetailed {
               fieldGroupName
               listeFeaturesRep {
-                fieldGroupName
+                title
                 iconeGroup {
                   icone {
                     mediaItemUrl
                   }
                   size
                 }
-                title
                 description
               }
             }
           }
-        }
-        pagesHero {
-          subTitle
-          intro
         }
       }
     }
@@ -647,6 +654,11 @@ export const GET_PRICING_PAGE = gql`
         }
         pagePricing {
           introduction
+          solutionsLogos {
+            logoDesktop {
+              mediaItemUrl
+            }
+          }
           tableRepeater {
             options {
               label

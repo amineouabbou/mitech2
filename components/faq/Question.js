@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import { useTranslation } from 'next-i18next'
+import { useState } from 'react'
 
 const Question = ({ question, answer }) => {
   const [active, setActive] = useState(false)
+  const { t } = useTranslation('common')
   const handleClick = () => {
     setActive((prev) => !prev)
   }
@@ -28,7 +30,7 @@ const Question = ({ question, answer }) => {
       {active && (
         <div className="answer flex items-start py-[30px] lg:py-[35px] px-[10px] lg:px-[28px] leading-[22px] border-l-[6px] border-l-[#e8e9ed] font-medium">
           <div className="text-[20px] lg:text-[39px] leading-[41px] text-[#e8e9ed] mr-[22px]">
-            A.
+            {t('A.')}
           </div>
           <div className="lg:text-[16px] lg:leading-[22px] w-[80%] font-light">
             {answer}

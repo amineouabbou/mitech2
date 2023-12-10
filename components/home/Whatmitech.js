@@ -5,7 +5,8 @@ import Link from 'next/link'
 import BoxWithShadow from '../Ui/List2/BoxWithShadow'
 
 const Whatmitech = ({ data }) => {
-  const { title, description, shema, schemaMobile } = data
+  const { title, description, logoMitech, blocsRep } = data
+
   return (
     <section className="what-mitech bg-[#fcfcfc] pb-[50px] pt-[60px] lg:pt-[85px] lg:pb-[100px] lg:bg-[url('/bgs/bg-why-mitech.jpg')] bg-cover bg-no-repeat">
       <div className="container mx-auto max-w-[980px]">
@@ -20,8 +21,8 @@ const Whatmitech = ({ data }) => {
         <div className="flex flex-col justify-center items-center">
           <div>
             <Image
-              src="/logos/mitech-while-label.png"
-              width="191"
+              src={logoMitech?.mediaItemUrl}
+              width={191}
               className="w-[160px] lg:w-[191px]"
               height="41"
               alt=""
@@ -30,8 +31,8 @@ const Whatmitech = ({ data }) => {
         </div>
 
         <div className="grid px-8 sm:px-0 lg:grid-cols-4 gap-[20px] pt-[15px] lg:pt-[30px] mt-[12px] lg:bg-[url('/bgs/about-bg.png')] bg-[length:368px_306px] bg-no-repeat bg-[center_top]">
-          {[0, 1, 2, 3].map((item) => (
-            <BoxWithShadow key={item} />
+          {blocsRep.map((item, index) => (
+            <BoxWithShadow data={item} key={index} />
           ))}
         </div>
 

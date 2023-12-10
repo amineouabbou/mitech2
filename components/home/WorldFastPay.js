@@ -8,19 +8,25 @@ const WorldFastPay = ({ data }) => {
       <div className="container mx-auto flex flex-col items-end lg:max-w-[1214px]">
         <div className="lg:flex w-full">
           <div className="md:w-1/2 md:flex flex-col mb-7 lg:mb-0">
-            <div className="relative w-full md:w-[577px] h-[280px] lg:h-[501px]">
-              <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[50px] lg:h-[66px] w-[190px] lg:w-[291px] rounded-[10px] absolute mx-auto bottom-[calc(100%_+_30px)] lg:top-0 md:left-[135px] z-10 flex flex-col justify-center px-[17px]">
+            <div className="relative w-full md:w-[577px] h-[380px] lg:h-[501px]">
+              <div className="box bg-white drop-shadow-[0px_0px_26px_rgba(112,123,132,0.2)] h-[50px] lg:h-[66px] w-[240px] lg:w-[291px] rounded-[10px] absolute mx-auto bottom-[calc(100%_+_30px)] lg:top-0 md:left-[135px] z-10 flex flex-col justify-center px-[17px]">
                 <div className="ball bg-primary rounded-full h-[9px] w-[9px] absolute right-[15px] top-auto bottom-auto"></div>
                 <div className="dots w-[2px] h-[270px] bg-[url('/bgs/vertical-dots.png')] bg-contain  absolute right-[18px] bottom-[calc(100%_-_23px)] bg-[center_bottom_-100px] bg-no-repeat"></div>
                 <div>
-                  <Image src="/logos/WP_.svg" width="225" height="19" alt="" />
+                  <Image
+                    src="/logos/WP_.svg"
+                    width="225"
+                    height="19"
+                    className="w-[190px] h-[15] lg:w-[225px] lg:h-[19]"
+                    alt=""
+                  />
                 </div>
               </div>
               <Image
                 src={data?.illustration?.mediaItemUrl}
                 fill
                 alt=""
-                className="bg-cover"
+                className="object-contain"
               />
             </div>
           </div>

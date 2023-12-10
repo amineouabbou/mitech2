@@ -191,7 +191,7 @@ export default function Contact({ globalProps }) {
 
               <Checkbox
                 name="policy"
-                label="By submitting the form, I accept mitech <a href='#' class='text-primary underline hover:text-secondary'>Privacy Policy</a>"
+                label="By submitting the form, I accept mitech <a href='/privacy-policy' class='text-primary underline hover:text-secondary'>Privacy Policy</a>"
                 register={register}
                 errors={errors}
               />

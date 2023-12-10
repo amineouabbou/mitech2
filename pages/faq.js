@@ -13,13 +13,15 @@ import { useState } from 'react'
 import { filterFaqlist, getGetInTouchBlock } from '../Utilis'
 import { useMemo } from 'react'
 
-export default function Faq({ data, globalProps }) {
+export default function Faq({ data, globalProps, ...rest }) {
   const [searchQuery, setSearchQuery] = useState('')
   const {
     title: pageTitle,
     ACFPage: { acfFlex },
     pagesHero,
   } = data.page.translation
+
+  console.log('Retst ....', rest)
 
   const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 

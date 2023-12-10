@@ -19,6 +19,8 @@ export default function Featured({ data, globalProps }) {
 
   const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
+  console.log('ACFPage', acfFlex)
+
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
 
   return (
@@ -61,6 +63,8 @@ export default function Featured({ data, globalProps }) {
 
 export async function getServerSideProps({ locale }) {
   const data = await getPageData(GET_FEATURES, 9, locale)
+
+  console.log('datadatadata', data)
 
   return {
     props: {
