@@ -9,8 +9,8 @@ import {
 
 const Monitor = ({ data }) => {
   return (
-    <section className="bg-[#fcfcfc] pt-[60px] pb-[40px] lg:pt-[80px] lg:pb-[100px] relative before:hidden lg:before:block before:h-[65px] before:bg-[#f3f4f6] lg:before:content-[''] before:absolute before:bottom-0 before:w-full overflow-hidden flex flex-col">
-      <div className="overlay order-2 lg:order-1 w-full lg:absolute top-0 bottom-0 left-0 right-0 m-auto md:flex flex-col items-end md:pt-[82px] mt-8 lg:mt-0">
+    <section className="bg-[#fcfcfc] pt-[30px] pb-[40px] lg:pt-[80px] lg:pb-[100px] relative before:hidden lg:before:block before:h-[65px] before:bg-[#f3f4f6] lg:before:content-[''] before:absolute before:bottom-0 before:w-full overflow-hidden flex flex-col">
+      <div className="overlay order-1 lg:order-2 w-full lg:absolute top-0 bottom-0 left-0 right-0 m-auto md:flex flex-col items-end mb-[30px] lg:mb-0  md:pt-[82px] lg:mt-0">
         <motion.div
           className="lg:w-1/2	relative h-full"
           initial={{ y: 100, opacity: 0 }}
@@ -35,7 +35,7 @@ const Monitor = ({ data }) => {
           </div>
         </motion.div>
       </div>
-      <div className="container mx-auto order-1 lg:order-2">
+      <div className="container mx-auto order-2 lg:order-1">
         <motion.div
           variants={titesStagger()}
           initial="initial"

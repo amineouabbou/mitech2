@@ -79,7 +79,7 @@ export default function Home(props) {
           return <Diaspocentric key={index} data={item} />
         }
       })}
-      <Getintouch data={getIntouchBlock} className="mt-[80px] lg:mt-[75px]" />
+      <Getintouch data={getIntouchBlock} className="mt-[40px] lg:mt-[75px]" />
     </>
   )
 }

@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 import List2 from '../../Ui/List2'
 
 const PlugAndImprove = ({ data }) => {
@@ -12,11 +11,10 @@ const PlugAndImprove = ({ data }) => {
       <div className="hidden absolute top-0 bottom-0 left-0 right-0"></div>
       <div className="flex flex-col lg:flex-row mb-[90px] lg:mb-0">
         {photo && (
-          <div className="bloc-img relative h-[300px] lg:h-[512px] lg:w-[370px] lg:mr-[65px] order-2 lg:order-1">
+          <div className="bloc-img relative h-[380px] lg:h-[512px] lg:w-[370px] lg:mr-[65px] order-2 lg:order-1">
             <Image
               alt=""
-              width={200}
-              height={200}
+              fill
               src={photo.mediaItemUrl}
               className="object-contain lg:object-none w-full"
             />

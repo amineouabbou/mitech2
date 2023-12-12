@@ -68,7 +68,7 @@ const Header = (props) => {
           <div className="flex items-center justify-center md:flex md:flex-col">
             <div className="logo-box">
               <Link href="/">
-                <div className="w-[115px] h-[24px] md:w-[193px] md:h-[41px] relative">
+                <div className="w-[135px] h-[44px] md:w-[193px] md:h-[41px] relative">
                   <Image src="/logo.svg" fill alt="" />
                 </div>
               </Link>

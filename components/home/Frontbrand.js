@@ -37,7 +37,7 @@ const Frontbrand = ({ data }) => {
                 )}
               >
                 <div className="ball bg-primary rounded-full h-[9px] w-[9px] absolute left-[15px] top-auto bottom-auto"></div>
-                <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-contain absolute left-[18px] bottom-[calc(100%_-_23px)]"></div>
+                <div className="dots w-[2px] h-[310px] bg-[url('/bgs/vertical-dots.png')] bg-[center_bottom_-120px] bg-no-repeat bg-contain absolute left-[18px] bottom-[calc(100%_-_23px)]"></div>
                 <div className="relative">
                   <Image
                     className="w-[130px] lg:w-[180px]"

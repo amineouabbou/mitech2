@@ -13,7 +13,7 @@ const Hero = ({ data }) => {
         backgroundColor: '#f3f4f6',
         transition: { ease: globaleasing, duration: 1.4 },
       }}
-      className="hero-section min-h-[890px] lg:min-h-[630px] flex flex-col justify-end overflow-hidden"
+      className="hero-section pt-[95px] sm:pt-0 min-h-[890px] lg:min-h-[630px] flex flex-col justify-end overflow-hidden"
     >
       <div className="container mx-auto max-w-[1090px] relative py-[20px] md:py-[90px] flex flex-col">
         <motion.div
