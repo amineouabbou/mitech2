@@ -19,9 +19,11 @@ const Footer = ({ data }) => {
     megamenuOpened,
   } = useGlobalState()
 
-  const { footerData, globalProps } = data || {}
+  const { footerData, globalProps, footerLogos } = data || {}
 
   const { blocksRep, blockBesoin, copyrightsBlock } = footerData || {}
+
+  console.log('footerLogos', footerLogos)
 
   const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
@@ -103,25 +105,16 @@ const Footer = ({ data }) => {
           </div>
 
           <div className="logos grid grid-cols-2 lg:flex items-center gap-4 lg:gap-[35px] mt-[35px] justify-center">
-            <div className="w-[116px] h-[25px] relative">
-              <Image src="/logos/mitech-gray.svg" fill alt="" />
-            </div>
-
-            <div className="w-[135px] h-[30px] relative">
-              <Image src="/logos/open-cloud-gray.svg" fill alt="" />
-            </div>
-
-            <div className="w-[135px] h-[30px] relative">
-              <Image src="/logos/front-brand-gray.svg" fill alt="" />
-            </div>
-
-            <div className="w-[186px] h-[19px] relative">
-              <Image src="/logos/world-fpay-gray.png" fill alt="" />
-            </div>
-
-            <div className="w-[145px] h-[19px] relative">
-              <Image src="/logos/DA_gray.png" fill alt="" />
-            </div>
+            {footerLogos.map((item, index) => (
+              <div key={index} className="w-[120px] h-[35px] relative">
+                <Image
+                  src={item?.mediaItemUrl}
+                  fill
+                  alt=""
+                  className="object-contain"
+                />
+              </div>
+            ))}
           </div>
 
           {copyrightsBlock && (

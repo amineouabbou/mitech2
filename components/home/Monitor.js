@@ -10,6 +10,15 @@ import {
 const Monitor = ({ data }) => {
   return (
     <section className="bg-[#fcfcfc] pt-[30px] pb-[40px] lg:pt-[80px] lg:pb-[100px] relative before:hidden lg:before:block before:h-[65px] before:bg-[#f3f4f6] lg:before:content-[''] before:absolute before:bottom-0 before:w-full overflow-hidden flex flex-col">
+      <div className="container md:hidden">
+        <motion.h2
+          variants={titlesAnimation}
+          className="text-[31px] leading-[40px] lg:text-[39px] lg:leading-[50px] font-medium mb-[10px]"
+        >
+          <span dangerouslySetInnerHTML={{ __html: data?.title }}></span>
+        </motion.h2>
+      </div>
+
       <div className="overlay order-1 lg:order-2 w-full lg:absolute top-0 bottom-0 left-0 right-0 m-auto md:flex flex-col items-end mb-[30px] lg:mb-0  md:pt-[82px] lg:mt-0">
         <motion.div
           className="lg:w-1/2	relative h-full"
@@ -45,7 +54,7 @@ const Monitor = ({ data }) => {
         >
           <motion.h2
             variants={titlesAnimation}
-            className="text-[31px] leading-[40px] lg:text-[39px] lg:leading-[50px] font-medium mb-[45px]"
+            className="text-[31px] leading-[40px] lg:text-[39px] lg:leading-[50px] font-medium mb-[45px] hidden md:block"
           >
             <span dangerouslySetInnerHTML={{ __html: data?.title }}></span>
           </motion.h2>

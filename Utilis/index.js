@@ -307,6 +307,14 @@ export const getFooterData = (arr) => {
   return { data }
 }
 
+export const getFooterLogos = (arr) => {
+  const data = arr.find((item) => {
+    return item.__typename === 'Page_Acfglobal_SectionsOthers_FooterLogos'
+  })
+
+  return data?.footerLogos
+}
+
 export const getNavData = (arr) => {
   const data = arr.find((item) => {
     return item.__typename === 'Page_Acfglobal_SectionsOthers_PrimaryMenu'

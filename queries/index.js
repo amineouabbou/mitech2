@@ -634,6 +634,12 @@ export const GLOBAL_DATA = gql`
                 slug
               }
             }
+
+            ... on Page_Acfglobal_SectionsOthers_FooterLogos {
+              footerLogos {
+                mediaItemUrl
+              }
+            }
           }
         }
       }

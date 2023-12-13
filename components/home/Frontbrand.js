@@ -5,7 +5,7 @@ import { twclsx } from '../../libs/twclsx'
 
 const Frontbrand = ({ data }) => {
   return (
-    <section className="bg-[#fcfcfc] pt-0 pb-[60px] lg:pb-[40px] relative before:block before:h-[130px] lg:before:h-[55px] before:bg-[#f3f4f6] before:content-[''] before:absolute before:top-0 before:w-full">
+    <section className="bg-[#fcfcfc] pt-0 pb-[60px] lg:pb-[40px] relative before:block before:h-[95px] lg:before:h-[55px] before:bg-[#f3f4f6] before:content-[''] before:absolute before:top-0 before:w-full">
       <div className="container mx-auto max-w-[1010px]">
         <div className="flex flex-col lg:flex-row">
           <div className="lg:w-3/5 flex flex-col justify-end md:pl-[40px] order-2 lg:order-1">

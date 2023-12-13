@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Footer from '../Footer'
 import Header from '../Header'
-import { getFooterData } from '../../../Utilis'
+import { getFooterData, getFooterLogos } from '../../../Utilis'
 
 const Layout = (props) => {
   const { globalProps } = props
@@ -10,11 +10,13 @@ const Layout = (props) => {
 
   const { data: footerData } = getFooterData(globalData || [])
 
+  const footerLogos = getFooterLogos(globalData || [])
+
   return (
     <div className="global">
       <Header data={globalData} />
       {props.children}
-      <Footer data={{ footerData, globalProps }} />
+      <Footer data={{ footerData, globalProps, footerLogos }} />
     </div>
   )
 }

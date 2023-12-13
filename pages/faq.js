@@ -21,8 +21,6 @@ export default function Faq({ data, globalProps, ...rest }) {
     pagesHero,
   } = data.page.translation
 
-  console.log('Retst ....', rest)
-
   const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
 
   const { data: getIntouchBlock } = getGetInTouchBlock(sectionsOthers || [])
