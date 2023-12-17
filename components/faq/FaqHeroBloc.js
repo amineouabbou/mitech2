@@ -7,7 +7,9 @@ import Image from 'next/image'
 
 const FaqHeroBloc = ({ data, searchQuery, setSearchQuery }) => {
   const handleInputChange = (e) => {
-    setSearchQuery(e.target.value)
+    const queryLowered = e.target.value.toLowerCase()
+    console.log('queryLowered', queryLowered)
+    setSearchQuery(queryLowered)
   }
   return (
     <>

@@ -52,7 +52,7 @@ const Footer = ({ data }) => {
               ))}
 
             {blockBesoin && (
-              <div className="bloc lg:col-span-2 flex flex-col lg:items-center">
+              <div className="bloc lg:col-span-2 flex flex-col lg:items-center text-[15px]">
                 <div>
                   <h3 className="font-semibold leading-[23px] mb-[8px] md:mb-[25px]">
                     {blockBesoin.title}

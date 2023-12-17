@@ -14,6 +14,7 @@ import FaqHeroBloc from '../../components/faq/FaqHeroBloc'
 import HeroFaq from '../../components/faq/HeroFaq'
 import { filterFaqlist, getGetInTouchBlock } from '../../Utilis'
 import { useMemo, useState } from 'react'
+import { useTranslation } from 'next-i18next'
 
 export default function FaqSlug({ data, globalProps }) {
   const [searchQuery, setSearchQuery] = useState('')
@@ -37,6 +38,8 @@ export default function FaqSlug({ data, globalProps }) {
     [searchQuery]
   )
 
+  const { t } = useTranslation('common')
+
   return (
     <>
       <SEO />
@@ -55,11 +58,17 @@ export default function FaqSlug({ data, globalProps }) {
         <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] py-[40px] px-[20px] lg:p-[65px] relative z-10">
           {acfFlex.map((item, index) => {
             if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Faq') {
-              return filteredFaq
-                .filter((item) => {
-                  return slugify(item.category, { lower: true }).includes(slug)
-                })
-                .map((item, index) => <Faqgroup key={index} data={item} />)
+              return filteredFaq.length > 0 ? (
+                filteredFaq
+                  .filter((item) => {
+                    return slugify(item.category, { lower: true }).includes(
+                      slug
+                    )
+                  })
+                  .map((item, index) => <Faqgroup key={index} data={item} />)
+              ) : (
+                <div>{t('no-results-found')}</div>
+              )
             }
           })}
         </main>

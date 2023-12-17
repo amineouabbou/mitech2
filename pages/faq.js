@@ -12,6 +12,7 @@ import HeroFaq from '../components/faq/HeroFaq'
 import { useState } from 'react'
 import { filterFaqlist, getGetInTouchBlock } from '../Utilis'
 import { useMemo } from 'react'
+import { useTranslation } from 'next-i18next'
 
 export default function Faq({ data, globalProps, ...rest }) {
   const [searchQuery, setSearchQuery] = useState('')
@@ -33,6 +34,8 @@ export default function Faq({ data, globalProps, ...rest }) {
     [searchQuery]
   )
 
+  const { t } = useTranslation('common')
+
   return (
     <>
       <SEO title={pageTitle} />
@@ -51,9 +54,13 @@ export default function Faq({ data, globalProps, ...rest }) {
         <main className="bg-white min-h-[500px] drop-shadow-[0px_0px_25px_rgba(73,83,100,0.12)] py-[40px] px-[20px] lg:p-[65px] relative z-10">
           {acfFlex.map((item, index) => {
             if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_Faq') {
-              return filteredFaq.map((item, index) => (
-                <Faqgroup key={index} data={item} />
-              ))
+              return filteredFaq.length > 0 ? (
+                filteredFaq.map((item, index) => (
+                  <Faqgroup key={index} data={item} />
+                ))
+              ) : (
+                <div>{t('no-results-found')}</div>
+              )
             }
           })}
         </main>
