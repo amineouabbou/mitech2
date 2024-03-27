@@ -19,11 +19,12 @@ export default function Pricing({ globalProps, data }) {
   const {
     title,
     pagesHero: { subTitle, intro },
+    ACFPage: { acfFlex },
     pagePricing,
   } = data.page.translation
   const { introduction, solutionsLogos, tableRepeater } = pagePricing
 
-  console.log('solutionsLogos', solutionsLogos)
+  console.log('acfFlex', acfFlex)
 
   return (
     <>
@@ -138,7 +139,17 @@ export default function Pricing({ globalProps, data }) {
         </main>
       </div>
 
-      <Getintouch data={getIntouchBlock} className=" pt-[50px] lg:pt-[70px]" />
+      {acfFlex.map((item, index) => {
+        if (item.fieldGroupName === 'Page_Acfpage_AcfFlex_GetAnOffer') {
+          return (
+            <Getintouch
+              key={index}
+              data={item}
+              className=" pt-[50px] lg:pt-[70px]"
+            />
+          )
+        }
+      })}
     </>
   )
 }

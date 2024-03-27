@@ -4,6 +4,8 @@ import Button from '../html/Button'
 import { twclsx } from '../../libs/twclsx'
 
 const OpenRemit = ({ data }) => {
+  console.log('data open Remit:', data)
+
   return (
     <section className="bg-[#f3f4f6] pb-[40px] pt-[10px] lg:pt-[80px] lg:pb-[25px]">
       <div className="container mx-auto flex flex-col items-end">
@@ -31,8 +33,8 @@ const OpenRemit = ({ data }) => {
                 </div>
               </div>
               <Image
-                // src={data?.illustration?.mediaItemUrl}
-                src="/delete/or-illustration.png"
+                src={data?.illustration?.mediaItemUrl}
+                // src="/delete/or-illustration.png"
                 fill
                 alt=""
                 className="object-contain"

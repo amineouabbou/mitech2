@@ -672,6 +672,20 @@ export const GET_PRICING_PAGE = gql`
             texte
           }
         }
+        ACFPage {
+          acfFlex {
+            __typename
+            ... on Page_Acfpage_AcfFlex_GetAnOffer {
+              fieldGroupName
+              title
+              subTitle
+              cta {
+                label
+                slug
+              }
+            }
+          }
+        }
       }
     }
   }

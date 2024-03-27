@@ -94,7 +94,7 @@ const Megamenu = (props) => {
             </div>
 
             {solutionsRep && solutionsRep.length > 0 && (
-              <div className="bloc grid grid-cols-2 col-span-2">
+              <div className="bloc grid grid-cols-2 gap-x-8 col-span-2">
                 {solutionsRep.map((item, index) => (
                   <Solution
                     key={index}

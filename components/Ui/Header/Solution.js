@@ -14,7 +14,7 @@ const Solution = (props) => {
 
   return (
     <div
-      className="item flex items-center mb-[30px] cursor-pointer group"
+      className="item flex items-start mb-[30px] cursor-pointer group"
       onClick={() => handleClick(url)}
     >
       <div className="icon mr-[10px]">
