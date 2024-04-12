@@ -13,6 +13,11 @@ const Overlaybg = dynamic(() => import('../Others/Overlaybg'), {
   loading: () => 'Loading...',
 })
 
+const CookiesPopUp = dynamic(() => import('../CookiesPop'), {
+  ssr: false,
+  loading: () => 'Loading...',
+})
+
 const Footer = ({ data }) => {
   const {
     state: { isMenuOpen },
@@ -31,6 +36,7 @@ const Footer = ({ data }) => {
 
   return (
     <>
+      <CookiesPopUp />
       <PopIn data={solutionsPopups} />
       <footer className="md:block py-[50px] md:pt-[85px] md:pb-[35px]">
         <div className="container mx-auto">

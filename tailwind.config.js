@@ -28,6 +28,7 @@ module.exports = {
 
       fontFamily: {
         poppins: 'Poppins, Arial, sans-serif',
+        Montserrat: 'Montserrat, Arial, sans-serif',
       },
     },
   },
