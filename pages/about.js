@@ -54,7 +54,7 @@ export default function AboutPage({ data, globalProps }) {
           return (
             <HeroSolution
               key={index}
-              classsName="min-h-[820px] lg:min-h-[700px]"
+              classsName="min-h-[680px] lg:min-h-[660px]"
             >
               <Title title={item.title || pageTitle} />
               <SubTitle

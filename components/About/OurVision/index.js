@@ -1,17 +1,20 @@
 import Image from 'next/image'
 import React from 'react'
+import { twclsx } from '../../../libs/twclsx'
 
 const OurVision = ({ data }) => {
   const { photo, listPointsRepeater } = data
   return (
     <div className="lg:flex w-full">
-      <div className="bloc lg:min-w-[440px] max-w-[440px] text-[14px] lg:text-[17px] text-[#636e88]">
+      <div className="bloc lg:min-w-[440px] max-w-[500px] text-[14px] lg:text-[17px] text-[#636e88] ">
         {listPointsRepeater.map((item, index) => (
           <div
             key={index}
-            className="item mb-[30px] flex items-start has-ul-dots-gray"
+            className={twclsx('item flex items-start has-ul-dots-gray', {
+              ' hidden': index === 1,
+            })}
           >
-            <div className="min-w-[18px] mr-[15px]">
+            {/* <div className="min-w-[18px] mr-[15px]">
               <span className="relative top-[2px]">
                 <Image
                   src="/icons/check-orange.svg"
@@ -20,9 +23,9 @@ const OurVision = ({ data }) => {
                   alt="icon"
                 />
               </span>
-            </div>
+            </div> */}
             <div
-              className="[&>p]:font-medium [&>ul]:leading-[27px]"
+              className="[&>p]:font-medium [&>ul]:leading-[27px]  [&>p]:mb-[30px]  [&>ul]:mb-[30px]"
               dangerouslySetInnerHTML={{ __html: item.texte }}
             />
           </div>

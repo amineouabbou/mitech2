@@ -5,7 +5,7 @@ const Cardconformity = ({ data }) => {
   const { icone, title, descriptions, preDescription, photo } = data
   return (
     <div className="card border-[1px] border-[#dfe0e4] py-[0]  rounded-[10px] lg:flex items-center">
-      <div className="bloc grow max-w-[690px] lg:pl-[50px] pt-[35px] pb-0 px-[25px] lg:px-0 lg:py-0">
+      <div className="bloc grow max-w-[690px] lg:pl-[50px] pt-[35px] pb-0 px-[25px] lg:px-0 lg:py-[30px]">
         <div className="mb-[50px] lg:mb-[15px] flex items-center">
           {icone && (
             <div className="mr-[15px] w-[35px] h-[35px] lg:w-[46px] lg:h-[46px]">
@@ -20,24 +20,28 @@ const Cardconformity = ({ data }) => {
         <div className="liste lg:pl-[30px]">
           {preDescription && <div className="mb-[10px]">{preDescription}</div>}
 
-          {descriptions.map((item, index) => (
-            <div key={index} className="flex items-start text-[15px] mb-[8px]">
-              <div className="min-w-[18px] mr-[15px]">
-                <span className="relative top-[1px]">
-                  <Image
-                    src="/icons/check-orange.svg"
-                    width={18}
-                    height={13}
-                    alt="icon"
-                  />
-                </span>
-              </div>
+          {descriptions &&
+            descriptions.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-start text-[15px] mb-[8px]"
+              >
+                <div className="min-w-[18px] mr-[15px]">
+                  <span className="relative top-[1px]">
+                    <Image
+                      src="/icons/check-orange.svg"
+                      width={18}
+                      height={13}
+                      alt="icon"
+                    />
+                  </span>
+                </div>
 
-              <div className="leading-[21px] tracking-[0.025em]">
-                {item.texte}
+                <div className="leading-[21px] tracking-[0.025em]">
+                  {item.texte}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
       {photo && (

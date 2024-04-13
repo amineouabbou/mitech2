@@ -2,6 +2,7 @@ import Cardconformity from './Cardconformity'
 
 const Conformity = ({ data }) => {
   const { subtitle, preDescription, advantagesListRepeater } = data
+
   return (
     <div>
       <div

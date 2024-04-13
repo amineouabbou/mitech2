@@ -11,7 +11,7 @@ const Diaspocentric = ({ data }) => {
           <div className="md:flex">
             <div className="lg:w-3/5 md:pr-[25px]">
               <motion.div
-                className="images flex w-full relative opacity-90 justify-center mb-[70px] lg:mb-0"
+                className="images flex w-full relative opacity-90 justify-center mb-[70px] lg:mb-0 lg:scale-[0.8] lg:origin-top-left"
                 variants={titesStagger(0.2)}
                 initial="initial"
                 whileInView="animate"

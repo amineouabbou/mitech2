@@ -37,7 +37,7 @@ const Newsletter = ({ data }) => {
 
   console.log('Email', email)
   return (
-    <section className="newsletter bg-[#f3f4f6] py-[48px] mt-[50px] lg:mt-[165px]">
+    <section className="newsletter bg-[#f3f4f6] py-[48px] mt-[50px] lg:mt-[75px]">
       <div className="container mx-auto md:max-w-[985px]">
         <div className="box">
           {succesMessage && <div>{succesMessage}</div>}
