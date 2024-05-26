@@ -18,7 +18,7 @@ const Whatmitech = ({ data }) => {
           dangerouslySetInnerHTML={{ __html: description }}
         />
 
-        <div className="flex flex-col justify-center items-center">
+        <div className=" flex-col justify-center items-center hidden md:flex">
           <div>
             <Image
               src={logoMitech?.mediaItemUrl}
@@ -30,7 +30,7 @@ const Whatmitech = ({ data }) => {
           </div>
         </div>
 
-        <div className="grid px-8 sm:px-0 lg:grid-cols-4 gap-[20px] pt-[15px] lg:pt-[30px] mt-[12px] lg:bg-[url('/bgs/about-bg.png')] bg-[length:368px_306px] bg-no-repeat bg-[center_top]">
+        <div className="hidden md:grid px-8 sm:px-0 lg:grid-cols-4 gap-[20px] pt-[15px] lg:pt-[30px] mt-[12px] lg:bg-[url('/bgs/about-bg.png')] bg-[length:368px_306px] bg-no-repeat bg-[center_top]">
           {blocsRep.map((item, index) => (
             <BoxWithShadow data={item} key={index} />
           ))}

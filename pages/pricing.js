@@ -117,7 +117,7 @@ export default function Pricing({ globalProps, data }) {
                 </div>
               ))}
 
-              <div className="head grid lg:grid-cols-3 bg-white border-b-[1px] border-[#e2e2e2]">
+              {/* <div className="head grid lg:grid-cols-3 bg-white border-b-[1px] border-[#e2e2e2]">
                 <div className=""></div>
                 <div className="lg:col-span-2">
                   <div className="grid grid-cols-4">
@@ -133,7 +133,7 @@ export default function Pricing({ globalProps, data }) {
                     ))}
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </main>

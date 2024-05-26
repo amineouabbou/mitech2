@@ -4,8 +4,10 @@ import { motion } from 'framer-motion'
 
 import { shortFadeUp } from '../../data/useVariants'
 import Image from 'next/image'
+import { useTranslation } from 'next-i18next'
 
 const FaqHeroBloc = ({ data, searchQuery, setSearchQuery }) => {
+  const { t } = useTranslation('common')
   const handleInputChange = (e) => {
     const queryLowered = e.target.value.toLowerCase()
     console.log('queryLowered', queryLowered)
@@ -24,7 +26,7 @@ const FaqHeroBloc = ({ data, searchQuery, setSearchQuery }) => {
           type="text"
           className="h-[45px] lg:h-[56px] w-full lg:w-auto lg:min-w-[600px] rounded-[40px] pl-[25px] pr-[60px] lg:px-[32px] py-[8px] text-[12px] lg:text-[16px] tracking-[0.04em] text-[#a0a1b3]"
           name="email"
-          placeholder="Have a question? Find the answer here..."
+          placeholder={t('faq-have-question')}
           onChange={handleInputChange}
         />
       </motion.div>
