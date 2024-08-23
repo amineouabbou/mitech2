@@ -519,6 +519,10 @@ export const GET_ABOUT_PAGE = gql`
               title
               subtitle
               preDescription
+              button {
+                label
+                ahref
+              }
               advantagesListRepeater {
                 preDescription
                 icone {
@@ -685,6 +689,22 @@ export const GET_PRICING_PAGE = gql`
               }
             }
           }
+        }
+      }
+    }
+  }
+`
+
+export const GET_CONTACT_PAGE = gql`
+  query getPage($id: ID!, $lang: LanguageCodeEnum!) {
+    page(id: $id, idType: DATABASE_ID) {
+      title
+      translation(language: $lang) {
+        databaseId
+        title
+        pagesHero {
+          subTitle
+          intro
         }
       }
     }

@@ -118,7 +118,7 @@ export default function AboutPage({ data, globalProps }) {
         })}
       </WhiteContainer>
 
-      <Getintouch data={getIntouchBlock} className=" pt-[50px] lg:pt-[70px]" />
+      {/* <Getintouch data={getIntouchBlock} className=" pt-[50px] lg:pt-[70px]" /> */}
     </>
   )
 }

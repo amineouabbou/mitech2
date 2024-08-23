@@ -1,7 +1,8 @@
+import Button from '../../html/Button'
 import Cardconformity from './Cardconformity'
 
 const Conformity = ({ data }) => {
-  const { subtitle, preDescription, advantagesListRepeater } = data
+  const { subtitle, preDescription, advantagesListRepeater, button } = data
 
   return (
     <div>
@@ -10,11 +11,19 @@ const Conformity = ({ data }) => {
         dangerouslySetInnerHTML={{ __html: subtitle }}
       />
 
-      <div className="grid lg:grid-cols-1 gap-y-[15px]">
-        {advantagesListRepeater.map((item, index) => (
-          <Cardconformity data={item} key={index} />
-        ))}
-      </div>
+      {advantagesListRepeater && (
+        <div className="grid lg:grid-cols-1 gap-y-[15px]">
+          {advantagesListRepeater.map((item, index) => (
+            <Cardconformity data={item} key={index} />
+          ))}
+        </div>
+      )}
+
+      {button && (
+        <div className="read-more flex justify-center lg:mt-[40px]">
+          <Button title={button?.label} url={button?.ahref} />
+        </div>
+      )}
     </div>
   )
 }

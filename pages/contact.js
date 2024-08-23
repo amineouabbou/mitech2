@@ -16,7 +16,7 @@ import Title from '../components/Ui/Heroinner/Title'
 import { getCountriesList, getGetInTouchBlock } from '../Utilis'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { getPageData } from '../utils'
-import { GLOBAL_DATA } from '../queries'
+import { GET_CONTACT_PAGE, GLOBAL_DATA } from '../queries'
 import { useTranslation } from 'next-i18next'
 
 const schema = yup
@@ -35,8 +35,10 @@ const schema = yup
   })
   .required()
 
-export default function Contact({ globalProps }) {
+export default function Contact({ globalProps, data }) {
   const { sectionsOthers } = globalProps?.page?.translation?.ACFGlobal || []
+  const { title: pageTitle, pagesHero } = data.page.translation
+
   const [error, setError] = useState()
   const [success, setSuccess] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -108,11 +110,9 @@ export default function Contact({ globalProps }) {
     <>
       <SEO title="Contact" />
       <HeroinnerSimple
-        title={<Title title="Contact us" />}
-        subtitle={
-          <SubTitle subtitle="You want to develop you cross border remittance offer ?" />
-        }
-        description="Contact us and our team will get back to you in the best delays"
+        title={<Title title={pageTitle} />}
+        subtitle={<SubTitle subtitle={pagesHero?.subTitle} />}
+        description={pagesHero?.intro}
       />
 
       <div className="container mx-auto max-w-[1030px] ">
@@ -270,8 +270,11 @@ export default function Contact({ globalProps }) {
 }
 
 export async function getServerSideProps({ locale }) {
+  const data = await getPageData(GET_CONTACT_PAGE, 2067, locale)
+
   return {
     props: {
+      data,
       ...(await serverSideTranslations(locale, ['common'])),
     },
   }
